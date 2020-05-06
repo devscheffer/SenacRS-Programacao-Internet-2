@@ -1,0 +1,9 @@
+{
+chassi:"xxxxx",
+cor: {
+  idcor:1
+},
+modelo: {
+ idmodelo: 2
+}
+}
