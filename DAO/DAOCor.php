@@ -69,12 +69,12 @@
             $Cors=array();	
 		    while($row = $comando->fetch(PDO::FETCH_OBJ)){
 
-			    $Cors[] = new Cor(
+			    $arrCor[] = new Cor(
                     $row->idcor
                     ,$row->desccor
                 );
             }
-            return $Cor;
+            return $arrCor;
         }
 
         public function SearchByCor($idcor)

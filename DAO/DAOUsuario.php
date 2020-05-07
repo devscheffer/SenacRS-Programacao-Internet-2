@@ -63,14 +63,14 @@
     		$comando->execute();
             $usuarios=array();	
 		    while($row = $comando->fetch(PDO::FETCH_OBJ)){
-			    $usuarios[] = new Usuarios(
+			    $arrUsuario[] = new Usuario(
                     $row->id
                     ,$row->nome
                     ,$row->login
                     ,$row->senha
                 );
             }
-            return $usuarios;
+            return $arrUsuario;
         }
 
         public function SearchByUserID($id)

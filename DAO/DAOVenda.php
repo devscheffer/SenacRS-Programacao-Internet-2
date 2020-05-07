@@ -85,7 +85,7 @@
             $Vendas=array();	
 		    while($row = $comando->fetch(PDO::FETCH_OBJ)){
 
-			    $Vendas[] = new Venda(
+			    $arrVenda[] = new Venda(
                     $row->idsale
                     ,$row->concessionaria
                     ,$row->vendedor
@@ -94,7 +94,7 @@
                     ,$row->valor
                 );
             }
-            return $Vendas;
+            return $arrVenda;
         }
 
         public function SearchByVenda($idsale)

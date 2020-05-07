@@ -75,13 +75,13 @@
             $Versaos=array();	
 		    while($row = $comando->fetch(PDO::FETCH_OBJ)){
 
-			    $Versaos[] = new Versao(
+			    $arrVersao[] = new Versao(
                     $row->idversao
                     ,$row->idmodelo
                     ,$row->descversao
                 );
             }
-            return $Versaos;
+            return $arrVersao;
         }
 
         public function SearchByVersao($idversao)

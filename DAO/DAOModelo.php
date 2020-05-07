@@ -69,12 +69,12 @@
             $Modelos=array();	
 		    while($row = $comando->fetch(PDO::FETCH_OBJ)){
 
-			    $Modelos[] = new Modelo(
+			    $arrModelo[] = new Modelo(
                     $row->idmodelo
                     ,$row->descmodelo
                 );
             }
-            return $Modelo;
+            return $arrModelo;
         }
 
         public function SearchByModelo($idmodelo)

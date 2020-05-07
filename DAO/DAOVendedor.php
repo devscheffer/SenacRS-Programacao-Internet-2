@@ -77,14 +77,14 @@
             $Vendedors=array();	
 		    while($row = $comando->fetch(PDO::FETCH_OBJ)){
 
-			    $Vendedors[] = new Vendedor(
+			    $arrVendedor[] = new Vendedor(
                     $row->idvendedor
                     ,$row->nome
                     ,$row->email
                     ,$row->concessionaria
                 );
             }
-            return $Vendedors;
+            return $arrVendedor;
         }
 
         public function SearchByVendedor($idvendedor)

@@ -77,14 +77,14 @@
             $Carros=array();	
 		    while($row = $comando->fetch(PDO::FETCH_OBJ)){
 
-			    $Carros[] = new Carro(
+			    $arrCarro[] = new Carro(
                     $row->chassi
                     ,$row->modelo
                     ,$row->versao
                     ,$row->cor
                 );
             }
-            return $Carros;
+            return $arrCarro;
         }
 
         public function SearchByChassi($Chassi)

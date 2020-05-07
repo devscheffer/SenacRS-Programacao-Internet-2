@@ -77,14 +77,14 @@
             $Concessionarias=array();	
 		    while($row = $comando->fetch(PDO::FETCH_OBJ)){
 
-			    $Concessionarias[] = new Concessionaria(
+			    $arrConcessionaria[] = new Concessionaria(
                     $row->idconcessionaria
                     ,$row->nomefantasia
                     ,$row->uf
                     ,$row->municipio
                 );
             }
-            return $Concessionarias;
+            return $arrConcessionaria;
         }
 
         public function SearchByConcessionaria($idconcessionaria)
