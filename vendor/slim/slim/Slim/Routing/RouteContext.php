@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Slim\Routing;
 
-use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\message\ServerRequestInterface;
 use RuntimeException;
 use Slim\Interfaces\RouteInterface;
 use Slim\Interfaces\RouteParserInterface;

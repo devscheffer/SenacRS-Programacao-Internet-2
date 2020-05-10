@@ -11,7 +11,7 @@ namespace Slim\Routing;
 
 use FastRoute\RouteParser\Std;
 use InvalidArgumentException;
-use Psr\Http\Message\UriInterface;
+use Psr\Http\message\UriInterface;
 use Slim\Interfaces\RouteCollectorInterface;
 use Slim\Interfaces\RouteParserInterface;
 

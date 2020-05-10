@@ -48,9 +48,9 @@ class PlainTextErrorRenderer extends AbstractErrorRenderer
             $text .= sprintf("Code: %s\n", $code);
         }
 
-        $message = $exception->getMessage();
+        $message = $exception->getmessage();
         if ($message !== null) {
-            $text .= sprintf("Message: %s\n", htmlentities($message));
+            $text .= sprintf("message: %s\n", htmlentities($message));
         }
 
         $file = $exception->getFile();

@@ -10,12 +10,12 @@ abstract class RegexBasedAbstract implements Dispatcher
     protected $staticRouteMap = [];
 
     /** @var mixed[] */
-    protected $variableRouteData = [];
+    protected $variableRoutedata = [];
 
     /**
      * @return mixed[]
      */
-    abstract protected function dispatchVariableRoute($routeData, $uri);
+    abstract protected function dispatchVariableRoute($routedata, $uri);
 
     public function dispatch($httpMethod, $uri)
     {
@@ -24,9 +24,9 @@ abstract class RegexBasedAbstract implements Dispatcher
             return [self::FOUND, $handler, []];
         }
 
-        $varRouteData = $this->variableRouteData;
-        if (isset($varRouteData[$httpMethod])) {
-            $result = $this->dispatchVariableRoute($varRouteData[$httpMethod], $uri);
+        $varRoutedata = $this->variableRoutedata;
+        if (isset($varRoutedata[$httpMethod])) {
+            $result = $this->dispatchVariableRoute($varRoutedata[$httpMethod], $uri);
             if ($result[0] === self::FOUND) {
                 return $result;
             }
@@ -38,8 +38,8 @@ abstract class RegexBasedAbstract implements Dispatcher
                 $handler = $this->staticRouteMap['GET'][$uri];
                 return [self::FOUND, $handler, []];
             }
-            if (isset($varRouteData['GET'])) {
-                $result = $this->dispatchVariableRoute($varRouteData['GET'], $uri);
+            if (isset($varRoutedata['GET'])) {
+                $result = $this->dispatchVariableRoute($varRoutedata['GET'], $uri);
                 if ($result[0] === self::FOUND) {
                     return $result;
                 }
@@ -51,8 +51,8 @@ abstract class RegexBasedAbstract implements Dispatcher
             $handler = $this->staticRouteMap['*'][$uri];
             return [self::FOUND, $handler, []];
         }
-        if (isset($varRouteData['*'])) {
-            $result = $this->dispatchVariableRoute($varRouteData['*'], $uri);
+        if (isset($varRoutedata['*'])) {
+            $result = $this->dispatchVariableRoute($varRoutedata['*'], $uri);
             if ($result[0] === self::FOUND) {
                 return $result;
             }
@@ -67,12 +67,12 @@ abstract class RegexBasedAbstract implements Dispatcher
             }
         }
 
-        foreach ($varRouteData as $method => $routeData) {
+        foreach ($varRoutedata as $method => $routedata) {
             if ($method === $httpMethod) {
                 continue;
             }
 
-            $result = $this->dispatchVariableRoute($routeData, $uri);
+            $result = $this->dispatchVariableRoute($routedata, $uri);
             if ($result[0] === self::FOUND) {
                 $allowedMethods[] = $method;
             }

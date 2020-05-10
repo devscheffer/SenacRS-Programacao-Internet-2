@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Slim\Http;
 
-use Psr\Http\Message\UriInterface;
+use Psr\Http\message\UriInterface;
 
 class Uri implements UriInterface
 {

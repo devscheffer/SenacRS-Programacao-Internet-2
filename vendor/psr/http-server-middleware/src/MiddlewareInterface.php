@@ -2,8 +2,8 @@
 
 namespace Psr\Http\Server;
 
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\message\ResponseInterface;
+use Psr\Http\message\ServerRequestInterface;
 
 /**
  * Participant in processing a server request and response.

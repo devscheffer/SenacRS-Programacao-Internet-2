@@ -1,4 +1,4 @@
-PSR Http Message
+PSR Http message
 ================
 
 This repository holds all interfaces/classes/traits related to

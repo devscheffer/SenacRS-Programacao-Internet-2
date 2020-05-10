@@ -9,9 +9,9 @@ declare(strict_types=1);
 
 namespace Slim\Http\Factory;
 
-use Psr\Http\Message\ResponseFactoryInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\StreamFactoryInterface;
+use Psr\Http\message\ResponseFactoryInterface;
+use Psr\Http\message\ResponseInterface;
+use Psr\Http\message\StreamFactoryInterface;
 use Slim\Http\Response;
 
 class DecoratedResponseFactory implements ResponseFactoryInterface

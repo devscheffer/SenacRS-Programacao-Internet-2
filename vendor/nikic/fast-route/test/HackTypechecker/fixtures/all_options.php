@@ -7,7 +7,7 @@ function all_options_simple(): \FastRoute\Dispatcher {
       $collector ==> {},
       shape(
         'routeParser' => \FastRoute\RouteParser\Std::class,
-        'dataGenerator' => \FastRoute\DataGenerator\GroupCountBased::class,
+        'dataGenerator' => \FastRoute\dataGenerator\GroupCountBased::class,
         'dispatcher' => \FastRoute\Dispatcher\GroupCountBased::class,
         'routeCollector' => \FastRoute\RouteCollector::class,
       ),
@@ -19,7 +19,7 @@ function all_options_cached(): \FastRoute\Dispatcher {
       $collector ==> {},
       shape(
         'routeParser' => \FastRoute\RouteParser\Std::class,
-        'dataGenerator' => \FastRoute\DataGenerator\GroupCountBased::class,
+        'dataGenerator' => \FastRoute\dataGenerator\GroupCountBased::class,
         'dispatcher' => \FastRoute\Dispatcher\GroupCountBased::class,
         'routeCollector' => \FastRoute\RouteCollector::class,
         'cacheFile' => '/dev/null',

@@ -10,8 +10,8 @@ declare(strict_types=1);
 namespace Slim\Psr7\Factory;
 
 use InvalidArgumentException;
-use Psr\Http\Message\UriFactoryInterface;
-use Psr\Http\Message\UriInterface;
+use Psr\Http\message\UriFactoryInterface;
+use Psr\Http\message\UriInterface;
 use Slim\Psr7\Uri;
 
 class UriFactory implements UriFactoryInterface

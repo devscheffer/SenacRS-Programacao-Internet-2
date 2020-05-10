@@ -9,8 +9,8 @@ declare(strict_types=1);
 
 namespace Slim\Http\Factory;
 
-use Psr\Http\Message\UriFactoryInterface;
-use Psr\Http\Message\UriInterface;
+use Psr\Http\message\UriFactoryInterface;
+use Psr\Http\message\UriInterface;
 use Slim\Http\Uri;
 
 class DecoratedUriFactory implements UriFactoryInterface

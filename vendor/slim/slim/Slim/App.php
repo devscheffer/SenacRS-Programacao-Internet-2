@@ -10,9 +10,9 @@ declare(strict_types=1);
 namespace Slim;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseFactoryInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\message\ResponseFactoryInterface;
+use Psr\Http\message\ResponseInterface;
+use Psr\Http\message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Slim\Factory\ServerRequestCreatorFactory;

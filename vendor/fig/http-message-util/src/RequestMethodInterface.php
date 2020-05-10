@@ -1,6 +1,6 @@
 <?php
 
-namespace Fig\Http\Message;
+namespace Fig\Http\message;
 
 /**
  * Defines constants for common HTTP request methods.

@@ -9,9 +9,9 @@ declare(strict_types=1);
 
 namespace Slim\Psr7\Factory;
 
-use Fig\Http\Message\StatusCodeInterface;
-use Psr\Http\Message\ResponseFactoryInterface;
-use Psr\Http\Message\ResponseInterface;
+use Fig\Http\message\StatusCodeInterface;
+use Psr\Http\message\ResponseFactoryInterface;
+use Psr\Http\message\ResponseInterface;
 use Slim\Psr7\Response;
 
 class ResponseFactory implements ResponseFactoryInterface

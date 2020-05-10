@@ -68,7 +68,7 @@ All notable changes to this project will be documented in this file, in reverse 
 ### Added
 
 - [#1](https://github.com/php-fig/http-message-util/pull/1) adds
-  `Fig\Http\Message\StatusCodeInterface`, with constants named after common
+  `Fig\Http\message\StatusCodeInterface`, with constants named after common
   status reason phrases, with values indicating the status codes themselves.
 
 ### Deprecated
@@ -87,7 +87,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Added
 
-- Adds `Fig\Http\Message\RequestMethodInterface`, with constants covering the
+- Adds `Fig\Http\message\RequestMethodInterface`, with constants covering the
   most common HTTP request methods as specified by the IETF.
 
 ### Deprecated

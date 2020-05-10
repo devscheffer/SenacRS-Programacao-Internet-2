@@ -10,9 +10,9 @@ declare(strict_types=1);
 namespace Slim\Psr7\Factory;
 
 use InvalidArgumentException;
-use Psr\Http\Message\StreamInterface;
-use Psr\Http\Message\UploadedFileFactoryInterface;
-use Psr\Http\Message\UploadedFileInterface;
+use Psr\Http\message\StreamInterface;
+use Psr\Http\message\UploadedFileFactoryInterface;
+use Psr\Http\message\UploadedFileInterface;
 use Slim\Psr7\UploadedFile;
 
 class UploadedFileFactory implements UploadedFileFactoryInterface

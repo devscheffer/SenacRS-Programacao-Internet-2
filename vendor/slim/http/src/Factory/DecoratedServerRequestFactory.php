@@ -9,9 +9,9 @@ declare(strict_types=1);
 
 namespace Slim\Http\Factory;
 
-use Psr\Http\Message\ServerRequestFactoryInterface;
-use Psr\Http\Message\ServerRequestInterface;
-use Psr\Http\Message\UriInterface;
+use Psr\Http\message\ServerRequestFactoryInterface;
+use Psr\Http\message\ServerRequestInterface;
+use Psr\Http\message\UriInterface;
 use Slim\Http\ServerRequest;
 
 class DecoratedServerRequestFactory implements ServerRequestFactoryInterface

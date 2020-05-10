@@ -1,5 +1,5 @@
 <?php
-namespace Psr\Http\Message;
+namespace Psr\Http\message;
 
 /**
  * Value object representing a URI.

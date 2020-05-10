@@ -38,16 +38,16 @@ REGEX;
         }
 
         $currentRoute = '';
-        $routeDatas = [];
+        $routedatas = [];
         foreach ($segments as $n => $segment) {
             if ($segment === '' && $n !== 0) {
                 throw new BadRouteException('Empty optional part');
             }
 
             $currentRoute .= $segment;
-            $routeDatas[] = $this->parsePlaceholders($currentRoute);
+            $routedatas[] = $this->parsePlaceholders($currentRoute);
         }
-        return $routeDatas;
+        return $routedatas;
     }
 
     /**
@@ -66,12 +66,12 @@ REGEX;
         }
 
         $offset = 0;
-        $routeData = [];
+        $routedata = [];
         foreach ($matches as $set) {
             if ($set[0][1] > $offset) {
-                $routeData[] = substr($route, $offset, $set[0][1] - $offset);
+                $routedata[] = substr($route, $offset, $set[0][1] - $offset);
             }
-            $routeData[] = [
+            $routedata[] = [
                 $set[1][0],
                 isset($set[2]) ? trim($set[2][0]) : self::DEFAULT_DISPATCH_REGEX
             ];
@@ -79,9 +79,9 @@ REGEX;
         }
 
         if ($offset !== strlen($route)) {
-            $routeData[] = substr($route, $offset);
+            $routedata[] = substr($route, $offset);
         }
 
-        return $routeData;
+        return $routedata;
     }
 }

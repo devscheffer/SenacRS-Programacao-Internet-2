@@ -10,13 +10,13 @@ declare(strict_types=1);
 namespace Slim\Psr7;
 
 use InvalidArgumentException;
-use Psr\Http\Message\ServerRequestInterface;
-use Psr\Http\Message\StreamInterface;
-use Psr\Http\Message\UploadedFileInterface;
-use Psr\Http\Message\UriInterface;
+use Psr\Http\message\ServerRequestInterface;
+use Psr\Http\message\StreamInterface;
+use Psr\Http\message\UploadedFileInterface;
+use Psr\Http\message\UriInterface;
 use Slim\Psr7\Interfaces\HeadersInterface;
 
-class Request extends Message implements ServerRequestInterface
+class Request extends message implements ServerRequestInterface
 {
     /**
      * @var string

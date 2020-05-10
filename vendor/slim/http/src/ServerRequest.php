@@ -10,9 +10,9 @@ declare(strict_types=1);
 namespace Slim\Http;
 
 use Closure;
-use Psr\Http\Message\ServerRequestInterface;
-use Psr\Http\Message\StreamInterface;
-use Psr\Http\Message\UriInterface;
+use Psr\Http\message\ServerRequestInterface;
+use Psr\Http\message\StreamInterface;
+use Psr\Http\message\UriInterface;
 use RuntimeException;
 
 class ServerRequest implements ServerRequestInterface

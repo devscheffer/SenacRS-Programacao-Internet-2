@@ -10,7 +10,7 @@ declare(strict_types=1);
 namespace Slim\Routing;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseFactoryInterface;
+use Psr\Http\message\ResponseFactoryInterface;
 use RuntimeException;
 use Slim\Handlers\Strategies\RequestResponse;
 use Slim\Interfaces\CallableResolverInterface;

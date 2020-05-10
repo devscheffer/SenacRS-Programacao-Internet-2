@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Fig\\Http\\Message\\": "src/"
+            "Fig\\Http\\message\\": "src/"
         }
     },
     "extra": {

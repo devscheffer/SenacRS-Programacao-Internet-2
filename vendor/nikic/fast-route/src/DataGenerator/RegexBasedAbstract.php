@@ -1,12 +1,12 @@
 <?php
 
-namespace FastRoute\DataGenerator;
+namespace FastRoute\dataGenerator;
 
 use FastRoute\BadRouteException;
-use FastRoute\DataGenerator;
+use FastRoute\dataGenerator;
 use FastRoute\Route;
 
-abstract class RegexBasedAbstract implements DataGenerator
+abstract class RegexBasedAbstract implements dataGenerator
 {
     /** @var mixed[][] */
     protected $staticRoutes = [];
@@ -24,31 +24,31 @@ abstract class RegexBasedAbstract implements DataGenerator
      */
     abstract protected function processChunk($regexToRoutesMap);
 
-    public function addRoute($httpMethod, $routeData, $handler)
+    public function addRoute($httpMethod, $routedata, $handler)
     {
-        if ($this->isStaticRoute($routeData)) {
-            $this->addStaticRoute($httpMethod, $routeData, $handler);
+        if ($this->isStaticRoute($routedata)) {
+            $this->addStaticRoute($httpMethod, $routedata, $handler);
         } else {
-            $this->addVariableRoute($httpMethod, $routeData, $handler);
+            $this->addVariableRoute($httpMethod, $routedata, $handler);
         }
     }
 
     /**
      * @return mixed[]
      */
-    public function getData()
+    public function getdata()
     {
         if (empty($this->methodToRegexToRoutesMap)) {
             return [$this->staticRoutes, []];
         }
 
-        return [$this->staticRoutes, $this->generateVariableRouteData()];
+        return [$this->staticRoutes, $this->generateVariableRoutedata()];
     }
 
     /**
      * @return mixed[]
      */
-    private function generateVariableRouteData()
+    private function generateVariableRoutedata()
     {
         $data = [];
         foreach ($this->methodToRegexToRoutesMap as $method => $regexToRoutesMap) {
@@ -73,14 +73,14 @@ abstract class RegexBasedAbstract implements DataGenerator
      * @param mixed[]
      * @return bool
      */
-    private function isStaticRoute($routeData)
+    private function isStaticRoute($routedata)
     {
-        return count($routeData) === 1 && is_string($routeData[0]);
+        return count($routedata) === 1 && is_string($routedata[0]);
     }
 
-    private function addStaticRoute($httpMethod, $routeData, $handler)
+    private function addStaticRoute($httpMethod, $routedata, $handler)
     {
-        $routeStr = $routeData[0];
+        $routeStr = $routedata[0];
 
         if (isset($this->staticRoutes[$httpMethod][$routeStr])) {
             throw new BadRouteException(sprintf(
@@ -103,9 +103,9 @@ abstract class RegexBasedAbstract implements DataGenerator
         $this->staticRoutes[$httpMethod][$routeStr] = $handler;
     }
 
-    private function addVariableRoute($httpMethod, $routeData, $handler)
+    private function addVariableRoute($httpMethod, $routedata, $handler)
     {
-        list($regex, $variables) = $this->buildRegexForRoute($routeData);
+        list($regex, $variables) = $this->buildRegexForRoute($routedata);
 
         if (isset($this->methodToRegexToRoutesMap[$httpMethod][$regex])) {
             throw new BadRouteException(sprintf(
@@ -123,11 +123,11 @@ abstract class RegexBasedAbstract implements DataGenerator
      * @param mixed[]
      * @return mixed[]
      */
-    private function buildRegexForRoute($routeData)
+    private function buildRegexForRoute($routedata)
     {
         $regex = '';
         $variables = [];
-        foreach ($routeData as $part) {
+        foreach ($routedata as $part) {
             if (is_string($part)) {
                 $regex .= preg_quote($part, '~');
                 continue;

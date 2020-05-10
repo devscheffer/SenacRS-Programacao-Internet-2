@@ -10,11 +10,11 @@ declare(strict_types=1);
 namespace Slim\Psr7;
 
 use InvalidArgumentException;
-use Psr\Http\Message\MessageInterface;
-use Psr\Http\Message\StreamInterface;
+use Psr\Http\message\messageInterface;
+use Psr\Http\message\StreamInterface;
 use Slim\Psr7\Interfaces\HeadersInterface;
 
-abstract class Message implements MessageInterface
+abstract class message implements messageInterface
 {
     /**
      * @var string

@@ -9,8 +9,8 @@ declare(strict_types=1);
 
 namespace Slim\Routing;
 
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\message\ResponseInterface;
+use Psr\Http\message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Slim\Exception\HttpMethodNotAllowedException;
 use Slim\Exception\HttpNotFoundException;

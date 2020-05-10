@@ -1,6 +1,6 @@
 <?php
 
-namespace FastRoute\DataGenerator;
+namespace FastRoute\dataGenerator;
 
 class GroupCountBased extends RegexBasedAbstract
 {

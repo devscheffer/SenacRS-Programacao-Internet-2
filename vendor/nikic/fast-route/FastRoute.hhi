@@ -9,9 +9,9 @@ namespace FastRoute {
     }
 
     class RouteCollector {
-        public function __construct(RouteParser $routeParser, DataGenerator $dataGenerator);
+        public function __construct(RouteParser $routeParser, dataGenerator $dataGenerator);
         public function addRoute(mixed $httpMethod, string $route, mixed $handler): void;
-        public function getData(): array;
+        public function getdata(): array;
     }
 
     class Route {
@@ -19,9 +19,9 @@ namespace FastRoute {
         public function matches(string $str): bool;
     }
 
-    interface DataGenerator {
-        public function addRoute(string $httpMethod, array $routeData, mixed $handler);
-        public function getData(): array;
+    interface dataGenerator {
+        public function addRoute(string $httpMethod, array $routedata, mixed $handler);
+        public function getdata(): array;
     }
 
     interface Dispatcher {
@@ -35,7 +35,7 @@ namespace FastRoute {
         (function(RouteCollector): void) $routeDefinitionCallback,
         shape(
           ?'routeParser' => classname<RouteParser>,
-          ?'dataGenerator' => classname<DataGenerator>,
+          ?'dataGenerator' => classname<dataGenerator>,
           ?'dispatcher' => classname<Dispatcher>,
           ?'routeCollector' => classname<RouteCollector>,
         ) $options = shape()): Dispatcher;
@@ -44,7 +44,7 @@ namespace FastRoute {
         (function(RouteCollector): void) $routeDefinitionCallback,
         shape(
           ?'routeParser' => classname<RouteParser>,
-          ?'dataGenerator' => classname<DataGenerator>,
+          ?'dataGenerator' => classname<dataGenerator>,
           ?'dispatcher' => classname<Dispatcher>,
           ?'routeCollector' => classname<RouteCollector>,
           ?'cacheDisabled' => bool,
@@ -52,13 +52,13 @@ namespace FastRoute {
         ) $options = shape()): Dispatcher;
 }
 
-namespace FastRoute\DataGenerator {
-    abstract class RegexBasedAbstract implements \FastRoute\DataGenerator {
+namespace FastRoute\dataGenerator {
+    abstract class RegexBasedAbstract implements \FastRoute\dataGenerator {
         protected abstract function getApproxChunkSize();
         protected abstract function processChunk($regexToRoutesMap);
 
-        public function addRoute(string $httpMethod, array $routeData, mixed $handler): void;
-        public function getData(): array;
+        public function addRoute(string $httpMethod, array $routedata, mixed $handler): void;
+        public function getdata(): array;
     }
 
     class CharCountBased extends RegexBasedAbstract {
@@ -84,29 +84,29 @@ namespace FastRoute\DataGenerator {
 
 namespace FastRoute\Dispatcher {
     abstract class RegexBasedAbstract implements \FastRoute\Dispatcher {
-        protected abstract function dispatchVariableRoute(array<array> $routeData, string $uri): array;
+        protected abstract function dispatchVariableRoute(array<array> $routedata, string $uri): array;
 
         public function dispatch(string $httpMethod, string $uri): array;
     }
 
     class GroupPosBased extends RegexBasedAbstract {
         public function __construct(array $data);
-        protected function dispatchVariableRoute(array<array> $routeData, string $uri): array;
+        protected function dispatchVariableRoute(array<array> $routedata, string $uri): array;
     }
 
     class GroupCountBased extends RegexBasedAbstract {
         public function __construct(array $data);
-        protected function dispatchVariableRoute(array<array> $routeData, string $uri): array;
+        protected function dispatchVariableRoute(array<array> $routedata, string $uri): array;
     }
 
     class CharCountBased extends RegexBasedAbstract {
         public function __construct(array $data);
-        protected function dispatchVariableRoute(array<array> $routeData, string $uri): array;
+        protected function dispatchVariableRoute(array<array> $routedata, string $uri): array;
     }
 
     class MarkBased extends RegexBasedAbstract {
         public function __construct(array $data);
-        protected function dispatchVariableRoute(array<array> $routeData, string $uri): array;
+        protected function dispatchVariableRoute(array<array> $routedata, string $uri): array;
     }
 }
 

@@ -22,13 +22,13 @@ class ComposerStaticInit2375a00a839e0ce7749b874aff421b7c
         'P' => 
         array (
             'Psr\\Http\\Server\\' => 16,
-            'Psr\\Http\\Message\\' => 17,
+            'Psr\\Http\\message\\' => 17,
             'Psr\\Container\\' => 14,
         ),
         'F' => 
         array (
             'Firebase\\JWT\\' => 13,
-            'Fig\\Http\\Message\\' => 17,
+            'Fig\\Http\\message\\' => 17,
             'FastRoute\\' => 10,
         ),
     );
@@ -55,7 +55,7 @@ class ComposerStaticInit2375a00a839e0ce7749b874aff421b7c
             0 => __DIR__ . '/..' . '/psr/http-server-handler/src',
             1 => __DIR__ . '/..' . '/psr/http-server-middleware/src',
         ),
-        'Psr\\Http\\Message\\' => 
+        'Psr\\Http\\message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-factory/src',
             1 => __DIR__ . '/..' . '/psr/http-message/src',
@@ -68,7 +68,7 @@ class ComposerStaticInit2375a00a839e0ce7749b874aff421b7c
         array (
             0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
         ),
-        'Fig\\Http\\Message\\' => 
+        'Fig\\Http\\message\\' => 
         array (
             0 => __DIR__ . '/..' . '/fig/http-message-util/src',
         ),

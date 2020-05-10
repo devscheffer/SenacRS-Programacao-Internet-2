@@ -2,7 +2,7 @@
 
 namespace FastRoute;
 
-interface DataGenerator
+interface dataGenerator
 {
     /**
      * Adds a route to the data generator. The route data uses the
@@ -13,14 +13,14 @@ interface DataGenerator
      * matches.
      *
      * @param string $httpMethod
-     * @param array $routeData
+     * @param array $routedata
      * @param mixed $handler
      */
-    public function addRoute($httpMethod, $routeData, $handler);
+    public function addRoute($httpMethod, $routedata, $handler);
 
     /**
      * Returns dispatcher data in some unspecified format, which
      * depends on the used method of dispatch.
      */
-    public function getData();
+    public function getdata();
 }

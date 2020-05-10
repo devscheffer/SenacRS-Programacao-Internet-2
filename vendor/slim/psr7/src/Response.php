@@ -9,14 +9,14 @@ declare(strict_types=1);
 
 namespace Slim\Psr7;
 
-use Fig\Http\Message\StatusCodeInterface;
+use Fig\Http\message\StatusCodeInterface;
 use InvalidArgumentException;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\StreamInterface;
+use Psr\Http\message\ResponseInterface;
+use Psr\Http\message\StreamInterface;
 use Slim\Psr7\Factory\StreamFactory;
 use Slim\Psr7\Interfaces\HeadersInterface;
 
-class Response extends Message implements ResponseInterface
+class Response extends message implements ResponseInterface
 {
     /**
      * @var int
@@ -100,7 +100,7 @@ class Response extends Message implements ResponseInterface
         StatusCodeInterface::STATUS_GATEWAY_TIMEOUT => 'Gateway Timeout',
         StatusCodeInterface::STATUS_VERSION_NOT_SUPPORTED => 'HTTP Version Not Supported',
         StatusCodeInterface::STATUS_VARIANT_ALSO_NEGOTIATES => 'Variant Also Negotiates',
-        StatusCodeInterface::STATUS_INSUFFICIENT_STORAGE => 'Insufficient Storage',
+        StatusCodeInterface::STATUS_INSufFICIENT_STORAGE => 'Insufficient Storage',
         StatusCodeInterface::STATUS_LOOP_DETECTED => 'Loop Detected',
         StatusCodeInterface::STATUS_NOT_EXTENDED => 'Not Extended',
         StatusCodeInterface::STATUS_NETWORK_AUTHENTICATION_REQUIRED => 'Network Authentication Required',

@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Slim\Psr7;
 
-use Psr\Http\Message\StreamInterface;
+use Psr\Http\message\StreamInterface;
 use RuntimeException;
 
 class NonBufferedBody implements StreamInterface

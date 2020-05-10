@@ -7,7 +7,7 @@ class RouteCollector
     /** @var RouteParser */
     protected $routeParser;
 
-    /** @var DataGenerator */
+    /** @var dataGenerator */
     protected $dataGenerator;
 
     /** @var string */
@@ -17,9 +17,9 @@ class RouteCollector
      * Constructs a route collector.
      *
      * @param RouteParser   $routeParser
-     * @param DataGenerator $dataGenerator
+     * @param dataGenerator $dataGenerator
      */
-    public function __construct(RouteParser $routeParser, DataGenerator $dataGenerator)
+    public function __construct(RouteParser $routeParser, dataGenerator $dataGenerator)
     {
         $this->routeParser = $routeParser;
         $this->dataGenerator = $dataGenerator;
@@ -38,10 +38,10 @@ class RouteCollector
     public function addRoute($httpMethod, $route, $handler)
     {
         $route = $this->currentGroupPrefix . $route;
-        $routeDatas = $this->routeParser->parse($route);
+        $routedatas = $this->routeParser->parse($route);
         foreach ((array) $httpMethod as $method) {
-            foreach ($routeDatas as $routeData) {
-                $this->dataGenerator->addRoute($method, $routeData, $handler);
+            foreach ($routedatas as $routedata) {
+                $this->dataGenerator->addRoute($method, $routedata, $handler);
             }
         }
     }
@@ -145,8 +145,8 @@ class RouteCollector
      *
      * @return array
      */
-    public function getData()
+    public function getdata()
     {
-        return $this->dataGenerator->getData();
+        return $this->dataGenerator->getdata();
     }
 }

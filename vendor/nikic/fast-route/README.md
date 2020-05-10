@@ -222,9 +222,9 @@ interface RouteParser {
     public function parse($route);
 }
 
-interface DataGenerator {
-    public function addRoute($httpMethod, $routeData, $handler);
-    public function getData();
+interface dataGenerator {
+    public function addRoute($httpMethod, $routedata, $handler);
+    public function getdata();
 }
 
 interface Dispatcher {
@@ -252,7 +252,7 @@ each route info is again an array of it's parts. The structure is best understoo
     ]
 
 This array can then be passed to the `addRoute()` method of a data generator. After all routes have
-been added the `getData()` of the generator is invoked, which returns all the routing data required
+been added the `getdata()` of the generator is invoked, which returns all the routing data required
 by the dispatcher. The format of this data is not further specified - it is tightly coupled to
 the corresponding dispatcher.
 
@@ -275,7 +275,7 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     /* ... */
 }, [
     'routeParser' => 'FastRoute\\RouteParser\\Std',
-    'dataGenerator' => 'FastRoute\\DataGenerator\\GroupCountBased',
+    'dataGenerator' => 'FastRoute\\dataGenerator\\GroupCountBased',
     'dispatcher' => 'FastRoute\\Dispatcher\\GroupCountBased',
 ]);
 ```

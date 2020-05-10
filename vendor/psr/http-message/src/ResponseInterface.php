@@ -1,6 +1,6 @@
 <?php
 
-namespace Psr\Http\Message;
+namespace Psr\Http\message;
 
 /**
  * Representation of an outgoing, server-side response.
@@ -11,13 +11,13 @@ namespace Psr\Http\Message;
  * - Protocol version
  * - Status code and reason phrase
  * - Headers
- * - Message body
+ * - message body
  *
  * Responses are considered immutable; all methods that might change state MUST
  * be implemented such that they retain the internal state of the current
  * message and return an instance that contains the changed state.
  */
-interface ResponseInterface extends MessageInterface
+interface ResponseInterface extends messageInterface
 {
     /**
      * Gets the response status code.

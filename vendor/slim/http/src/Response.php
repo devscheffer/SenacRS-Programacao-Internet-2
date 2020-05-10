@@ -10,9 +10,9 @@ declare(strict_types=1);
 namespace Slim\Http;
 
 use InvalidArgumentException;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\StreamFactoryInterface;
-use Psr\Http\Message\StreamInterface;
+use Psr\Http\message\ResponseInterface;
+use Psr\Http\message\StreamFactoryInterface;
+use Psr\Http\message\StreamInterface;
 use RuntimeException;
 
 class Response implements ResponseInterface
@@ -250,12 +250,12 @@ class Response implements ResponseInterface
         }
 
         if ($name === null && (is_resource($file) || $file instanceof StreamInterface)) {
-            $metaData = $file instanceof StreamInterface
+            $metadata = $file instanceof StreamInterface
                 ? $file->getMetadata()
                 : stream_get_meta_data($file);
 
-            if (is_array($metaData) && isset($metaData['uri'])) {
-                $uri = $metaData['uri'];
+            if (is_array($metadata) && isset($metadata['uri'])) {
+                $uri = $metadata['uri'];
                 if ('php://' !== substr($uri, 0, 6)) {
                     $fileName = basename($uri);
                 }
@@ -308,7 +308,7 @@ class Response implements ResponseInterface
         } else {
             throw new InvalidArgumentException(
                 'Parameter 1 of Response::withFile() must be a resource, a string ' .
-                'or an instance of Psr\Http\Message\StreamInterface.'
+                'or an instance of Psr\Http\message\StreamInterface.'
             );
         }
 

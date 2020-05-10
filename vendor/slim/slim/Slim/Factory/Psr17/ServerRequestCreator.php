@@ -10,7 +10,7 @@ declare(strict_types=1);
 namespace Slim\Factory\Psr17;
 
 use Closure;
-use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\message\ServerRequestInterface;
 use Slim\Interfaces\ServerRequestCreatorInterface;
 
 class ServerRequestCreator implements ServerRequestCreatorInterface

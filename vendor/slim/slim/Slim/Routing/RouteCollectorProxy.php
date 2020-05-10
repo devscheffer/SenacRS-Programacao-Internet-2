@@ -11,7 +11,7 @@ namespace Slim\Routing;
 
 use Closure;
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseFactoryInterface;
+use Psr\Http\message\ResponseFactoryInterface;
 use Slim\Interfaces\CallableResolverInterface;
 use Slim\Interfaces\RouteCollectorInterface;
 use Slim\Interfaces\RouteCollectorProxyInterface;

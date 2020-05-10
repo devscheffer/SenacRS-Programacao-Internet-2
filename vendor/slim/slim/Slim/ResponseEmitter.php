@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Slim;
 
-use Psr\Http\Message\ResponseInterface;
+use Psr\Http\message\ResponseInterface;
 
 class ResponseEmitter
 {

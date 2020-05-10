@@ -32,7 +32,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Fig\\Http\\Message\\": "src/"
+                    "Fig\\Http\\message\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -177,7 +177,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Psr\\Http\\Message\\": "src/"
+                    "Psr\\Http\\message\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -228,7 +228,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Psr\\Http\\Message\\": "src/"
+                    "Psr\\Http\\message\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",

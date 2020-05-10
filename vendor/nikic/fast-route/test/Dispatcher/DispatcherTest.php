@@ -15,7 +15,7 @@ abstract class DispatcherTest extends TestCase
     /**
      * Delegate dataGenerator selection to child test classes
      */
-    abstract protected function getDataGeneratorClass();
+    abstract protected function getdataGeneratorClass();
 
     /**
      * Set appropriate options for the specific Dispatcher class we're testing
@@ -23,7 +23,7 @@ abstract class DispatcherTest extends TestCase
     private function generateDispatcherOptions()
     {
         return [
-            'dataGenerator' => $this->getDataGeneratorClass(),
+            'dataGenerator' => $this->getdataGeneratorClass(),
             'dispatcher' => $this->getDispatcherClass()
         ];
     }
@@ -71,7 +71,7 @@ abstract class DispatcherTest extends TestCase
 
     /**
      * @expectedException \FastRoute\BadRouteException
-     * @expectedExceptionMessage Cannot use the same placeholder "test" twice
+     * @expectedExceptionmessage Cannot use the same placeholder "test" twice
      */
     public function testDuplicateVariableNameError()
     {
@@ -82,7 +82,7 @@ abstract class DispatcherTest extends TestCase
 
     /**
      * @expectedException \FastRoute\BadRouteException
-     * @expectedExceptionMessage Cannot register two routes matching "/user/([^/]+)" for method "GET"
+     * @expectedExceptionmessage Cannot register two routes matching "/user/([^/]+)" for method "GET"
      */
     public function testDuplicateVariableRoute()
     {
@@ -94,7 +94,7 @@ abstract class DispatcherTest extends TestCase
 
     /**
      * @expectedException \FastRoute\BadRouteException
-     * @expectedExceptionMessage Cannot register two routes matching "/user" for method "GET"
+     * @expectedExceptionmessage Cannot register two routes matching "/user" for method "GET"
      */
     public function testDuplicateStaticRoute()
     {
@@ -106,7 +106,7 @@ abstract class DispatcherTest extends TestCase
 
     /**
      * @expectedException \FastRoute\BadRouteException
-     * @expectedExceptionMessage Static route "/user/nikic" is shadowed by previously defined variable route "/user/([^/]+)" for method "GET"
+     * @expectedExceptionmessage Static route "/user/nikic" is shadowed by previously defined variable route "/user/([^/]+)" for method "GET"
      */
     public function testShadowedStaticRoute()
     {
@@ -118,7 +118,7 @@ abstract class DispatcherTest extends TestCase
 
     /**
      * @expectedException \FastRoute\BadRouteException
-     * @expectedExceptionMessage Regex "(en|de)" for parameter "lang" contains a capturing group
+     * @expectedExceptionmessage Regex "(en|de)" for parameter "lang" contains a capturing group
      */
     public function testCapturing()
     {

@@ -9,8 +9,8 @@ declare(strict_types=1);
 
 namespace Slim\Factory\Psr17;
 
-use Psr\Http\Message\ResponseFactoryInterface;
-use Psr\Http\Message\StreamFactoryInterface;
+use Psr\Http\message\ResponseFactoryInterface;
+use Psr\Http\message\StreamFactoryInterface;
 use RuntimeException;
 use Slim\Interfaces\Psr17FactoryInterface;
 use Slim\Interfaces\ServerRequestCreatorInterface;

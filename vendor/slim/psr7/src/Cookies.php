@@ -156,7 +156,7 @@ class Cookies
 
         if (isset($properties['samesite']) && in_array(strtolower($properties['samesite']), ['lax', 'strict'], true)) {
             // While strtolower is needed for correct comparison, the RFC doesn't care about case
-            $result .= '; SameSite=' . $properties['samesite'];
+            $result .= '; Samesite=' . $properties['samesite'];
         }
 
         return $result;

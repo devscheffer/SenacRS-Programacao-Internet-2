@@ -1,7 +1,7 @@
 HTTP Factories
 ==============
 
-This repository holds all interfaces related to [PSR-17 (HTTP Message Factories)][psr-17]. 
+This repository holds all interfaces related to [PSR-17 (HTTP message Factories)][psr-17]. 
 Please refer to the specification for a description.
 
 You can find implementations of the specification by looking for packages providing the 

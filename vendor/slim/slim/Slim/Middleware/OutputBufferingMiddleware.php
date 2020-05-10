@@ -10,9 +10,9 @@ declare(strict_types=1);
 namespace Slim\Middleware;
 
 use InvalidArgumentException;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
-use Psr\Http\Message\StreamFactoryInterface;
+use Psr\Http\message\ResponseInterface;
+use Psr\Http\message\ServerRequestInterface;
+use Psr\Http\message\StreamFactoryInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Throwable;

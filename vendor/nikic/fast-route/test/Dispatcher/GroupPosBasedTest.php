@@ -9,8 +9,8 @@ class GroupPosBasedTest extends DispatcherTest
         return 'FastRoute\\Dispatcher\\GroupPosBased';
     }
 
-    protected function getDataGeneratorClass()
+    protected function getdataGeneratorClass()
     {
-        return 'FastRoute\\DataGenerator\\GroupPosBased';
+        return 'FastRoute\\dataGenerator\\GroupPosBased';
     }
 }

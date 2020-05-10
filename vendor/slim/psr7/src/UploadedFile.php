@@ -10,8 +10,8 @@ declare(strict_types=1);
 namespace Slim\Psr7;
 
 use InvalidArgumentException;
-use Psr\Http\Message\StreamInterface;
-use Psr\Http\Message\UploadedFileInterface;
+use Psr\Http\message\StreamInterface;
+use Psr\Http\message\UploadedFileInterface;
 use RuntimeException;
 use Slim\Psr7\Factory\StreamFactory;
 

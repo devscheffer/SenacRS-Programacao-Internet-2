@@ -1,4 +1,4 @@
-# PSR Http Message Util
+# PSR Http message Util
 
 This repository holds utility classes and constants to facilitate common
 operations of [PSR-7](http://www.php-fig.org/psr/psr-7/); the primary purpose is

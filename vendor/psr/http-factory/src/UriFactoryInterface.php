@@ -1,6 +1,6 @@
 <?php
 
-namespace Psr\Http\Message;
+namespace Psr\Http\message;
 
 interface UriFactoryInterface
 {

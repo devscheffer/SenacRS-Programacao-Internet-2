@@ -6,12 +6,12 @@ class CharCountBased extends RegexBasedAbstract
 {
     public function __construct($data)
     {
-        list($this->staticRouteMap, $this->variableRouteData) = $data;
+        list($this->staticRouteMap, $this->variableRoutedata) = $data;
     }
 
-    protected function dispatchVariableRoute($routeData, $uri)
+    protected function dispatchVariableRoute($routedata, $uri)
     {
-        foreach ($routeData as $data) {
+        foreach ($routedata as $data) {
             if (!preg_match($data['regex'], $uri . $data['suffix'], $matches)) {
                 continue;
             }

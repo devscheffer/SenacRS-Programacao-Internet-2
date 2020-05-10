@@ -21,7 +21,7 @@ All notable changes to this project will be documented in this file, in reverse 
 - Updated all `@return self` annotation references in interfaces to use
   `@return static`, which more closelly follows the semantics of the
   specification.
-- Updated the `MessageInterface::getHeaders()` return annotation to use the
+- Updated the `messageInterface::getHeaders()` return annotation to use the
   value `string[][]`, indicating the format is a nested array of strings.
 - Updated the `@link` annotation for `RequestInterface::withRequestTarget()`
   to point to the correct section of RFC 7230.

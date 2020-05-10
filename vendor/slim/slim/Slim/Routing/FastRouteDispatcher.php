@@ -29,9 +29,9 @@ class FastRouteDispatcher extends GroupCountBased
             return [self::FOUND, $this->staticRouteMap[$httpMethod][$uri], []];
         }
 
-        $varRouteData = $this->variableRouteData;
-        if (isset($varRouteData[$httpMethod])) {
-            $result = $this->dispatchVariableRoute($varRouteData[$httpMethod], $uri);
+        $varRoutedata = $this->variableRoutedata;
+        if (isset($varRoutedata[$httpMethod])) {
+            $result = $this->dispatchVariableRoute($varRoutedata[$httpMethod], $uri);
             $routingResults = $this->routingResultsFromVariableRouteResults($result);
             if ($routingResults[0] === self::FOUND) {
                 return $routingResults;
@@ -43,8 +43,8 @@ class FastRouteDispatcher extends GroupCountBased
             if (isset($this->staticRouteMap['GET'][$uri])) {
                 return [self::FOUND, $this->staticRouteMap['GET'][$uri], []];
             }
-            if (isset($varRouteData['GET'])) {
-                $result = $this->dispatchVariableRoute($varRouteData['GET'], $uri);
+            if (isset($varRoutedata['GET'])) {
+                $result = $this->dispatchVariableRoute($varRoutedata['GET'], $uri);
                 return $this->routingResultsFromVariableRouteResults($result);
             }
         }
@@ -53,8 +53,8 @@ class FastRouteDispatcher extends GroupCountBased
         if (isset($this->staticRouteMap['*'][$uri])) {
             return [self::FOUND, $this->staticRouteMap['*'][$uri], []];
         }
-        if (isset($varRouteData['*'])) {
-            $result = $this->dispatchVariableRoute($varRouteData['*'], $uri);
+        if (isset($varRoutedata['*'])) {
+            $result = $this->dispatchVariableRoute($varRoutedata['*'], $uri);
             return $this->routingResultsFromVariableRouteResults($result);
         }
 
@@ -94,9 +94,9 @@ class FastRouteDispatcher extends GroupCountBased
             }
         }
 
-        $varRouteData = $this->variableRouteData;
-        foreach ($varRouteData as $method => $routeData) {
-            $result = $this->dispatchVariableRoute($routeData, $uri);
+        $varRoutedata = $this->variableRoutedata;
+        foreach ($varRoutedata as $method => $routedata) {
+            $result = $this->dispatchVariableRoute($routedata, $uri);
             if ($result[0] === self::FOUND) {
                 $this->allowedMethods[$uri][] = $method;
             }

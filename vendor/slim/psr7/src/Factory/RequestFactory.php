@@ -10,11 +10,11 @@ declare(strict_types=1);
 namespace Slim\Psr7\Factory;
 
 use InvalidArgumentException;
-use Psr\Http\Message\RequestFactoryInterface;
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\StreamFactoryInterface;
-use Psr\Http\Message\UriFactoryInterface;
-use Psr\Http\Message\UriInterface;
+use Psr\Http\message\RequestFactoryInterface;
+use Psr\Http\message\RequestInterface;
+use Psr\Http\message\StreamFactoryInterface;
+use Psr\Http\message\UriFactoryInterface;
+use Psr\Http\message\UriInterface;
 use Slim\Psr7\Headers;
 use Slim\Psr7\Request;
 

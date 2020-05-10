@@ -50,9 +50,9 @@ class HtmlErrorRenderer extends AbstractErrorRenderer
             $html .= sprintf('<div><strong>Code:</strong> %s</div>', $code);
         }
 
-        $message = $exception->getMessage();
+        $message = $exception->getmessage();
         if ($message !== null) {
-            $html .= sprintf('<div><strong>Message:</strong> %s</div>', htmlentities($message));
+            $html .= sprintf('<div><strong>message:</strong> %s</div>', htmlentities($message));
         }
 
         $file = $exception->getFile();

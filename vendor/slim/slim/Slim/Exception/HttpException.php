@@ -10,7 +10,7 @@ declare(strict_types=1);
 namespace Slim\Exception;
 
 use Exception;
-use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\message\ServerRequestInterface;
 use Throwable;
 
 class HttpException extends Exception

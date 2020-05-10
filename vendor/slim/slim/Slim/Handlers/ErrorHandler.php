@@ -9,9 +9,9 @@ declare(strict_types=1);
 
 namespace Slim\Handlers;
 
-use Psr\Http\Message\ResponseFactoryInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\message\ResponseFactoryInterface;
+use Psr\Http\message\ResponseInterface;
+use Psr\Http\message\ServerRequestInterface;
 use RuntimeException;
 use Slim\Error\Renderers\HtmlErrorRenderer;
 use Slim\Error\Renderers\JsonErrorRenderer;

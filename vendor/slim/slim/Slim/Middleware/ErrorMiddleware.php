@@ -9,9 +9,9 @@ declare(strict_types=1);
 
 namespace Slim\Middleware;
 
-use Psr\Http\Message\ResponseFactoryInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\message\ResponseFactoryInterface;
+use Psr\Http\message\ResponseInterface;
+use Psr\Http\message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Slim\Exception\HttpException;
@@ -145,13 +145,13 @@ class ErrorMiddleware implements MiddlewareInterface
      * This service MUST return a callable that accepts
      * three arguments optionally four arguments.
      *
-     * 1. Instance of \Psr\Http\Message\ServerRequestInterface
-     * 2. Instance of \Psr\Http\Message\ResponseInterface
+     * 1. Instance of \Psr\Http\message\ServerRequestInterface
+     * 2. Instance of \Psr\Http\message\ResponseInterface
      * 3. Instance of \Exception
      * 4. Boolean displayErrorDetails (optional)
      *
      * The callable MUST return an instance of
-     * \Psr\Http\Message\ResponseInterface.
+     * \Psr\Http\message\ResponseInterface.
      *
      * @param callable|ErrorHandler $handler
      * @return self
@@ -169,13 +169,13 @@ class ErrorMiddleware implements MiddlewareInterface
      * This service MUST return a callable that accepts
      * three arguments optionally four arguments.
      *
-     * 1. Instance of \Psr\Http\Message\ServerRequestInterface
-     * 2. Instance of \Psr\Http\Message\ResponseInterface
+     * 1. Instance of \Psr\Http\message\ServerRequestInterface
+     * 2. Instance of \Psr\Http\message\ResponseInterface
      * 3. Instance of \Exception
      * 4. Boolean displayErrorDetails (optional)
      *
      * The callable MUST return an instance of
-     * \Psr\Http\Message\ResponseInterface.
+     * \Psr\Http\message\ResponseInterface.
      *
      * @param string                         $type Exception/Throwable name. ie: RuntimeException::class
      * @param callable|ErrorHandlerInterface $handler

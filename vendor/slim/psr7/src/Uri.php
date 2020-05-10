@@ -10,7 +10,7 @@ declare(strict_types=1);
 namespace Slim\Psr7;
 
 use InvalidArgumentException;
-use Psr\Http\Message\UriInterface;
+use Psr\Http\message\UriInterface;
 
 class Uri implements UriInterface
 {

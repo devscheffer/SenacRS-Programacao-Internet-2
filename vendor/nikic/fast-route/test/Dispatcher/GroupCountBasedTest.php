@@ -9,8 +9,8 @@ class GroupCountBasedTest extends DispatcherTest
         return 'FastRoute\\Dispatcher\\GroupCountBased';
     }
 
-    protected function getDataGeneratorClass()
+    protected function getdataGeneratorClass()
     {
-        return 'FastRoute\\DataGenerator\\GroupCountBased';
+        return 'FastRoute\\dataGenerator\\GroupCountBased';
     }
 }

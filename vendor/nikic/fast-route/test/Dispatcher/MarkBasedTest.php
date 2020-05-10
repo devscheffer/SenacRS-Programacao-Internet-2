@@ -17,8 +17,8 @@ class MarkBasedTest extends DispatcherTest
         return 'FastRoute\\Dispatcher\\MarkBased';
     }
 
-    protected function getDataGeneratorClass()
+    protected function getdataGeneratorClass()
     {
-        return 'FastRoute\\DataGenerator\\MarkBased';
+        return 'FastRoute\\dataGenerator\\MarkBased';
     }
 }

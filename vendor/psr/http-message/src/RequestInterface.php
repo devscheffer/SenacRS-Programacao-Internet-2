@@ -1,6 +1,6 @@
 <?php
 
-namespace Psr\Http\Message;
+namespace Psr\Http\message;
 
 /**
  * Representation of an outgoing, client-side request.
@@ -12,7 +12,7 @@ namespace Psr\Http\Message;
  * - HTTP method
  * - URI
  * - Headers
- * - Message body
+ * - message body
  *
  * During construction, implementations MUST attempt to set the Host header from
  * a provided URI if no Host header is provided.
@@ -21,7 +21,7 @@ namespace Psr\Http\Message;
  * be implemented such that they retain the internal state of the current
  * message and return an instance that contains the changed state.
  */
-interface RequestInterface extends MessageInterface
+interface RequestInterface extends messageInterface
 {
     /**
      * Retrieves the message's request target.

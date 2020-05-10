@@ -1,6 +1,6 @@
 <?php
 
-namespace Fig\Http\Message;
+namespace Fig\Http\message;
 
 /**
  * Defines constants for common HTTP status code.
@@ -100,7 +100,7 @@ interface StatusCodeInterface
     const STATUS_GATEWAY_TIMEOUT = 504;
     const STATUS_VERSION_NOT_SUPPORTED = 505;
     const STATUS_VARIANT_ALSO_NEGOTIATES = 506;
-    const STATUS_INSUFFICIENT_STORAGE = 507;
+    const STATUS_INSufFICIENT_STORAGE = 507;
     const STATUS_LOOP_DETECTED = 508;
     const STATUS_NOT_EXTENDED = 510;
     const STATUS_NETWORK_AUTHENTICATION_REQUIRED = 511;

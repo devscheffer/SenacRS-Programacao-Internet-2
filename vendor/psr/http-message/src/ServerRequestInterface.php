@@ -1,6 +1,6 @@
 <?php
 
-namespace Psr\Http\Message;
+namespace Psr\Http\message;
 
 /**
  * Representation of an incoming, server-side HTTP request.
@@ -12,7 +12,7 @@ namespace Psr\Http\Message;
  * - HTTP method
  * - URI
  * - Headers
- * - Message body
+ * - message body
  *
  * Additionally, it encapsulates all data as it has arrived to the
  * application from the CGI and/or PHP environment, including:
@@ -126,7 +126,7 @@ interface ServerRequestInterface extends RequestInterface
      * Retrieve normalized file upload data.
      *
      * This method returns upload metadata in a normalized tree, with each leaf
-     * an instance of Psr\Http\Message\UploadedFileInterface.
+     * an instance of Psr\Http\message\UploadedFileInterface.
      *
      * These values MAY be prepared from $_FILES or the message body during
      * instantiation, or MAY be injected via withUploadedFiles().

@@ -7,18 +7,18 @@ use PHPUnit\Framework\TestCase;
 class StdTest extends TestCase
 {
     /** @dataProvider provideTestParse */
-    public function testParse($routeString, $expectedRouteDatas)
+    public function testParse($routeString, $expectedRoutedatas)
     {
         $parser = new Std();
-        $routeDatas = $parser->parse($routeString);
-        $this->assertSame($expectedRouteDatas, $routeDatas);
+        $routedatas = $parser->parse($routeString);
+        $this->assertSame($expectedRoutedatas, $routedatas);
     }
 
     /** @dataProvider provideTestParseError */
-    public function testParseError($routeString, $expectedExceptionMessage)
+    public function testParseError($routeString, $expectedExceptionmessage)
     {
         $parser = new Std();
-        $this->setExpectedException('FastRoute\\BadRouteException', $expectedExceptionMessage);
+        $this->setExpectedException('FastRoute\\BadRouteException', $expectedExceptionmessage);
         $parser->parse($routeString);
     }
 
