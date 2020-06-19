@@ -1,0 +1,131 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0F171B29-EFF5-1187-5DDD-9CBD9564584A" name="Venda">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:46:30 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<ordsAlias>table_7</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDSale" id="8C6682F7-0F6A-C837-4B65-354D8AC2DE9B">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:52:29 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Concessionaria" id="4FE75346-9373-D43D-123C-0CB2B25AD4CF">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:52:29 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EE232694-983A-930B-4672-C6BB8CCEAAD9" referredColumn="4CA54998-29AF-AE7B-863A-EC5670730B7B"/>
+</associations>
+</Column>
+<Column name="Vendedor" id="9750C6BA-235C-5C16-E8F9-3D88D9EB12D3">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:52:29 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="93F62F28-ABF7-0A49-4922-F782864A546E" referredColumn="2295498B-59CF-1169-E1E4-BF75EE9906E7"/>
+</associations>
+</Column>
+<Column name="Chassi" id="CA1D82B2-5734-6801-6819-06CE3891667E">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:52:29 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>17</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5369B80C-C79D-30A0-3FB1-F08F5F675844" referredColumn="30C6C1F2-3B37-FC80-5803-9E36CC636375"/>
+</associations>
+</Column>
+<Column name="Data" id="6A23580B-523E-8774-3103-F34ACA67F002">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:52:29 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Valor" id="9D68E4A3-2E96-6BE2-8782-E656A58BF877">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:52:29 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="551DED63-DFDA-A83C-11C5-F6F0043A7D5D" name="Venda_PK">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:52:29 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8C6682F7-0F6A-C837-4B65-354D8AC2DE9B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="737D69A5-36EB-691F-69EA-C3EDF8494A41" name="TABLE_7_plConcessionaria_FK">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:52:29 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4FE75346-9373-D43D-123C-0CB2B25AD4CF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9C7D690D-7409-ED6A-D16E-23AE653D88C3" name="TABLE_7_plVendedor_FK">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:52:29 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9750C6BA-235C-5C16-E8F9-3D88D9EB12D3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9CE17F0E-A057-7F25-7CCF-CC96F020DFA6" name="Venda_Chassi_FK">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:55:17 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CA1D82B2-5734-6801-6819-06CE3891667E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

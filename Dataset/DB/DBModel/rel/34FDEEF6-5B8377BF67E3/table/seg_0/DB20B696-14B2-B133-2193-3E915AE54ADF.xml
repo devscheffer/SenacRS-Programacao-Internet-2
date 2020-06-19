@@ -1,0 +1,61 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DB20B696-14B2-B133-2193-3E915AE54ADF" name="prmBonusMes">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-07 12:35:19 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<ordsAlias>table_9</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Ano" id="3E342730-0A06-2382-D89A-D970D65C1956">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-07 12:41:31 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4</dataTypeSize>
+<ownDataTypeParameters>4,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Mes" id="43C62B55-ACDC-AA85-F9E1-ACE38C356E14">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-07 12:41:31 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2</dataTypeSize>
+<ownDataTypeParameters>2,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Bonus" id="5C2927E6-444C-2B74-632F-97F552DE6BB8">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-07 12:41:31 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>4</dataTypeScale>
+<ownDataTypeParameters>,10,4</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="55953716-7F47-C623-7602-E4A27D8DF98F" name="prmBonusMes_PK">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-07 12:41:31 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3E342730-0A06-2382-D89A-D970D65C1956"/>
+<colUsage columnID="43C62B55-ACDC-AA85-F9E1-ACE38C356E14"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

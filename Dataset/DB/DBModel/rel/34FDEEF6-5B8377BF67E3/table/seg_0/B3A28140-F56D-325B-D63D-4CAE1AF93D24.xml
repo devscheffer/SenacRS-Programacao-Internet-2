@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B3A28140-F56D-325B-D63D-4CAE1AF93D24" name="plVersao">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:26:59 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<ordsAlias>table_5</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDVersao" id="86E95660-4CFB-2E96-4DC7-0BA2A13A14D7">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:31:25 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IDModelo" id="4DC51F25-5B9E-3B8D-B1EA-B00B873F2A5A">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:45:32 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="79E27360-1E56-D105-3BFF-887C7E275997" referredColumn="D64F26BB-CC09-1BB9-D0E8-542E0B07964F"/>
+</associations>
+</Column>
+<Column name="DescVersao" id="019BA4F6-1A84-0C37-0F54-E64179D2F51C">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:31:25 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="37578D74-2DC3-BAE2-A732-08C9F7D34C7F" name="Versao_PK">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:31:25 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="86E95660-4CFB-2E96-4DC7-0BA2A13A14D7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6DC9F2F1-7D43-E1E9-A712-8F95BC6DB694" name="plVersao_plModelo_FK">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:45:32 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4DC51F25-5B9E-3B8D-B1EA-B00B873F2A5A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

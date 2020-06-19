@@ -1,0 +1,11 @@
+INSERT INTO public.prmbonusmodelo(
+	idmodelo, bonus)
+	VALUES 
+	('ALT',4916)
+	,('GTR',4706)
+	,('KCS',1623)
+	,('STA',1947)
+	,('FTR',1285)
+	,('MRC',3263)
+	,('LEF',3098)
+	,('VRS',3219)

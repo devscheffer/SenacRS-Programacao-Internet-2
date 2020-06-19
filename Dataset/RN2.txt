@@ -1,0 +1,21 @@
+-- RN2
+
+select 
+	vendedor
+	,extract(year from data)::varchar(4) as ano
+	,LPAD(extract(month from data)::varchar(2),2,'0') as mes
+	,modelo
+	,count(*) as nModelo
+	,bonus
+	,count(*) * bonus as Comissao_Modelo
+from venda
+left join plchassi
+	on venda.chassi = plchassi.chassi
+left join prmbonusmodelo
+	on plchassi.modelo = prmbonusmodelo.idmodelo
+group by 
+  vendedor
+  ,ano
+  ,mes
+  ,modelo
+  ,bonus

@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A04CE50F-454A-00F3-1DAE-FD9B7D35DC70" name="plConcessionaria">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:16:08 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<ordsAlias>table_2</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDConcessionaria" id="4CA54998-29AF-AE7B-863A-EC5670730B7B">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:36:34 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NomeFantasia" id="40B14D83-6752-99EA-4BF9-5123884BE0BE">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:36:34 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="UF" id="912137BF-D6A6-6629-8531-CB315C1F9206">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:36:34 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>2</dataTypeSize>
+<ownDataTypeParameters>2,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Municipio" id="81478F2B-B1B4-5A02-3749-C9E656AB229A">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:36:34 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2D20CD84-B316-381E-D37C-32A35D23928F" name="Concessionaria_PK">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:36:34 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4CA54998-29AF-AE7B-863A-EC5670730B7B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

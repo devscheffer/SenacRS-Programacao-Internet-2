@@ -1,0 +1,126 @@
+CREATE TABLE plchassi (
+    chassi  CHAR(17) NOT NULL,
+    modelo  VARCHAR(20) NOT NULL,
+    versao  VARCHAR(20) NOT NULL,
+    cor     VARCHAR(20) NOT NULL
+);
+
+ALTER TABLE plchassi ADD CONSTRAINT chassi_pk PRIMARY KEY ( chassi );
+
+CREATE TABLE plconcessionaria (
+    idconcessionaria  VARCHAR(20) NOT NULL,
+    nomefantasia      VARCHAR(20),
+    uf                CHAR(2),
+    municipio         VARCHAR(20)
+);
+
+ALTER TABLE plconcessionaria ADD CONSTRAINT concessionaria_pk PRIMARY KEY ( idconcessionaria );
+
+CREATE TABLE plcor (
+    idcor    VARCHAR(20) NOT NULL,
+    desccor  VARCHAR(50)
+);
+
+ALTER TABLE plcor ADD CONSTRAINT cor_pk PRIMARY KEY ( idcor );
+
+CREATE TABLE plmodelo (
+    idmodelo    VARCHAR(20) NOT NULL,
+    descmodelo  VARCHAR(20)
+);
+
+ALTER TABLE plmodelo ADD CONSTRAINT modelo_pk PRIMARY KEY ( idmodelo );
+
+CREATE TABLE plvendedor (
+    idvendedor      VARCHAR(20) NOT NULL,
+    nome            VARCHAR(20),
+    email           VARCHAR(20),
+    concessionaria  VARCHAR(20) NOT NULL
+);
+
+ALTER TABLE plvendedor ADD CONSTRAINT vendedor_pk PRIMARY KEY ( idvendedor );
+
+CREATE TABLE plversao (
+    idversao    VARCHAR(20) NOT NULL,
+    idmodelo    VARCHAR(20) NOT NULL,
+    descversao  VARCHAR(20)
+);
+
+ALTER TABLE plversao ADD CONSTRAINT versao_pk PRIMARY KEY ( idversao );
+
+CREATE TABLE venda (
+    idsale          VARCHAR(20) NOT NULL,
+    concessionaria  VARCHAR(20) NOT NULL,
+    vendedor        VARCHAR(20) NOT NULL,
+    chassi          CHAR(17) NOT NULL,
+    data            DATE,
+    valor           Numeric(20,2)
+);
+
+ALTER TABLE venda ADD CONSTRAINT venda_pk PRIMARY KEY ( idsale );
+
+ALTER TABLE plchassi
+    ADD CONSTRAINT chassi_plcor_fk FOREIGN KEY ( cor )
+        REFERENCES plcor ( idcor );
+
+ALTER TABLE plchassi
+    ADD CONSTRAINT chassi_plmodelo_fk FOREIGN KEY ( modelo )
+        REFERENCES plmodelo ( idmodelo );
+
+ALTER TABLE plchassi
+    ADD CONSTRAINT chassi_plversao_fk FOREIGN KEY ( versao )
+        REFERENCES plversao ( idversao );
+
+ALTER TABLE plvendedor
+    ADD CONSTRAINT plvendedor_plconcessionaria_fk FOREIGN KEY ( concessionaria )
+        REFERENCES plconcessionaria ( idconcessionaria );
+
+ALTER TABLE plversao
+    ADD CONSTRAINT plversao_plmodelo_fk FOREIGN KEY ( idmodelo )
+        REFERENCES plmodelo ( idmodelo );
+
+ALTER TABLE venda
+    ADD CONSTRAINT table_7_plconcessionaria_fk FOREIGN KEY ( concessionaria )
+        REFERENCES plconcessionaria ( idconcessionaria );
+
+ALTER TABLE venda
+    ADD CONSTRAINT table_7_plvendedor_fk FOREIGN KEY ( vendedor )
+        REFERENCES plvendedor ( idvendedor );
+
+ALTER TABLE venda
+    ADD CONSTRAINT venda_chassi_fk FOREIGN KEY ( chassi )
+        REFERENCES plchassi ( chassi );
+
+CREATE TABLE usuario (
+    id     VARCHAR(20) NOT NULL,
+    nome   VARCHAR(50),
+    login  VARCHAR(50) NOT NULL,
+    senha  VARCHAR(20)
+);
+
+ALTER TABLE usuario ADD CONSTRAINT usuario_pk PRIMARY KEY ( id );
+
+ALTER TABLE usuario ADD CONSTRAINT usuario__un UNIQUE ( login );
+
+CREATE TABLE prmbonusmes (
+    ano    VARCHAR(4) NOT NULL,
+    mes    VARCHAR(2) NOT NULL,
+    bonus  numeric(10, 4)
+);
+
+ALTER TABLE prmbonusmes ADD CONSTRAINT prmbonusmes_pk PRIMARY KEY ( ano,
+                                                                    mes );
+																	
+CREATE TABLE prmbonusmodelo (
+    idmodelo  VARCHAR(20) NOT NULL,
+    bonus     numeric(20, 2)
+);
+
+ALTER TABLE prmbonusmodelo ADD CONSTRAINT prmbonusmodelo_pk PRIMARY KEY ( idmodelo );
+
+CREATE TABLE fechamentomes (
+    ano  VARCHAR(4) NOT NULL,
+    mes  VARCHAR(2) NOT NULL
+);
+
+ALTER TABLE fechamentomes ADD CONSTRAINT fechamentomes_pk PRIMARY KEY ( ano,
+                                                                        mes );

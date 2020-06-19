@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D86057DA-3E81-5742-325D-921568B6DFDA" name="prmBonusModelo">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-07 14:07:18 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<ordsAlias>table_10</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDModelo" id="A63FF51A-8E85-2BE7-CF26-6F1630DDA5D0">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-07 14:08:47 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Bonus" id="1CD2BB9C-5591-F2A4-89AE-1E27DAD43D92">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-07 14:08:47 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>20</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,20,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C9DD49DE-C5D1-3074-8219-AC62BB7EE8C3" name="prmBonusModelo_PK">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-07 14:08:47 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A63FF51A-8E85-2BE7-CF26-6F1630DDA5D0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

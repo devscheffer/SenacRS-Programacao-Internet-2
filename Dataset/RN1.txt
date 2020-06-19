@@ -1,0 +1,24 @@
+-- RN1
+
+select 
+	vendedor
+	,ano
+	,mes
+	,totalvenda
+	,bonus
+	,(totalvenda * bonus) as Comissao_Mensal
+from (
+	select 
+		vendedor
+		,extract(year from data)::varchar(4) as year
+		,LPAD(extract(month from data)::varchar(2),2,'0') as month
+		,sum(valor) as totalvenda
+	from venda
+	group by 
+		vendedor
+		,year
+		,month
+) as totalvenda
+left join prmbonusmes
+	on totalvenda.year = prmbonusmes.ano
+	and totalvenda.month = prmbonusmes.mes

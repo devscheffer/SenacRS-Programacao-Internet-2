@@ -1,0 +1,28 @@
+-- RN4
+
+select 
+	idvendedor
+	,uf
+	,fechamentomes.ano
+	,fechamentomes.mes
+from (
+	select 
+		idvendedor
+		,uf
+	from plvendedor
+	left join plconcessionaria
+		on plvendedor.concessionaria = plconcessionaria.idconcessionaria
+) as vendedorestado
+cross join fechamentomes
+left join (
+	select 
+		vendedor
+		,extract(year from data)::varchar(4) as ano
+		,LPAD(extract(month from data)::varchar(2),2,'0') as mes
+		,idsale
+	from  venda
+) as tabvenda
+	on vendedorestado.idvendedor = tabvenda.vendedor
+	and fechamentomes.ano = tabvenda.ano
+	and fechamentomes.mes = tabvenda.mes
+where idsale is null

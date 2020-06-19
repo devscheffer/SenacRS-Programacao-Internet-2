@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="CDE46FDC-53A6-26BC-1039-98987E971C1C" containerWithKeyObject="38F394F5-D3BB-BAFC-750A-AB405DE4214E" localFKIndex="D61F9FAB-2CFA-C87E-7B4B-5EA366B8D676" name="Chassi_plVersao_FK">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:43:50 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<referredTableLongName>plVersao</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>B3A28140-F56D-325B-D63D-4CAE1AF93D24</referredTableID>
+<keyObject>37578D74-2DC3-BAE2-A732-08C9F7D34C7F</keyObject>
+<referredKeyID>37578D74-2DC3-BAE2-A732-08C9F7D34C7F</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>IDVersao</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

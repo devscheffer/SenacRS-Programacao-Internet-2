@@ -1,0 +1,108 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="38F394F5-D3BB-BAFC-750A-AB405DE4214E" name="plChassi">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:15:33 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<ordsAlias>table_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Chassi" id="30C6C1F2-3B37-FC80-5803-9E36CC636375">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:25:33 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>17</dataTypeSize>
+<ownDataTypeParameters>17,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Modelo" id="F8486A52-09D2-6065-A6AE-4C030BDD71E3">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:43:20 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="77603383-C229-07EC-EAD7-A6A482811D80" referredColumn="D64F26BB-CC09-1BB9-D0E8-542E0B07964F"/>
+</associations>
+</Column>
+<Column name="Versao" id="0206D1BE-D1CD-B530-1EAC-BD225FC794D3">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:43:20 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CDE46FDC-53A6-26BC-1039-98987E971C1C" referredColumn="86E95660-4CFB-2E96-4DC7-0BA2A13A14D7"/>
+</associations>
+</Column>
+<Column name="Cor" id="99948311-35C3-B852-97B9-1507CA127F7B">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:43:20 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CAF77C91-B146-FF13-5C19-53E246856495" referredColumn="7BFC91AB-4CE4-C407-88B0-9FD8F243A3D1"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1FAE5AC7-011F-A58A-4411-207B4EAF5CA6" name="Chassi_PK">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:25:33 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="30C6C1F2-3B37-FC80-5803-9E36CC636375"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="53246631-7FAF-3033-0F5F-1C4233FA842C" name="Chassi_plModelo_FK">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:43:20 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F8486A52-09D2-6065-A6AE-4C030BDD71E3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D61F9FAB-2CFA-C87E-7B4B-5EA366B8D676" name="Chassi_plVersao_FK">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:43:50 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0206D1BE-D1CD-B530-1EAC-BD225FC794D3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6DB69BC0-62EC-291F-730C-11989E676133" name="Chassi_plCor_FK">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:44:06 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="99948311-35C3-B852-97B9-1507CA127F7B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

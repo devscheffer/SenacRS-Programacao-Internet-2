@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="5369B80C-C79D-30A0-3FB1-F08F5F675844" containerWithKeyObject="0F171B29-EFF5-1187-5DDD-9CBD9564584A" localFKIndex="9CE17F0E-A057-7F25-7CCF-CC96F020DFA6" name="Venda_Chassi_FK">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:55:17 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<referredTableLongName>Chassi</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>38F394F5-D3BB-BAFC-750A-AB405DE4214E</referredTableID>
+<keyObject>1FAE5AC7-011F-A58A-4411-207B4EAF5CA6</keyObject>
+<referredKeyID>1FAE5AC7-011F-A58A-4411-207B4EAF5CA6</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>Chassi</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

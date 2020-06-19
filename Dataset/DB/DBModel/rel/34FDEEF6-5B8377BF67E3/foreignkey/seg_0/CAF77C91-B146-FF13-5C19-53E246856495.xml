@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="CAF77C91-B146-FF13-5C19-53E246856495" containerWithKeyObject="38F394F5-D3BB-BAFC-750A-AB405DE4214E" localFKIndex="6DB69BC0-62EC-291F-730C-11989E676133" name="Chassi_plCor_FK">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:44:06 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<referredTableLongName>plCor</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>67D26727-47FB-68E5-F1EC-418227106C35</referredTableID>
+<keyObject>3CE87B5F-E059-9609-B567-33C8510D3F75</keyObject>
+<referredKeyID>3CE87B5F-E059-9609-B567-33C8510D3F75</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>IDCor</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

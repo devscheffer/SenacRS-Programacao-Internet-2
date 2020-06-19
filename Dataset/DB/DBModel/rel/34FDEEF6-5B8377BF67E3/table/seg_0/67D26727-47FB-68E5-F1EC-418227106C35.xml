@@ -1,0 +1,48 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="67D26727-47FB-68E5-F1EC-418227106C35" name="plCor">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:27:06 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<ordsAlias>table_6</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDCor" id="7BFC91AB-4CE4-C407-88B0-9FD8F243A3D1">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:29:52 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DescCor" id="4AC979AC-BE10-8E3D-F901-6E68B20FB372">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:30:11 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3CE87B5F-E059-9609-B567-33C8510D3F75" name="Cor_PK">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 14:30:26 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7BFC91AB-4CE4-C407-88B0-9FD8F243A3D1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

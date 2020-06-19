@@ -1,0 +1,13 @@
+form {
+	box-sizing: content-box;
+	display: grid;
+}
+
+input[type=text] {
+	
+}
+
+input[type = submit] {
+	max-width: 90px;
+	text-align: center;
+}

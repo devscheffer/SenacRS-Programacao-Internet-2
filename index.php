@@ -4,22 +4,50 @@ use Psr\Http\message\ResponseInterface as Response;
 use Psr\Http\message\ServerRequestInterface as Request;
 
 
-include_once(__DIR__.'\ApiGroup\Carro\CTRLCarro.php');
-include_once(__DIR__.'\ApiGroup\Concessionaria\CTRLConcessionaria.php');
-include_once(__DIR__.'\ApiGroup\Cor\CTRLCor.php');
-include_once(__DIR__.'\ApiGroup\Modelo\CTRLModelo.php');
-include_once(__DIR__.'\ApiGroup\Venda\CTRLVenda.php');
-include_once(__DIR__.'\ApiGroup\Vendedor\CTRLVendedor.php');
-include_once(__DIR__.'\ApiGroup\Versao\CTRLVersao.php');
-include_once(__DIR__.'\ApiGroup\RN1\CTRLRN1.php');
-include_once(__DIR__.'\ApiGroup\RN2\CTRLRN2.php');
-include_once(__DIR__.'\ApiGroup\RN3\CTRLRN3.php');
-include_once(__DIR__.'\ApiGroup\RN4\CTRLRN4.php');
-include_once(__DIR__.'\ApiGroup\Usuario\CTRLUsuario.php');
+include_once(__DIR__.'\API\Carro\CTRLCarro.php');
+include_once(__DIR__.'\API\Concessionaria\CTRLConcessionaria.php');
+include_once(__DIR__.'\API\Cor\CTRLCor.php');
+include_once(__DIR__.'\API\Modelo\CTRLModelo.php');
+include_once(__DIR__.'\API\Venda\CTRLVenda.php');
+include_once(__DIR__.'\API\Vendedor\CTRLVendedor.php');
+include_once(__DIR__.'\API\Versao\CTRLVersao.php');
+include_once(__DIR__.'\API\RN1\CTRLRN1.php');
+include_once(__DIR__.'\API\RN2\CTRLRN2.php');
+include_once(__DIR__.'\API\RN3\CTRLRN3.php');
+include_once(__DIR__.'\API\RN4\CTRLRN4.php');
+include_once(__DIR__.'\API\Usuario\CTRLUsuario.php');
 
 require __DIR__ . '/vendor/autoload.php';
 
 $app = AppFactory::create();
+
+
+$customErrorHandler = function (
+    Psr\Http\Message\ServerRequestInterface $request,
+    \Throwable $exception,
+    bool $displayErrorDetails,
+    bool $logErrors,
+    bool $logErrorDetails
+) use ($app) {
+    $response = $app->getResponseFactory()->createResponse();
+// a partir do slim com a variavel, usar funcao use
+        if ($exception instanceof HttpNotFoundException) {
+            $message = 'not found';
+            $code = 404;
+        } elseif ($exception instanceof HttpMethodNotAllowedException) {
+            $message = 'not allowed';
+            $code = 403;
+        }
+
+    $response->getBody()->write($message);
+    return $response->withStatus(404);
+};
+
+$errorMiddleware = $app->addErrorMiddleware(true, true, true);
+$errorMiddleware->setErrorHandler(Slim\Exception\HttpNotFoundException::class, $customErrorHandler);
+
+
+
 
 $app->post('/api/usuarios','UsuarioController:inserir');
 
@@ -32,7 +60,7 @@ $app->group('/api/carro'
     $app->put('/{chassi}', 'CarroController:update');
     $app->delete('/{chassi}', 'CarroController:delete');
 
-})->add('UsuarioController:validarToken');
+});//->add('UsuarioController:validarToken');
 
 $app->group('/api/concessionaria'
 , function($app){
@@ -66,7 +94,7 @@ $app->group('/api/modelo'
     $app->put('/{idmodelo}', 'ModeloController:update');
     $app->delete('/{idmodelo}', 'ModeloController:delete');
 
-});//->add('UsuarioController:validarToken');
+})->add('UsuarioController:validarToken');
 
 $app->group('/api/venda'
 , function($app){
@@ -141,6 +169,8 @@ $app->group('/api/rn4'
     $app->get('/anomes/{ano}/{mes}', 'RN4Controller:SearchByanomes');    
 
 })->add('UsuarioController:validarToken');
+
+
 
 $app->post('/api/auth','UsuarioController:autenticar');
 

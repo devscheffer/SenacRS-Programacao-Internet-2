@@ -1,0 +1,48 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="105C18C5-3284-5890-55D5-BA165BF72293" name="FechamentoMes">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-07 16:01:23 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<ordsAlias>table_11</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Ano" id="120EB9CC-8545-2CCE-1780-2FA191340DBC">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-07 16:02:34 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4</dataTypeSize>
+<ownDataTypeParameters>4,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Mes" id="F502DDBB-41A3-18AA-24BB-1C443798DA61">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-07 16:02:34 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2</dataTypeSize>
+<ownDataTypeParameters>2,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C2412B42-34EB-3727-DE8D-6AF820611324" name="FechamentoMes_PK">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-07 16:02:34 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="120EB9CC-8545-2CCE-1780-2FA191340DBC"/>
+<colUsage columnID="F502DDBB-41A3-18AA-24BB-1C443798DA61"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

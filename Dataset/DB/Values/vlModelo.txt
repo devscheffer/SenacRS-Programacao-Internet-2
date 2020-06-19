@@ -1,0 +1,11 @@
+INSERT INTO public.plmodelo(
+	idmodelo, descmodelo)
+	VALUES 
+	('ALT','ALTIMA')
+	,('GTR','GTR')
+	,('KCS','KICKS')
+	,('LEF','LEAF')
+	,('STA','SENTRA')
+	,('FTR','FRONTIER')
+	,('MRC','MARCH')
+	,('VRS','VERSA')

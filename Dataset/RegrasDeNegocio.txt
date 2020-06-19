@@ -1,0 +1,13 @@
+RN1
+- Funcionario no final do mes ganhara um bonus relacionado ao total de vendas que este realizou. sendo um percentual definido por uma tabela de parametros.
+
+RN2
+- Funcionario recebe um bonus complementar relativo ao modelo que foi vendido.
+
+RN3
+- A participacao de lucros das concessionaria e feito atraves do calculo de eficiencia de venda, que e definido como o total de vendas dividido pelo total de funcionarios da concessionaria. Entao a distribuicao dos lucros fica como a eficiencia da concessionaria dividido pelo total da eficiencia do mes
+
+RN4
+- Funcionario que nao realizar nenhuma venda no mes, devera entrar para um curso de reciclagem no mes seguinte
+- E feito um curso de reciclagem para cada estado todo mes 
+- E necessario saber os participantes

@@ -1,0 +1,57 @@
+    {
+        "login": "gerson"
+        ,"senha": "sen@c"
+    }
+
+localhost:8000/api/carro
+{
+"chassi":"teste"
+,"modelo":"ALT"
+,"versao":"ALT015"
+,"cor":"RAQG"
+}
+
+localhost:8000/api/concessionaria
+{
+"idconcessionaria":"teste"
+,"nomefantasia":"teste"
+,"uf":"tt"
+,"municipio":"teste"
+}
+
+localhost:8000/api/cor
+{
+"idcor":"teste"
+,"desccor":"teste"
+}
+
+localhost:8000/api/modelo
+{
+"idmodelo":"teste"
+,"descmodelo":"teste"
+}
+
+localhost:8000/api/vendedor
+{
+"idvendedor":"teste"
+,"nome":"teste"
+,"email":"teste"
+,"concessionaria":"teste"
+}
+
+localhost:8000/api/versao
+{
+"idversao":"teste"
+,"idmodelo":"teste"
+,"descversao":"teste"
+}
+
+localhost:8000/api/venda
+{
+"idsale":"teste"
+,"concessionaria":"teste"
+,"vendedor":"teste"
+,"chassi":"teste"
+,"data":"2019-01-01"
+,"valor":"111"
+}

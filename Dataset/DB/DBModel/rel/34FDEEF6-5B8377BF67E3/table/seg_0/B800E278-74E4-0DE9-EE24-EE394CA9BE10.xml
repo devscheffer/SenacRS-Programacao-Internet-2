@@ -1,0 +1,81 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B800E278-74E4-0DE9-EE24-EE394CA9BE10" name="Usuario">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 21:44:25 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<ordsAlias>table_8</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="94484799-E2F2-7437-D15B-1757632EC719">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 21:45:56 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nome" id="ADF3CB65-6AB8-7A73-7646-D7D19CBA6B18">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 21:45:56 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Login" id="6D1AEB3F-5098-3D50-DB38-10C1FD001328">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 21:45:56 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Senha" id="59DA62DA-CE43-A14E-EBAB-23940C597F25">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 21:45:56 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="7057448F-4AF9-262D-67F4-DCC859191CC4" name="Usuario_PK">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 21:45:56 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="94484799-E2F2-7437-D15B-1757632EC719"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="85080D85-31DF-7CA1-87F4-65178E897C8C" name="Usuario__UN">
+<createdBy>Scheffer</createdBy>
+<createdTime>2020-05-05 21:47:44 UTC</createdTime>
+<ownerDesignName>DBModel</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6D1AEB3F-5098-3D50-DB38-10C1FD001328"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
