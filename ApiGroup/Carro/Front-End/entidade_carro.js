@@ -1,4 +1,4 @@
-class Carro{
+class carro{
     constructor(
         chassi
         ,modelo
@@ -9,6 +9,6 @@ class Carro{
         this.modelo = modelo;
         this.versao = versao;
         this.cor = cor;
-        
     }
 }
+

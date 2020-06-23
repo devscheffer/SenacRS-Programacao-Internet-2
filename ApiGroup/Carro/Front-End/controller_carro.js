@@ -1,6 +1,6 @@
-class ControllerCarro{  
+class Controller_carro{  
     constructor() {
-        this.carroservice = new APIServiceCarro(); 
+        this.carroservice = new APIService_carro(); 
     } 
 
     carregarcarro(){
@@ -15,7 +15,7 @@ class ControllerCarro{
             console.log("Erro:",statusCode);
         }
 
-        this.carroervice.buscarcarro(sucesso, trataErro);
+        this.carroservice.buscarcarro(sucesso, trataErro);
     }
     
     montarTabela(carro){
@@ -48,8 +48,11 @@ class ControllerCarro{
         
         event.preventDefault();
         var carro = new carro();
-        carro.nome = document.querySelector("#txtnome").value;
-        carro.preco = document.querySelector("#txtpreco").value;
+        carro.Chassi = document.querySelector("#Chassi").value;
+        carro.Modelo = document.querySelector("#Modelo").value;
+        carro.Versao = document.querySelector("#Versao").value;
+        carro.Cor = document.querySelector("#Cor").value;
+
 
         const sucesso = function(carroCriado) {
             console.log("carro Criado",carroCriado);
@@ -61,13 +64,16 @@ class ControllerCarro{
             console.log("Erro:",statusCode);
         }
                 
-        this.carroervice.enviarcarro(carro, sucesso, trataErro);    
+        this.carroservice.enviarcarro(carro, sucesso, trataErro);    
 
     }
     
     limparFormulario(){
-        document.querySelector("#txtnome").value="";
-        document.querySelector("#txtpreco").value="";
+        document.querySelector("#Chassi").value="";
+        document.querySelector("#Modelo").value="";
+        document.querySelector("#Versao").value="";
+        document.querySelector("#Cor").value="";
+
     }
     
     

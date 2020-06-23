@@ -1,14 +1,14 @@
-const ControllerCarro =  new ControllerCarro();
+const Controller_carro =  new Controller_carro();
 
 var body = document.querySelector("body");
 body.onload = function () {
-    ControllerCarro.carregarcarro();
+    Controller_carro.carregarcarro();
 }
 
 
 var form = document.querySelector("#formulario");
 form.onsubmit = function(event){
-    ControllerCarro.salvar(event);
+    Controller_carro.salvar(event);
 }
 
 

@@ -1,16 +1,16 @@
-class APIServiceCarro {
+class APIService_carro {
     uri = "http://localhost:8000/api/carro";
 
-    buscarCarro(ok, erro) {
+    buscarcarro(ok, erro) {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState === 4) {
                 if(this.status === 200) {
-                    //Chama o método sucesso definido no carregarCarro() do controller
+                    //Chama o método sucesso definido no carregarcarro() do controller
                     ok(JSON.parse(this.responseText));
                 }
                 else {
-                    //Chama o método trataErro definido no carregarCarro() do controller
+                    //Chama o método trataErro definido no carregarcarro() do controller
                     erro(this.status);
                 }
             }
@@ -20,7 +20,7 @@ class APIServiceCarro {
     }
 
 
-    enviarCarro(Carro, ok, erro){
+    enviarcarro(carro, ok, erro){
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState === 4){ 
@@ -34,7 +34,7 @@ class APIServiceCarro {
         };
         xhttp.open("POST", this.uri, true);
         xhttp.setRequestHeader("Content-Type","application/json");
-        xhttp.send(JSON.stringify(Carro));
+        xhttp.send(JSON.stringify(carro));
         
     }
 
