@@ -1,6 +1,6 @@
 <?php
     include_once __DIR__.'\objRN3.php';
-    include_once __DIR__.'\..\..\PDOFactory.php';
+    include_once __DIR__.'\..\..\..\PDOFactory.php';
 
     class RN3DAO
     {

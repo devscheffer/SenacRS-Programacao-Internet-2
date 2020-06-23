@@ -4,18 +4,18 @@ use Psr\Http\message\ResponseInterface as Response;
 use Psr\Http\message\ServerRequestInterface as Request;
 
 
-include_once(__DIR__.'\API\Carro\CTRLCarro.php');
-include_once(__DIR__.'\API\Concessionaria\CTRLConcessionaria.php');
-include_once(__DIR__.'\API\Cor\CTRLCor.php');
-include_once(__DIR__.'\API\Modelo\CTRLModelo.php');
-include_once(__DIR__.'\API\Venda\CTRLVenda.php');
-include_once(__DIR__.'\API\Vendedor\CTRLVendedor.php');
-include_once(__DIR__.'\API\Versao\CTRLVersao.php');
-include_once(__DIR__.'\API\RN1\CTRLRN1.php');
-include_once(__DIR__.'\API\RN2\CTRLRN2.php');
-include_once(__DIR__.'\API\RN3\CTRLRN3.php');
-include_once(__DIR__.'\API\RN4\CTRLRN4.php');
-include_once(__DIR__.'\API\Usuario\CTRLUsuario.php');
+include_once(__DIR__.'\APIGroup\Carro\Back-End\CTRLCarro.php');
+include_once(__DIR__.'\APIGroup\Concessionaria\CTRLConcessionaria.php');
+include_once(__DIR__.'\APIGroup\Cor\CTRLCor.php');
+include_once(__DIR__.'\APIGroup\Modelo\CTRLModelo.php');
+include_once(__DIR__.'\APIGroup\Venda\CTRLVenda.php');
+include_once(__DIR__.'\APIGroup\Vendedor\CTRLVendedor.php');
+include_once(__DIR__.'\APIGroup\Versao\CTRLVersao.php');
+include_once(__DIR__.'\APIGroup\RN\RN1\CTRLRN1.php');
+include_once(__DIR__.'\APIGroup\RN\RN2\CTRLRN2.php');
+include_once(__DIR__.'\APIGroup\RN\RN3\CTRLRN3.php');
+include_once(__DIR__.'\APIGroup\RN\RN4\CTRLRN4.php');
+include_once(__DIR__.'\APIGroup\Usuario\CTRLUsuario.php');
 
 require __DIR__ . '/vendor/autoload.php';
 
