@@ -20,12 +20,16 @@ class APIService_carro {
     }
 
 
-    enviarcarro(carro, ok, erro){
+    enviarcarro(Carro, ok, erro){
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState === 4){ 
-                if(this.status === 201) {    
-                    ok(JSON.parse(this.responseText))
+                if(this.status === 201) { 
+                    console.log("teste2");
+                    console.log((this.responseText));
+                    // ok(JSON.parse(this.responseText));
+                    ok(this.responseText);
+
                 }
                 else {
                     erro(this.status);
@@ -34,7 +38,7 @@ class APIService_carro {
         };
         xhttp.open("POST", this.uri, true);
         xhttp.setRequestHeader("Content-Type","application/json");
-        xhttp.send(JSON.stringify(carro));
+        xhttp.send(JSON.stringify(Carro));
         
     }
 
