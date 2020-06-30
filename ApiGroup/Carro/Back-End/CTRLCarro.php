@@ -15,7 +15,7 @@ class CarroController {
 
     public function insert($request, $response, $args) {
         $data = $request->getParsedBody();
-        $carro = new carro(
+        $carro = new Carro(
             $data['chassi']
             ,$data['modelo']
             ,$data['versao']
@@ -41,7 +41,7 @@ class CarroController {
     public function update($request, $response, $args) {
         $chassi = $args['chassi'];
         $data = $request->getParsedBody();
-        $carro = new carro(
+        $carro = new Carro(
             $chassi
             ,$data['modelo']
             ,$data['versao']

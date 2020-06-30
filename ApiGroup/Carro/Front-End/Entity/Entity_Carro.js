@@ -1,4 +1,4 @@
-class carro {
+class Carro {
 	constructor(chassi, modelo, versao, cor) {
 		this.chassi = chassi;
 		this.modelo = modelo;

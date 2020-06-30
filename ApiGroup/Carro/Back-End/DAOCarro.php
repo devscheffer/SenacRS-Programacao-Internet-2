@@ -77,7 +77,7 @@
             $carros=array();	
 		    while($row = $comando->fetch(PDO::FETCH_OBJ)){
 
-			    $arrcarro[] = new carro(
+			    $arrcarro[] = new Carro(
                     $row->chassi
                     ,$row->modelo
                     ,$row->versao
@@ -100,7 +100,7 @@
 		    $comando->execute();
             $result = $comando->fetch(PDO::FETCH_OBJ);
             
-		    return new carro(
+		    return new Carro(
                 $result->chassi
                 ,$result->modelo
                 ,$result->versao

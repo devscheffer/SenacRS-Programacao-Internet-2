@@ -3,10 +3,6 @@ form {
 	display: grid;
 }
 
-input[type=text] {
-	
-}
-
 table, td, th {
     border: 1px solid black;
   }
