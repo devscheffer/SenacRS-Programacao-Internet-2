@@ -48,7 +48,7 @@ class Table_Carro {
 		{
 			const id = linkDelete.parentNode.parentNode.id;
 			linkDelete.onclick = function(event){
-				self.controller.deletarcarro(id);
+				self.controller.delete_item(id);
 			}
 		}
 
@@ -57,7 +57,7 @@ class Table_Carro {
 		{
 			const id = linkEdit.parentNode.parentNode.id;
 			//Outra forma de tratar o evento (click) - nesse caso deve ter bind
-			linkEdit.addEventListener("click",this.controller.carregaFormularioComcarro.bind(this.controller,id));
+			linkEdit.addEventListener("click",this.controller.read_item_id.bind(this.controller,id));
 		}
 
 	}

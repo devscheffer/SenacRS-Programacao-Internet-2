@@ -26,7 +26,7 @@ class Controller_Carro{
 			console.log("Erro:",statusCode);
 		}
 
-		this.service.search(sucesso, trataErro);
+		this.service.read_item_all(sucesso, trataErro);
 	}
 
 	limpar(event){
@@ -40,15 +40,15 @@ class Controller_Carro{
 		var carro = this.form.getDatacarro();        
 		console.log("carro", carro);
 
-		this.salvarcarro(carro);
+		this.create_item(carro);
 
 	}
 
-	salvarcarro(carro){
+	create_item(carro){
 		const self = this;
 
-		const sucesso = function(carroCriado) {
-			console.log("carro Criado",carroCriado);
+		const sucesso = function(carro_Criado) {
+			console.log("carro Criado",carro_Criado);
 			self.load_table();
 			self.form.limparFormulario();
 		}
@@ -57,13 +57,13 @@ class Controller_Carro{
 			console.log("Erro:",statusCode);
 		}
 				
-		this.service.send(carro, sucesso, trataErro);    
+		this.service.create_item(carro, sucesso, trataErro);    
 
 	}
 
-	deletarcarro(id, event){
+	delete_item(id, event){
 		const self = this;
-		this.service.deletarcarro(id, 
+		this.service.delete_item_id(id, 
 			//colocar direto a funcao no parametro
 			//nao precisa criar a variavel ok e erro
 			function() {
@@ -75,7 +75,7 @@ class Controller_Carro{
 		);
 	}
 
-	carregaFormularioComcarro(id, event){
+	read_item_id(id, event){
 		event.preventDefault();             
 		
 		const self = this;
@@ -86,17 +86,17 @@ class Controller_Carro{
 			console.log(status);
 		}
 
-		this.service.search(id,ok,erro);   
+		this.service.read_item_id(id,ok,erro);   
 	}
 
-	editar(id,event){
+	update_item(id,event){
 		event.preventDefault();
 	
 		let carro = this.form.getDatacarro();
 		
 		const self = this;
 
-		this.service.atualizarcarro(id,carro, 
+		this.service.update_item_id(id,carro, 
 			function() {
 				self.form.limparFormulario();
 				self.load_table();

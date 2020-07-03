@@ -3,6 +3,6 @@ class Carro {
 		this.chassi = chassi;
 		this.modelo = modelo;
 		this.versao = versao;
-		this.cor = cor;
+		this.cor    = cor;
 	}
 }
