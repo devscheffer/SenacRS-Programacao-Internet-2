@@ -1,7 +1,7 @@
-class APIService_Carro {
-	uri = "http://localhost:8000/api/carro";
+class APIService_Modelo {
+	uri = "http://localhost:8000/api/modelo";
 
-	create_item(carro, ok, erro){
+	create_item(modelo, ok, erro){
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function () {
 			if (this.readyState === 4){ 
@@ -15,7 +15,7 @@ class APIService_Carro {
 		};
 		xhttp.open("POST", this.uri, true);
 		xhttp.setRequestHeader("Content-Type","application/json");
-		xhttp.send(JSON.stringify(carro));
+		xhttp.send(JSON.stringify(modelo));
 		
 	}
 
@@ -24,11 +24,12 @@ class APIService_Carro {
 		xhttp.onreadystatechange = function () {
 			if (this.readyState === 4) {
 				if(this.status === 200) {
-					//Chama o método sucesso definido no carregarcarro() do controller
+					//Chama o método sucesso definido no carregarmodelo() do controller
 					ok(JSON.parse(this.responseText));
+
 				}
 				else {
-					//Chama o método trataErro definido no carregarcarro() do controller
+					//Chama o método trataErro definido no carregarmodelo() do controller
 					erro(this.status);
 				}
 			}
@@ -51,7 +52,7 @@ class APIService_Carro {
 		xhttp.send();
 	}
 
-	update_item_id(id,carro,ok,error) {
+	update_item_id(id,modelo,ok,error) {
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function () {
 			if (this.readyState === 4 && this.status === 200) {
@@ -63,7 +64,7 @@ class APIService_Carro {
 		};
 		xhttp.open("PUT", this.uri+'/'+id, true);
 		xhttp.setRequestHeader("Content-Type","application/json")
-		xhttp.send(JSON.stringify(carro));
+		xhttp.send(JSON.stringify(modelo));
 	}
 
 	delete_item_id(id,ok,error) {

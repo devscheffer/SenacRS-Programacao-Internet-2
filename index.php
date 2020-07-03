@@ -6,14 +6,13 @@ use Psr\Http\message\ServerRequestInterface as Request;
 
 include_once(__DIR__.'\APIGroup\Carro\Back-End\CTRLCarro.php');
 include_once(__DIR__.'\APIGroup\Cor\Back-End\CTRLCor.php');
+include_once(__DIR__.'\APIGroup\Modelo\Back-End\CTRLModelo.php');
 
 
+include_once(__DIR__.'\APIGroup\Versao\CTRLVersao.php');
 include_once(__DIR__.'\APIGroup\Concessionaria\CTRLConcessionaria.php');
-
-include_once(__DIR__.'\APIGroup\Modelo\CTRLModelo.php');
 include_once(__DIR__.'\APIGroup\Venda\CTRLVenda.php');
 include_once(__DIR__.'\APIGroup\Vendedor\CTRLVendedor.php');
-include_once(__DIR__.'\APIGroup\Versao\CTRLVersao.php');
 include_once(__DIR__.'\APIGroup\RN\RN1\CTRLRN1.php');
 include_once(__DIR__.'\APIGroup\RN\RN2\CTRLRN2.php');
 include_once(__DIR__.'\APIGroup\RN\RN3\CTRLRN3.php');

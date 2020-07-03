@@ -1,30 +1,26 @@
-class Table_Carro {
+class Table_Modelo {
 	constructor(controller, seletor){
 		this.controller = controller;
 		this.seletor = seletor;
 	}
 
 
-	montarTabela(carro){
+	montarTabela(modelo){
 		var str=`
-		<h2>Tabela de carro</h2>
+		<h2>Tabela de modelo</h2>
 		<a id="novo" href="#">Novo</a>
 		<div id="tabela">
 		<table>
 			<tr>
-				<th style='text-align: left;'>Chassi</th>
-				<th style='text-align: left;'>Modelo</th>
-				<th style='text-align: left;'>Versao</th>
-				<th style='text-align: left;'>Cor</th>
+				<th style='text-align: left;'>idmodelo</th>
+				<th style='text-align: left;'>descmodelo</th>
 				<th colspan="2">Ação</th>
 			</tr>`;
 	
-		for(var i in carro){
-			str+=`  <tr id=${carro[i].chassi}>
-					<td>${carro[i].chassi}</td>
-					<td>${carro[i].modelo}</td>
-					<td>${carro[i].versao}</td>
-					<td>${carro[i].cor}</td>
+		for(var i in modelo){
+			str+=`  <tr id=${modelo[i].idmodelo}>
+					<td>${modelo[i].idmodelo}</td>
+					<td>${modelo[i].descmodelo}</td>
 
 					<td><a class="edit" href="#">Editar</a></td>
 					<td><a class="delete" href="#">Deletar</a></td>    
