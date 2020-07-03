@@ -1,5 +1,5 @@
 <?php
-    class cor {
+    class Cor {
         public $idcor;
         public $desccor;
 

@@ -1,5 +1,5 @@
 <?php
-    class modelo {
+    class Modelo {
         public $idmodelo;
         public $descmodelo;
 

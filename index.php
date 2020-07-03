@@ -5,8 +5,11 @@ use Psr\Http\message\ServerRequestInterface as Request;
 
 
 include_once(__DIR__.'\APIGroup\Carro\Back-End\CTRLCarro.php');
+include_once(__DIR__.'\APIGroup\Cor\Back-End\CTRLCor.php');
+
+
 include_once(__DIR__.'\APIGroup\Concessionaria\CTRLConcessionaria.php');
-include_once(__DIR__.'\APIGroup\Cor\CTRLCor.php');
+
 include_once(__DIR__.'\APIGroup\Modelo\CTRLModelo.php');
 include_once(__DIR__.'\APIGroup\Venda\CTRLVenda.php');
 include_once(__DIR__.'\APIGroup\Vendedor\CTRLVendedor.php');
@@ -83,7 +86,7 @@ $app->group('/api/cor'
     $app->put('/{idcor}', 'CorController:update');
     $app->delete('/{idcor}', 'CorController:delete');
 
-})->add('UsuarioController:validarToken');
+});//->add('UsuarioController:validarToken');
 
 $app->group('/api/modelo'
 , function($app){
@@ -94,7 +97,7 @@ $app->group('/api/modelo'
     $app->put('/{idmodelo}', 'ModeloController:update');
     $app->delete('/{idmodelo}', 'ModeloController:delete');
 
-})->add('UsuarioController:validarToken');
+});//->add('UsuarioController:validarToken');
 
 $app->group('/api/venda'
 , function($app){
@@ -127,7 +130,7 @@ $app->group('/api/versao'
     $app->put('/{idversao}', 'VersaoController:update');
     $app->delete('/{idversao}', 'VersaoController:delete');
 
-})->add('UsuarioController:validarToken');
+});//->add('UsuarioController:validarToken');
 
 
 $app->group('/api/rn1'
