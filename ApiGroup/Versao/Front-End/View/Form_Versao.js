@@ -33,11 +33,11 @@ class Form_Versao {
         var form = document.querySelector("#formulario");
         const self = this;
         form.onsubmit = function(event){
-            if(!versao.chassi){
+            if(!versao.idversao){
                 self.controller.salvar(event);
             }
             else{
-                self.controller.update_item(versao.chassi,event);
+                self.controller.update_item(versao.idversao,event);
             }
         }
 
@@ -55,9 +55,9 @@ class Form_Versao {
     getDataversao(){
         let versao = new Versao();
         if(!document.querySelector("#idversao").value);
-            versao.chassi = document.querySelector("#idversao").value;
-            versao.modelo = document.querySelector("#idmodelo").value;
-            versao.versao = document.querySelector("#descversao").value;
+            versao.idversao = document.querySelector("#idversao").value;
+            versao.idmodelo = document.querySelector("#idmodelo").value;
+            versao.descversao = document.querySelector("#descversao").value;
 
         return versao;        
     }
