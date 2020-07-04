@@ -90,7 +90,7 @@
 		    $comando->execute();
             $result = $comando->fetch(PDO::FETCH_OBJ);
             
-		    return new cor(
+		    return new Modelo(
                 $result->idmodelo
                 ,$result->descmodelo
             );           

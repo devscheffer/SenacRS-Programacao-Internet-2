@@ -17,7 +17,7 @@ class Form_Modelo {
             <br />
 			<label for="descmodelo">descmodelo</label>
 			<input type="text" name="descmodelo" value="${modelo.descmodelo}" id="descmodelo" />
-			<br />
+            <br />
 			<input type="submit" value="Salvar" />
 			<input type="reset" value="Cancelar" />
 		</form>
@@ -52,7 +52,7 @@ class Form_Modelo {
         let modelo = new Modelo();
         if(!document.querySelector("#idmodelo").value);
             modelo.idmodelo = document.querySelector("#idmodelo").value;
-            modelo.modelo = document.querySelector("#descmodelo").value;
+            modelo.descmodelo = document.querySelector("#descmodelo").value;
 
         return modelo;        
     }
