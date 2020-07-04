@@ -61,7 +61,7 @@
     		$pdo = PDOFactory::getConexao();
 	    	$comando = $pdo->prepare($query);
     		$comando->execute();
-            $usuarios=array();	
+            $usuario=array();	
 		    while($row = $comando->fetch(PDO::FETCH_OBJ)){
 			    $arrUsuario[] = new Usuario(
                     $row->id

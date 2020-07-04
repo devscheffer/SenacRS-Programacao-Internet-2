@@ -1,8 +1,8 @@
-class Controller_Carro{  
+class Controller_Usuario{  
 	constructor() {
-		this.service = new APIService_Carro(); 
-		this.table = new Table_Carro(this,"main");
-		this.form = new Form_Carro(this,"main");
+		this.service = new APIService_Usuario(); 
+		this.table = new Table_Usuario(this,"main");
+		this.form = new Form_Usuario(this,"main");
 	} 
 
 	init(){
@@ -16,12 +16,12 @@ class Controller_Carro{
 
 	load_table(){
 		const self = this;
-		//definição da função que trata o buscar carro com sucesso
-		const sucesso = function(carro){
-			self.table.montarTabela(carro);
+		//definição da função que trata o buscar usuario com sucesso
+		const sucesso = function(usuario){
+			self.table.montarTabela(usuario);
 		}
 
-		//definição da função que trata o erro ao buscar os carro
+		//definição da função que trata o erro ao buscar os usuario
 		const trataErro = function(statusCode) {
 			console.log("Erro:",statusCode);
 		}
@@ -37,18 +37,18 @@ class Controller_Carro{
 	
 	salvar(event){        
 		event.preventDefault();
-		var carro = this.form.getDatacarro();        
-		console.log("carro", carro);
+		var usuario = this.form.getDatausuario();        
+		console.log("usuario", usuario);
 
-		this.create_item(carro);
+		this.create_item(usuario);
 
 	}
 
-	create_item(carro){
+	create_item(usuario){
 		const self = this;
 
-		const sucesso = function(carro_Criado) {
-			console.log("carro Criado",carro_Criado);
+		const sucesso = function(usuario_Criado) {
+			console.log("usuario Criado",usuario_Criado);
 			self.load_table();
 			self.form.limparFormulario();
 		}
@@ -57,7 +57,7 @@ class Controller_Carro{
 			console.log("Erro:",statusCode);
 		}
 				
-		this.service.create_item(carro, sucesso, trataErro);    
+		this.service.create_item(usuario, sucesso, trataErro);    
 
 	}
 
@@ -79,8 +79,8 @@ class Controller_Carro{
 		event.preventDefault();             
 		
 		const self = this;
-		const ok = function(carro){
-			self.form.montarForm(carro);
+		const ok = function(usuario){
+			self.form.montarForm(usuario);
 		}
 		const erro = function(status){
 			console.log(status);
@@ -92,11 +92,11 @@ class Controller_Carro{
 	update_item(id,event){
 		event.preventDefault();
 	
-		let carro = this.form.getDatacarro();
+		let usuario = this.form.getDatausuario();
 		
 		const self = this;
 
-		this.service.update_item_id(id,carro, 
+		this.service.update_item_id(id,usuario, 
 			function() {
 				self.form.limparFormulario();
 				self.load_table();

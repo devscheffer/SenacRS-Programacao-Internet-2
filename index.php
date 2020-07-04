@@ -11,11 +11,13 @@ include_once(__DIR__.'\APIGroup\Versao\Back-End\CTRLVersao.php');
 include_once(__DIR__.'\APIGroup\Concessionaria\Back-End\CTRLConcessionaria.php');
 include_once(__DIR__.'\APIGroup\Venda\Back-End\CTRLVenda.php');
 include_once(__DIR__.'\APIGroup\Vendedor\Back-End\CTRLVendedor.php');
+
+include_once(__DIR__.'\APIGroup\Usuario\Back-End\CTRLUsuario.php');
+
 include_once(__DIR__.'\APIGroup\RN\RN1\Back-End\CTRLRN1.php');
 include_once(__DIR__.'\APIGroup\RN\RN2\Back-End\CTRLRN2.php');
 include_once(__DIR__.'\APIGroup\RN\RN3\Back-End\CTRLRN3.php');
 include_once(__DIR__.'\APIGroup\RN\RN4\Back-End\CTRLRN4.php');
-include_once(__DIR__.'\APIGroup\Usuario\Back-End\CTRLUsuario.php');
 
 require __DIR__ . '/vendor/autoload.php';
 
@@ -49,7 +51,7 @@ $errorMiddleware->setErrorHandler(Slim\Exception\HttpNotFoundException::class, $
 
 
 
-$app->post('/api/usuarios','UsuarioController:inserir');
+$app->post('/api/usuario','UsuarioController:inserir');
 
 $app->group('/api/carro'
 , function($app){
@@ -72,7 +74,7 @@ $app->group('/api/concessionaria'
     $app->put('/{idconcessionaria}', 'ConcessionariaController:update');
     $app->delete('/{idconcessionaria}', 'ConcessionariaController:delete');
 
-})->add('UsuarioController:validarToken');
+});//->add('UsuarioController:validarToken');
 
 $app->group('/api/cor'
 , function($app){
