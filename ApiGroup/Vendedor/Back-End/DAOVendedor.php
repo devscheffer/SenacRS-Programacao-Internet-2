@@ -33,7 +33,7 @@
             $qDelete = "DELETE from 
             plvendedor 
             WHERE idvendedor=:idvendedor";            
-            $vendedor = $this->SearchByvendedor($chassi);
+            $vendedor = $this->SearchByvendedor($idvendedor);
 
             $pdo = PDOFactory::getConexao();
             $comando = $pdo->prepare($qDelete);

@@ -105,7 +105,7 @@ $app->group('/api/venda'
     $app->put('/{idsale}', 'VendaController:update');
     $app->delete('/{idsale}', 'VendaController:delete');
 
-})->add('UsuarioController:validarToken');
+});//->add('UsuarioController:validarToken');
 
 $app->group('/api/vendedor'
 , function($app){
@@ -116,7 +116,7 @@ $app->group('/api/vendedor'
     $app->put('/{idvendedor}', 'VendedorController:update');
     $app->delete('/{idvendedor}', 'VendedorController:delete');
 
-})->add('UsuarioController:validarToken');
+});//->add('UsuarioController:validarToken');
 
 $app->group('/api/versao'
 , function($app){
@@ -138,7 +138,7 @@ $app->group('/api/rn1'
     $app->get('/ano/{ano}', 'RN1Controller:SearchByano');
     $app->get('/anomes/{ano}/{mes}', 'RN1Controller:SearchByanomes');    
 
-})->add('UsuarioController:validarToken');
+});//->add('UsuarioController:validarToken');
 
 $app->group('/api/rn2'
 , function($app){
@@ -148,7 +148,7 @@ $app->group('/api/rn2'
     $app->get('/ano/{ano}', 'RN2Controller:SearchByano');
     $app->get('/anomes/{ano}/{mes}', 'RN2Controller:SearchByanomes');    
 
-})->add('UsuarioController:validarToken');
+});//->add('UsuarioController:validarToken');
 
 $app->group('/api/rn3'
     , function($app){
@@ -158,7 +158,7 @@ $app->group('/api/rn3'
     $app->get('/ano/{ano}', 'RN3Controller:SearchByano');
     $app->get('/anomes/{ano}/{mes}', 'RN3Controller:SearchByanomes');    
 
-})->add('UsuarioController:validarToken');
+});//->add('UsuarioController:validarToken');
 
 $app->group('/api/rn4'
     , function($app){
@@ -168,7 +168,7 @@ $app->group('/api/rn4'
     $app->get('/ano/{ano}', 'RN4Controller:SearchByano');
     $app->get('/anomes/{ano}/{mes}', 'RN4Controller:SearchByanomes');    
 
-})->add('UsuarioController:validarToken');
+});//->add('UsuarioController:validarToken');
 
 
 
