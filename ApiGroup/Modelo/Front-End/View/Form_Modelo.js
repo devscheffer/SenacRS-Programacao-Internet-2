@@ -33,7 +33,7 @@ class Form_Modelo {
                 self.controller.salvar(event);
             }
             else{
-                self.controller.editar(modelo.idmodelo,event);
+                self.controller.update_item(modelo.idmodelo,event);
             }
         }
 

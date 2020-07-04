@@ -39,7 +39,7 @@ class Form_Vendedor {
                 self.controller.salvar(event);
             }
             else{
-                self.controller.editar(vendedor.idvendedor,event);
+                self.controller.update_item(vendedor.idvendedor,event);
             }
         }
 

@@ -39,7 +39,7 @@ class Form_Concessionaria {
                 self.controller.salvar(event);
             }
             else{
-                self.controller.editar(concessionaria.idconcessionaria,event);
+                self.controller.update_item(concessionaria.idconcessionaria,event);
             }
         }
 

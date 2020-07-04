@@ -53,7 +53,7 @@ class Form_Carro {
                 self.controller.salvar(event);
             }
             else{
-                self.controller.editar(carro.chassi,event);
+                self.controller.update_item(carro.chassi,event);
             }
         }
 

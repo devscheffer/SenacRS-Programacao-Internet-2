@@ -39,7 +39,7 @@ class Form_Usuario {
                 self.controller.salvar(event);
             }
             else{
-                self.controller.editar(usuario.id,event);
+                self.controller.update_item(usuario.id,event);
             }
         }
 

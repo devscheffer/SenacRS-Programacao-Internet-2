@@ -45,7 +45,7 @@ class Form_Venda {
                 self.controller.salvar(event);
             }
             else{
-                self.controller.editar(venda.idsale,event);
+                self.controller.update_item(venda.idsale,event);
             }
         }
 

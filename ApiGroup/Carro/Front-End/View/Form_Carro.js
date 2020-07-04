@@ -5,10 +5,9 @@ class Form_Carro {
         this.seletor = seletor;
     }
 
-    montarForm(carro,modelo){
+    montarForm(carro){
         if(!carro){
             carro = new Carro();
-            modelo = new Modelo();
         }
         var str = `
         <h2>Formulario de Carro</h2>
@@ -16,19 +15,6 @@ class Form_Carro {
 			<label for="chassi">chassi</label>
 			<input type="text" name="chassi" value="${carro.chassi}" id="chassi" />
             <br />
-
-            <label for="valmarca">Marca:</label>
-            <select id="valmarca">
-            `;
-            for(const item of modelo){
-                str+=`<option id="${item.idmodelo}">${item.descmodelo}</option>`;
-            }
-
-            str+= `
-            </select>
-            <br />`;
-            
-            str+= `
 			<label for="modelo">modelo</label>
 			<input type="text" name="modelo" value="${carro.modelo}" id="modelo" />
 			<br />
@@ -53,7 +39,7 @@ class Form_Carro {
                 self.controller.salvar(event);
             }
             else{
-                self.controller.editar(carro.chassi,event);
+                self.controller.update_item(carro.chassi,event);
             }
         }
 

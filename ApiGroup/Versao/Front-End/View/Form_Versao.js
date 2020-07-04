@@ -37,7 +37,7 @@ class Form_Versao {
                 self.controller.salvar(event);
             }
             else{
-                self.controller.editar(versao.chassi,event);
+                self.controller.update_item(versao.chassi,event);
             }
         }
 

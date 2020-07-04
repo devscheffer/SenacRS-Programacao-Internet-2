@@ -33,7 +33,7 @@ class Form_Cor {
                 self.controller.salvar(event);
             }
             else{
-                self.controller.editar(cor.idcor,event);
+                self.controller.update_item(cor.idcor,event);
             }
         }
 
