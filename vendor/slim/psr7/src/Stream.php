@@ -386,10 +386,15 @@ class Stream implements StreamInterface
             $this->isPipe = false;
 
             if ($this->stream) {
-                $this->isPipe = (fstat($this->stream)['mode'] & self::FSTAT_MODE_S_IFIFO) !== 0;
+                $stats = fstat($this->stream);
+
+                if (is_array($stats)) {
+                    $this->isPipe = isset($stats['mode']) && ($stats['mode'] & self::FSTAT_MODE_S_IFIFO) !== 0;
+                }
             }
         }
 
         return $this->isPipe;
     }
+    
 }
