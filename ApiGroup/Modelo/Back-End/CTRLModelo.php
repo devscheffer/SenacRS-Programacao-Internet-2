@@ -26,11 +26,11 @@ class ModeloController {
         return $response->withJson($modelo,201);
     }
 
-    public function SearchBymodelo($request, $response, $args) {
+    public function SearchByID($request, $response, $args) {
         $idmodelo = $args['idmodelo'];
         
         $dao= new ModeloDAO;    
-        $modelo = $dao->SearchBymodelo($idmodelo);
+        $modelo = $dao->SearchByID($idmodelo);
         
         return $response->withJson($modelo);
     }

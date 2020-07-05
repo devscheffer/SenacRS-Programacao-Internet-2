@@ -5,7 +5,7 @@ class Form_Versao {
         this.seletor = seletor;
     }
 
-    montarForm(versao){
+    montarForm(modelo, versao){
         if(!versao){
             versao = new Versao();
 
@@ -14,14 +14,30 @@ class Form_Versao {
         <h2>Formulario de Versao</h2>
 		<form action="" method="post" id="formulario">
 			<label for="idversao">idversao</label>
-			<input type="text" name="idversao" value="${versao.idversao}" id="idversao" />
+			<input type="text" name="idversao" value="${versao.idversao ?versao.idversao :''}" id="idversao" />
             <br />
-			<label for="idmodelo">idmodelo</label>
-			<input type="text" name="idmodelo" value="${versao.idmodelo}" id="idmodelo" />
-			<br />
+            `
+
+            str+=`
+            <label for="descmodelo">descmodelo</label>
+            <select id="descmodelo">
+            `;
+
+            for(const item of modelo){
+                str+=`<option id="${item.idmodelo}">${item.descmodelo}</option>`;
+            }
+
+            str+=`
+            </select>
+            <br />
+            `;
+
+            str+=`
 			<label for="descversao">descversao</label>
-			<input type="text" name="descversao" value="${versao.descversao}" id="descversao" />
-			<br />
+			<input type="text" name="descversao" value="${versao.descversao ?versao.descversao :''}" id="descversao" />
+            `;
+
+            str+=`<br />
 			<input type="submit" value="Salvar" />
 			<input type="reset" value="Cancelar" />
 		</form>
@@ -48,18 +64,25 @@ class Form_Versao {
 
     limparFormulario(){
         document.querySelector("#idversao").value="";
-        document.querySelector("#idmodelo").value="";
         document.querySelector("#descversao").value="";
+        document.querySelector("#descmodelo").value="";
+
     }
 
     getDataversao(){
         let versao = new Versao();
         if(!document.querySelector("#idversao").value);
+
             versao.idversao = document.querySelector("#idversao").value;
-            versao.idmodelo = document.querySelector("#idmodelo").value;
             versao.descversao = document.querySelector("#descversao").value;
+
+            const sel = document.querySelector("#descmodelo");
+            const opt = sel.options[sel.selectedIndex];
+            versao.modelo = new Modelo(opt.value);
+            versao.modelo.idmodelo = opt.id;
 
         return versao;        
     }
 
 }
+

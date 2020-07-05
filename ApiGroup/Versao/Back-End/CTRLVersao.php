@@ -2,6 +2,9 @@
 
 include_once(__DIR__.'\objversao.php');
 include_once(__DIR__.'\DAOversao.php');
+include_once(__DIR__.'\..\..\Modelo/Back-End\objModelo.php');
+include_once(__DIR__.'\..\..\Modelo/Back-End\DAOModelo.php');
+
 
 class VersaoController {
 
@@ -15,10 +18,16 @@ class VersaoController {
 
     public function insert($request, $response, $args) {
         $data = $request->getParsedBody();
+
+        $modeloDao = new ModeloDAO;
+        $modelo = $modeloDao->SearchByID(
+            $data['modelo']['idmodelo']
+        );
+
         $versao = new versao(
             $data['idversao']
-            ,$data['idmodelo']
             ,$data['descversao']
+            ,$modelo
         );
 
         $dao = new VersaoDAO;
@@ -27,11 +36,11 @@ class VersaoController {
         return $response->withJson($versao,201);
     }
 
-    public function SearchByversao($request, $response, $args) {
+    public function SearchByID($request, $response, $args) {
         $idversao = $args['idversao'];
         
         $dao= new VersaoDAO;    
-        $versao = $dao->SearchByversao($idversao);
+        $versao = $dao->SearchByID($idversao);
         
         return $response->withJson($versao);
     }
@@ -39,10 +48,16 @@ class VersaoController {
     public function update($request, $response, $args) {
         $idversao = $args['idversao'];
         $data = $request->getParsedBody();
+        
+        $modeloDao = new ModeloDAO;
+        $modelo = $modeloDao->SearchByID(
+            $data['modelo']['idmodelo']
+        );
+
         $versao = new versao(
             $idversao
-            ,$data['idmodelo']
             ,$data['descversao']
+            ,$modelo
         );
 
         $dao = new VersaoDAO;

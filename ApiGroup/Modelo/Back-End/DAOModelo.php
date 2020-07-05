@@ -29,7 +29,7 @@
             $qDelete = "DELETE from 
             plmodelo 
             WHERE idmodelo=:idmodelo";            
-            $modelo = $this->SearchBymodelo($idmodelo);
+            $modelo = $this->SearchByID($idmodelo);
 
             $pdo = PDOFactory::getConexao();
             $comando = $pdo->prepare($qDelete);
@@ -77,7 +77,7 @@
             return $arrmodelo;
         }
 
-        public function SearchBymodelo($idmodelo)
+        public function SearchByID($idmodelo)
         {
 
              $query = 'SELECT * FROM plmodelo WHERE idmodelo=:idmodelo';

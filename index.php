@@ -125,7 +125,7 @@ $app->group('/api/versao'
     
     $app->get('', 'VersaoController:list');
     $app->post('', 'VersaoController:insert');
-    $app->get('/{idversao}', 'VersaoController:searchbyversao');    
+    $app->get('/{idversao}', 'VersaoController:SearchByID');    
     $app->put('/{idversao}', 'VersaoController:update');
     $app->delete('/{idversao}', 'VersaoController:delete');
 

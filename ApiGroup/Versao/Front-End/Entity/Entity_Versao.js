@@ -1,7 +1,7 @@
 class Versao {
-	constructor(idversao, idmodelo, descversao) {
+	constructor(idversao, descversao, idmodelo) {
 		this.idversao = idversao;
-		this.idmodelo = idmodelo;
 		this.descversao = descversao;
+		this.idmodelo = idmodelo;
 	}
 }

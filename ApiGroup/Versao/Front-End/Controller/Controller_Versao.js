@@ -1,6 +1,7 @@
 class Controller_Versao{  
 	constructor() {
-		this.service = new APIService_Versao(); 
+		this.service = new APIService_Versao();
+		this.service_modelo = new APIService_Modelo();
 		this.table = new Table_Versao(this,"main");
 		this.form = new Form_Versao(this,"main");
 	} 
@@ -11,7 +12,18 @@ class Controller_Versao{
 
 	load_form(){
 		event.preventDefault();
-		this.form.montarForm();
+		const self = this;
+
+		this.service_modelo.read_item_all(
+			function(modelo) 
+			{ 
+				self.form.montarForm(modelo); 
+			},
+			function(statusCode) {
+				console.log("Erro - status:",statusCode);
+			}
+	)
+	
 	}
 
 	load_table(){
@@ -77,15 +89,23 @@ class Controller_Versao{
 
 	read_item_id(id, event){
 		event.preventDefault();             
-		
 		const self = this;
+
 		const ok = function(versao){
-			self.form.montarForm(versao);
+			self.service_modelo.read_item_all(
+                function(modelo) 
+                { 
+                    self.form.montarForm(modelo,versao); 
+                },
+                function(statusCode) {
+                    console.log("Erro - status:",statusCode);
+                }
+            )
 		}
+
 		const erro = function(status){
 			console.log(status);
 		}
-
 		this.service.read_item_id(id,ok,erro);   
 	}
 

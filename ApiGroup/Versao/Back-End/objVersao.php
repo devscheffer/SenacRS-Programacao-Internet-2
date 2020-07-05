@@ -1,15 +1,19 @@
 <?php
+include_once(__DIR__.'\..\..\Modelo\Back-End\objModelo.php');
+
     class Versao {
         public $idversao;
-        public $idmodelo;
+        public $obj_modelo;
         public $descversao;
 
-
-        function __construct($idversao, $idmodelo, $descversao){
+        function __construct(
+            $idversao
+            ,$descversao
+            ,Modelo $obj_modelo
+            ){
             $this->idversao = $idversao;
-            $this->idmodelo = $idmodelo;
+            $this->obj_modelo = $obj_modelo;
             $this->descversao = $descversao;
-
         }
     }
 ?>

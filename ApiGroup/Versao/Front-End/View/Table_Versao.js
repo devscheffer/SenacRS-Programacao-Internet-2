@@ -13,7 +13,7 @@ class Table_Versao {
 		<table>
 			<tr>
 				<th style='text-align: left;'>idversao</th>
-				<th style='text-align: left;'>idmodelo</th>
+				<th style='text-align: left;'>modelo</th>
 				<th style='text-align: left;'>descversao</th>
 				<th colspan="2">Ação</th>
 			</tr>`;
@@ -21,7 +21,7 @@ class Table_Versao {
 		for(var i in versao){
 			str+=`  <tr id=${versao[i].idversao}>
 					<td>${versao[i].idversao}</td>
-					<td>${versao[i].idmodelo}</td>
+					<td>${versao[i].obj_modelo.descmodelo}</td>
 					<td>${versao[i].descversao}</td>
 
 					<td><a class="edit" href="#">Editar</a></td>
