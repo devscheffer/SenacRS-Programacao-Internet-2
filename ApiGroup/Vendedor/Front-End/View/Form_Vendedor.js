@@ -5,7 +5,7 @@ class Form_Vendedor {
         this.seletor = seletor;
     }
 
-    montarForm(vendedor){
+    montarForm(concessionaria,vendedor){
         if(!vendedor){
             vendedor = new Vendedor();
         }
@@ -13,17 +13,31 @@ class Form_Vendedor {
         <h2>Formulario de Vendedor</h2>
 		<form action="" method="post" id="formulario">
 			<label for="idvendedor">idvendedor</label>
-			<input type="text" name="idvendedor" value="${vendedor.idvendedor}" id="idvendedor" />
+			<input type="text" name="idvendedor" value="${vendedor.idvendedor ?vendedor.idvendedor :''}" id="idvendedor" />
             <br />
 			<label for="nome">nome</label>
-			<input type="text" name="nome" value="${vendedor.nome}" id="nome" />
+			<input type="text" name="nome" value="${vendedor.nome ?vendedor.nome :''}" id="nome" />
 			<br />
 			<label for="email">email</label>
-			<input type="text" name="email" value="${vendedor.email}" id="email" />
-			<br />
-			<label for="concessionaria">concessionaria</label>
-			<input type="text" name="concessionaria" value="${vendedor.concessionaria}" id="concessionaria" />
-			<br />
+			<input type="text" name="email" value="${vendedor.email ?vendedor.email :''}" id="email" />
+            <br />
+            `;
+
+            str+=`
+            <label for="concessionaria">concessionaria</label>
+            <select id="concessionaria">
+            `;
+
+            for(const item of concessionaria){
+                str+=`<option id="${item.idconcessionaria}">${item.nomefantasia}</option>`;
+            };
+
+            str+=`
+            </select>
+            <br />
+            `;
+            
+            str+=`
 			<input type="submit" value="Salvar" />
 			<input type="reset" value="Cancelar" />
 		</form>
@@ -61,7 +75,11 @@ class Form_Vendedor {
             vendedor.idvendedor = document.querySelector("#idvendedor").value;
             vendedor.nome = document.querySelector("#nome").value;
             vendedor.email = document.querySelector("#email").value;
-            vendedor.concessionaria = document.querySelector("#concessionaria").value;
+
+            const sel = document.querySelector("#concessionaria");
+            const opt = sel.options[sel.selectedIndex];
+            vendedor.concessionaria = new Concessionaria(opt.value);
+            vendedor.concessionaria.idconcessionaria = opt.id;
 
         return vendedor;        
     }

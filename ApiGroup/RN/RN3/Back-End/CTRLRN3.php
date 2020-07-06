@@ -13,11 +13,11 @@ class RN3Controller {
     
     }
 
-    public function SearchByconcessionaria($request, $response, $args) {
+    public function SearchByID($request, $response, $args) {
         $concessionaria = $args['concessionaria'];
     
         $dao= new RN3DAO;    
-        $RN3 = $dao->SearchByconcessionaria($concessionaria);
+        $RN3 = $dao->SearchByID($concessionaria);
         
         return $response->withJson($RN3);
     }

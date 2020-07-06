@@ -37,7 +37,7 @@
             $qDelete = "DELETE from 
             venda 
             WHERE idsale=:idsale";            
-            $Venda = $this->SearchByVenda($idsale);
+            $Venda = $this->SearchByID($idsale);
 
             $pdo = PDOFactory::getConexao();
             $comando = $pdo->prepare($qDelete);
@@ -97,7 +97,7 @@
             return $arrVenda;
         }
 
-        public function SearchByVenda($idsale)
+        public function SearchByID($idsale)
         {
 
              $query = 'SELECT * FROM venda WHERE idsale=:idsale';

@@ -2,64 +2,79 @@
 
 include_once(__DIR__.'\objvendedor.php');
 include_once(__DIR__.'\DAOvendedor.php');
+include_once(__DIR__.'\..\..\Concessionaria\Back-End\objConcessionaria.php');
+include_once(__DIR__.'\..\..\Concessionaria\Back-End\DAOConcessionaria.php');
 
 class VendedorController {
 
-    public function list($request, $response, $args){
-        $dao= new VendedorDAO;    
-        $vendedor = $dao->list();
+	public function list($request, $response, $args){
+		$dao= new VendedorDAO;    
+		$vendedor = $dao->list();
 
-        return $response->withJSON($vendedor);
-    
-    }
+		return $response->withJSON($vendedor);
+	
+	}
 
-    public function insert($request, $response, $args) {
-        $data = $request->getParsedBody();
-        $vendedor = new vendedor(
-            $data['idvendedor']
-            ,$data['nome']
-            ,$data['email']
-            ,$data['concessionaria']
-        );
+	public function insert($request, $response, $args) {
+		$data = $request->getParsedBody();
 
-        $dao = new VendedorDAO;
-        $vendedor = $dao->insert($vendedor);
+		$concessionariaDAO = new ConcessionariaDAO;
+		$concessionaria = $concessionariaDAO->SearchByID(
+			$data['concessionaria']['idconcessionaria']
+			
+		);
 
-        return $response->withJson($vendedor,201);
-    }
+		$vendedor = new Vendedor(
+			$data['idvendedor']
+			,$data['nome']
+			,$data['email']
+			,$concessionaria
+		);
 
-    public function SearchByvendedor($request, $response, $args) {
-        $idvendedor = $args['idvendedor'];
-    
-        $dao= new VendedorDAO;    
-        $vendedor = $dao->SearchByvendedor($idvendedor);
-        
-        return $response->withJson($vendedor);
-    }
-    
-    public function update($request, $response, $args) {
-        $idvendedor = $args['idvendedor'];
-        $data = $request->getParsedBody();
-        $vendedor = new vendedor(
-            $idvendedor
-            ,$data['nome']
-            ,$data['email']
-            ,$data['concessionaria']
-        );
+		$dao = new VendedorDAO;
+		$vendedor = $dao->insert($vendedor);
 
-        $dao = new VendedorDAO;
-        $vendedor = $dao->update($vendedor);
+		return $response->withJson($vendedor,201);
+	}
 
-        return $response->withJson($vendedor);
-    }
-    
-    public function delete($request, $response, $args) {
-        $idvendedor = $args['idvendedor'];
+	public function SearchByID($request, $response, $args) {
+		$idvendedor = $args['idvendedor'];
+	
+		$dao= new VendedorDAO;    
+		$vendedor = $dao->SearchByID($idvendedor);
+		
+		return $response->withJson($vendedor);
+	}
+	
+	public function update($request, $response, $args) {
+		$idvendedor = $args['idvendedor'];
+		$data = $request->getParsedBody();
 
-        $dao = new VendedorDAO;
-        $vendedor = $dao->delete($idvendedor);
+		$concessionariaDao = new ConcessionariaDAO;
+        $concessionaria = $concessionariaDao->SearchByID(
+            $data['concessionaria']['idconcessionaria']
+		);
+		
+		$vendedor = new Vendedor(
+			$idvendedor
+			,$data['nome']
+			,$data['email']
+			,$concessionaria
+		);
 
-        return $response->withJson($vendedor);
-    }
+		$dao = new VendedorDAO;
+		$vendedor = $dao->update($vendedor);
+
+		return $response->withJson($vendedor);
+	}
+	
+	public function delete($request, $response, $args) {
+		$idvendedor = $args['idvendedor'];
+
+		$dao = new VendedorDAO;
+		$vendedor = $dao->delete($idvendedor);
+
+		return $response->withJson($vendedor);
+	}
 }
 ?>

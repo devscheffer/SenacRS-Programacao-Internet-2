@@ -24,7 +24,7 @@ class Table_Vendedor {
 					<td>${vendedor[i].idvendedor}</td>
 					<td>${vendedor[i].nome}</td>
 					<td>${vendedor[i].email}</td>
-					<td>${vendedor[i].concessionaria}</td>
+					<td>${vendedor[i].obj_concessionaria.nomefantasia}</td>
 
 					<td><a class="edit" href="#">Editar</a></td>
 					<td><a class="delete" href="#">Deletar</a></td>    

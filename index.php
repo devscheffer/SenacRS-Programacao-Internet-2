@@ -58,7 +58,7 @@ $app->group('/api/carro'
     
     $app->get('', 'CarroController:list');
     $app->post('', 'CarroController:insert');
-    $app->get('/{chassi}', 'CarroController:searchbychassi');    
+    $app->get('/{chassi}', 'CarroController:SearchByID');    
     $app->put('/{chassi}', 'CarroController:update');
     $app->delete('/{chassi}', 'CarroController:delete');
 
@@ -70,7 +70,7 @@ $app->group('/api/concessionaria'
 
     $app->get('', 'ConcessionariaController:list');
     $app->post('', 'ConcessionariaController:insert');
-    $app->get('/{idconcessionaria}', 'ConcessionariaController:searchbyconcessionaria');    
+    $app->get('/{idconcessionaria}', 'ConcessionariaController:SearchByID');    
     $app->put('/{idconcessionaria}', 'ConcessionariaController:update');
     $app->delete('/{idconcessionaria}', 'ConcessionariaController:delete');
 
@@ -81,7 +81,7 @@ $app->group('/api/cor'
     
     $app->get('', 'CorController:list');
     $app->post('', 'CorController:insert');
-    $app->get('/{idcor}', 'CorController:searchbycor');    
+    $app->get('/{idcor}', 'CorController:SearchByID');    
     $app->put('/{idcor}', 'CorController:update');
     $app->delete('/{idcor}', 'CorController:delete');
 
@@ -92,7 +92,7 @@ $app->group('/api/modelo'
     
     $app->get('', 'ModeloController:list');
     $app->post('', 'ModeloController:insert');
-    $app->get('/{idmodelo}', 'ModeloController:searchbymodelo');    
+    $app->get('/{idmodelo}', 'ModeloController:SearchByID');    
     $app->put('/{idmodelo}', 'ModeloController:update');
     $app->delete('/{idmodelo}', 'ModeloController:delete');
 
@@ -103,7 +103,7 @@ $app->group('/api/venda'
     
     $app->get('', 'VendaController:list');
     $app->post('', 'VendaController:insert');
-    $app->get('/{idsale}', 'VendaController:searchbyvenda');    
+    $app->get('/{idsale}', 'VendaController:SearchByID');    
     $app->put('/{idsale}', 'VendaController:update');
     $app->delete('/{idsale}', 'VendaController:delete');
 
@@ -114,7 +114,7 @@ $app->group('/api/vendedor'
     
     $app->get('', 'VendedorController:list');
     $app->post('', 'VendedorController:insert');
-    $app->get('/{idvendedor}', 'VendedorController:searchbyvendedor');    
+    $app->get('/{idvendedor}', 'VendedorController:searchbyid');    
     $app->put('/{idvendedor}', 'VendedorController:update');
     $app->delete('/{idvendedor}', 'VendedorController:delete');
 
@@ -136,7 +136,7 @@ $app->group('/api/rn1'
 , function($app){
     
     $app->get('', 'RN1Controller:list');
-    $app->get('/vendedor/{vendedor}', 'RN1Controller:SearchByvendedor');    
+    $app->get('/vendedor/{vendedor}', 'RN1Controller:searchbyid');    
     $app->get('/ano/{ano}', 'RN1Controller:SearchByano');
     $app->get('/anomes/{ano}/{mes}', 'RN1Controller:SearchByanomes');    
 
@@ -146,7 +146,7 @@ $app->group('/api/rn2'
 , function($app){
 
     $app->get('', 'RN2Controller:list');
-    $app->get('/vendedor/{vendedor}', 'RN2Controller:SearchByvendedor');    
+    $app->get('/vendedor/{vendedor}', 'RN2Controller:searchbyid');    
     $app->get('/ano/{ano}', 'RN2Controller:SearchByano');
     $app->get('/anomes/{ano}/{mes}', 'RN2Controller:SearchByanomes');    
 
@@ -156,7 +156,7 @@ $app->group('/api/rn3'
     , function($app){
 
     $app->get('', 'RN3Controller:list');
-    $app->get('/concessionaria/{concessionaria}', 'RN3Controller:SearchByconcessionaria');    
+    $app->get('/concessionaria/{concessionaria}', 'RN3Controller:SearchByID');    
     $app->get('/ano/{ano}', 'RN3Controller:SearchByano');
     $app->get('/anomes/{ano}/{mes}', 'RN3Controller:SearchByanomes');    
 
@@ -166,7 +166,7 @@ $app->group('/api/rn4'
     , function($app){
 
     $app->get('', 'RN4Controller:list');
-    $app->get('/vendedor/{vendedor}', 'RN4Controller:SearchByvendedor');    
+    $app->get('/vendedor/{vendedor}', 'RN4Controller:searchbyid');    
     $app->get('/ano/{ano}', 'RN4Controller:SearchByano');
     $app->get('/anomes/{ano}/{mes}', 'RN4Controller:SearchByanomes');    
 

@@ -30,11 +30,11 @@ class VendaController {
         return $response->withJson($venda,201);
     }
 
-    public function SearchByVenda($request, $response, $args) {
+    public function SearchByID($request, $response, $args) {
         $idsale = $args['idsale'];
     
         $dao= new vendaDAO;    
-        $venda = $dao->SearchByVenda($idsale);
+        $venda = $dao->SearchByID($idsale);
         
         return $response->withJson($venda);
     }

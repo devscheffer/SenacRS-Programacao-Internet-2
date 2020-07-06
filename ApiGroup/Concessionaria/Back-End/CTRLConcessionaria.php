@@ -28,11 +28,11 @@ class ConcessionariaController {
         return $response->withJson($concessionaria,201);
     }
 
-    public function SearchByconcessionaria($request, $response, $args) {
+    public function SearchByID($request, $response, $args) {
         $idconcessionaria = $args['idconcessionaria'];
     
         $dao= new ConcessionariaDAO;    
-        $concessionaria = $dao->SearchByconcessionaria($idconcessionaria);
+        $concessionaria = $dao->SearchByID($idconcessionaria);
         
         return $response->withJson($concessionaria);
     }

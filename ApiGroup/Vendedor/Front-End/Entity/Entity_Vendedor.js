@@ -1,8 +1,8 @@
 class Vendedor {
-	constructor(idvendedor, nome, email, concessionaria) {
+	constructor(idvendedor, nome, email, idconcessionaria) {
 		this.idvendedor = idvendedor;
 		this.nome = nome;
 		this.email = email;
-		this.concessionaria    = concessionaria;
+		this.idconcessionaria    = idconcessionaria;
 	}
 }

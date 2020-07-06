@@ -33,7 +33,7 @@
             $qDelete = "DELETE from 
             plconcessionaria 
             WHERE idconcessionaria=:idconcessionaria";            
-            $concessionaria = $this->SearchByconcessionaria($idconcessionaria);
+            $concessionaria = $this->SearchByID($idconcessionaria);
 
             $pdo = PDOFactory::getConexao();
             $comando = $pdo->prepare($qDelete);
@@ -87,7 +87,7 @@
             return $arrconcessionaria;
         }
 
-        public function SearchByconcessionaria($idconcessionaria)
+        public function SearchByID($idconcessionaria)
         {
 
              $query = 'SELECT * FROM plconcessionaria WHERE idconcessionaria=:idconcessionaria';

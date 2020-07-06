@@ -92,7 +92,7 @@
             return $arrRN3;
         }
 
-        public function SearchByconcessionaria($concessionaria)
+        public function SearchByID($concessionaria)
         {
 
              $query = "

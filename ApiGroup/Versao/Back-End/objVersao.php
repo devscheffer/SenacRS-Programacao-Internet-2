@@ -12,8 +12,8 @@ include_once(__DIR__.'\..\..\Modelo\Back-End\objModelo.php');
             ,Modelo $obj_modelo
             ){
             $this->idversao = $idversao;
-            $this->obj_modelo = $obj_modelo;
             $this->descversao = $descversao;
+            $this->obj_modelo = $obj_modelo;
         }
     }
 ?>

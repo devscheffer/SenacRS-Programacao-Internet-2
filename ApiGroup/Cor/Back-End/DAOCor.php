@@ -29,7 +29,7 @@
             $qDelete = "DELETE from 
             plcor 
             WHERE idcor=:idcor";            
-            $cor = $this->SearchBycor($idcor);
+            $cor = $this->SearchByID($idcor);
 
             $pdo = PDOFactory::getConexao();
             $comando = $pdo->prepare($qDelete);
@@ -77,7 +77,7 @@
             return $arrcor;
         }
 
-        public function SearchBycor($idcor)
+        public function SearchByID($idcor)
         {
 
              $query = 'SELECT * FROM plcor WHERE idcor=:idcor';

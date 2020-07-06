@@ -26,11 +26,11 @@ class CorController {
         return $response->withJson($cor,201);
     }
 
-    public function SearchBycor($request, $response, $args) {
+    public function SearchByID($request, $response, $args) {
         $idcor = $args['idcor'];
     
         $dao= new CorDAO;    
-        $cor = $dao->SearchBycor($idcor);
+        $cor = $dao->SearchByID($idcor);
         
         return $response->withJson($cor);
     }

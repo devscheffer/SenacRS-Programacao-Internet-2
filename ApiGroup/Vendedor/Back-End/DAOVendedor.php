@@ -1,111 +1,149 @@
 <?php
-    include_once __DIR__.'\objvendedor.php';
-    include_once __DIR__.'\..\..\..\PDOFactory.php';
+	include_once __DIR__.'\objvendedor.php';
+	include_once __DIR__.'\..\..\..\PDOFactory.php';
 
-    class VendedorDAO
-    {
-        public function insert(vendedor $vendedor)
-        {
-            $qInsert = "INSERT INTO 
-            plvendedor(idvendedor, nome, email, concessionaria)
-            VALUES (
-                :idvendedor
-                ,:nome
-                ,:email
-                ,:concessionaria
-            )";
+	class VendedorDAO
+	{
+		public function insert(vendedor $vendedor)
+		{
+			$qInsert = "INSERT INTO 
+			plvendedor(idvendedor, nome, email, idconcessionaria)
+			VALUES (
+				:idvendedor
+				,:nome
+				,:email
+				,:idconcessionaria
+			)";
 
-            $pdo = PDOFactory::getConexao();
-            $comando = $pdo->prepare($qInsert);
+			$pdo = PDOFactory::getConexao();
+			$comando = $pdo->prepare($qInsert);
 
-            $comando->bindParam(":idvendedor",$vendedor->idvendedor);
-            $comando->bindParam(":nome",$vendedor->nome);
-            $comando->bindParam(":email",$vendedor->email);
-            $comando->bindParam(":concessionaria",$vendedor->concessionaria);
+			$comando->bindParam(":idvendedor",$vendedor->idvendedor);
+			$comando->bindParam(":nome",$vendedor->nome);
+			$comando->bindParam(":email",$vendedor->email);
+			$comando->bindParam(":idconcessionaria",$vendedor->obj_concessionaria->idconcessionaria);
 
-            $comando->execute();
-            //$vendedor->id = $pdo->lastInsertId();
-            return $vendedor;
-        }
+			$comando->execute();
+			//$vendedor->id = $pdo->lastInsertId();
+			return $vendedor;
+		}
 
-        public function delete($idvendedor)
-        {
-            $qDelete = "DELETE from 
-            plvendedor 
-            WHERE idvendedor=:idvendedor";            
-            $vendedor = $this->SearchByvendedor($idvendedor);
+		public function delete($idvendedor)
+		{
+			$qDelete = "DELETE from 
+			plvendedor 
+			WHERE idvendedor=:idvendedor";            
+			$vendedor = $this->SearchByID($idvendedor);
 
-            $pdo = PDOFactory::getConexao();
-            $comando = $pdo->prepare($qDelete);
+			$pdo = PDOFactory::getConexao();
+			$comando = $pdo->prepare($qDelete);
 
-            $comando->bindParam(":idvendedor",$idvendedor);
+			$comando->bindParam(":idvendedor",$idvendedor);
 
-            $comando->execute();
-            return $vendedor;
-        }
+			$comando->execute();
+			return $vendedor;
+		}
 
-        public function update(vendedor $vendedor)
-        {
-            $qUpdate = "UPDATE 
-            plvendedor 
-            SET 
-                idvendedor=:idvendedor
-                ,nome=:nome
-                ,email=:email
-                ,concessionaria=:concessionaria
-                WHERE idvendedor=:idvendedor";
+		public function update(vendedor $vendedor)
+		{
+			$qUpdate = "UPDATE 
+			plvendedor 
+			SET 
+				idvendedor=:idvendedor
+				,nome=:nome
+				,email=:email
+				,idconcessionaria=:idconcessionaria
+				WHERE idvendedor=:idvendedor";
 
-            $pdo = PDOFactory::getConexao();
-            $comando = $pdo->prepare($qUpdate);
+			$pdo = PDOFactory::getConexao();
+			$comando = $pdo->prepare($qUpdate);
 
-            $comando->bindParam(":idvendedor",$vendedor->idvendedor);
-            $comando->bindParam(":nome",$vendedor->nome);
-            $comando->bindParam(":email",$vendedor->email);
-            $comando->bindParam(":concessionaria",$vendedor->concessionaria);
+			$comando->bindParam(":idvendedor",$vendedor->idvendedor);
+			$comando->bindParam(":nome",$vendedor->nome);
+			$comando->bindParam(":email",$vendedor->email);
+			$comando->bindParam(":idconcessionaria",$vendedor->obj_concessionaria->idconcessionaria);
 
-            $comando->execute();    
-            return($vendedor);    
-        }
+			$comando->execute();    
+			return($vendedor);    
+		}
 
-        public function list()
-        {
-            $query = 'SELECT * FROM plvendedor';
-            
-    		$pdo = PDOFactory::getConexao();
-	    	$comando = $pdo->prepare($query);
-    		$comando->execute();
-            $vendedors=array();	
-		    while($row = $comando->fetch(PDO::FETCH_OBJ)){
+		public function list()
+		{
+			$query = '
+				SELECT 
+					plvendedor.idvendedor
+					,plvendedor.nome
+					,plvendedor.email
+					,plconcessionaria.idconcessionaria
+					,plconcessionaria.nomefantasia
+					,plconcessionaria.uf
+					,plconcessionaria.municipio
+				FROM plvendedor
+				join plconcessionaria
+					on plvendedor.idconcessionaria = plconcessionaria.idconcessionaria
+			';
+			
+			$pdo = PDOFactory::getConexao();
+			$comando = $pdo->prepare($query);
+			$comando->execute();
 
-			    $arrvendedor[] = new vendedor(
-                    $row->idvendedor
-                    ,$row->nome
-                    ,$row->email
-                    ,$row->concessionaria
-                );
-            }
-            return $arrvendedor;
-        }
+			$arr_vendedor=array();	
+			while($row = $comando->fetch(PDO::FETCH_OBJ)){
 
-        public function SearchByvendedor($idvendedor)
-        {
+				$arr_vendedor[] = new Vendedor(
+					$row->idvendedor
+					,$row->nome
+					,$row->email
+					,new concessionaria(
+						$row->idconcessionaria
+						,$row->nomefantasia
+						,$row->uf
+						,$row->municipio
+					)
+				);
+			}
+			return $arr_vendedor;
+		}
 
-             $query = 'SELECT * FROM plvendedor WHERE idvendedor=:idvendedor';
-             
-            $pdo = PDOFactory::getConexao(); 
-            $comando = $pdo->prepare($query);
-            
-            $comando->bindParam (':idvendedor', $idvendedor);
-            
-		    $comando->execute();
-            $result = $comando->fetch(PDO::FETCH_OBJ);
-            
-		    return new vendedor(
-                $result->idvendedor
-                ,$result->nome
-                ,$result->email
-                ,$result->concessionaria
-            );           
-        }
-    }
+		public function SearchByID($idvendedor)
+		{
+
+			$query = '
+				SELECT 
+					plvendedor.idvendedor
+					,plvendedor.nome
+					,plvendedor.email
+					,plconcessionaria.idconcessionaria
+					,plconcessionaria.nomefantasia
+					,plconcessionaria.uf
+					,plconcessionaria.municipio
+				FROM plvendedor
+				join plconcessionaria
+					on plvendedor.idconcessionaria = plconcessionaria.idconcessionaria 
+				WHERE idvendedor=:idvendedor';
+
+			$pdo = PDOFactory::getConexao(); 
+			$comando = $pdo->prepare($query);
+			
+			$comando->bindParam (':idvendedor', $idvendedor);
+			
+			$comando->execute();
+			$result = $comando->fetch(PDO::FETCH_OBJ);
+			
+			if($result)
+				return new Vendedor(
+					$result->idvendedor
+					,$result->nome
+					,$result->email
+					,new concessionaria(
+						$result->idconcessionaria
+						,$result->nomefantasia
+						,$result->uf
+						,$result->municipio
+					)
+				);           
+			else
+                return null;
+		}
+	}
 ?>

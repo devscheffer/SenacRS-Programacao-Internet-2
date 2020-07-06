@@ -29,11 +29,11 @@ class CarroController {
 
     }
 
-    public function SearchBychassi($request, $response, $args) {
+    public function SearchByID($request, $response, $args) {
         $chassi = $args['chassi'];
     
         $dao= new CarroDAO;    
-        $carro = $dao->SearchBychassi($chassi);
+        $carro = $dao->SearchByID($chassi);
         
         return $response->withJson($carro);
     }

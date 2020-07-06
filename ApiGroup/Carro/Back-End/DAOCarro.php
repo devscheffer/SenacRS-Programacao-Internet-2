@@ -33,7 +33,7 @@
             $qDelete = "DELETE from 
             plchassi 
             WHERE chassi=:chassi";            
-            $carro = $this->SearchBychassi($chassi);
+            $carro = $this->SearchByID($chassi);
 
             $pdo = PDOFactory::getConexao();
             $comando = $pdo->prepare($qDelete);
@@ -87,7 +87,7 @@
             return $arrcarro;
         }
 
-        public function SearchBychassi($chassi)
+        public function SearchByID($chassi)
         {
 
              $query = 'SELECT * FROM plchassi WHERE chassi=:chassi';
