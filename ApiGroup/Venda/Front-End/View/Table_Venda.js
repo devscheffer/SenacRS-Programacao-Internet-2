@@ -12,23 +12,23 @@ class Table_Venda {
 		<div id="tabela">
 		<table>
 			<tr>
-				<th style='text-align: left;'>idsale</th>
+				<th style='text-align: left;'>idvenda</th>
+				<th style='text-align: left;'>venda_data</th>
+				<th style='text-align: left;'>valor</th>
 				<th style='text-align: left;'>concessionaria</th>
 				<th style='text-align: left;'>vendedor</th>
 				<th style='text-align: left;'>chassi</th>
-				<th style='text-align: left;'>data</th>
-				<th style='text-align: left;'>valor</th>
 				<th colspan="2">Ação</th>
 			</tr>`;
 	
 		for(var i in venda){
-			str+=`  <tr id=${venda[i].idsale}>
-					<td>${venda[i].idsale}</td>
-					<td>${venda[i].concessionaria}</td>
-					<td>${venda[i].vendedor}</td>
-					<td>${venda[i].chassi}</td>
-					<td>${venda[i].data}</td>
+			str+=`  <tr id=${venda[i].idvenda}>
+					<td>${venda[i].idvenda}</td>
+					<td>${venda[i].venda_data}</td>
 					<td>${venda[i].valor}</td>
+					<td>${venda[i].obj_concessionaria.nomefantasia}</td>
+					<td>${venda[i].obj_vendedor.nome}</td>
+					<td>${venda[i].obj_carro.chassi}</td>
 
 
 					<td><a class="edit" href="#">Editar</a></td>

@@ -1,14 +1,16 @@
 <?php
+include_once(__DIR__.'\..\..\..\Vendedor\Back-End\objVendedor.php');
+
     class RN1 {
-        public $vendedor;
+        public $obj_vendedor;
         public $ano;
         public $mes;
         public $totalvenda;
         public $bonus;
         public $comissao_mensal;
 
-        function __construct($vendedor, $ano, $mes,$totalvenda,$bonus,$comissao_mensal){
-            $this->vendedor = $vendedor;
+        function __construct(Vendedor $obj_vendedor, $ano, $mes,$totalvenda,$bonus,$comissao_mensal){
+            $this->obj_vendedor = $obj_vendedor;
             $this->ano = $ano;
             $this->mes = $mes;
             $this->totalvenda = $totalvenda;

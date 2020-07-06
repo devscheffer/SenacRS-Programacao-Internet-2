@@ -1,123 +1,205 @@
 <?php
-    include_once __DIR__.'\objVenda.php';
-    include_once __DIR__.'\..\..\..\PDOFactory.php';
+	include_once __DIR__.'\objVenda.php';
+	include_once __DIR__.'\..\..\..\PDOFactory.php';
 
-    class VendaDAO
-    {
-        public function insert(Venda $Venda)
-        {
-            $qInsert = "INSERT INTO 
-            venda(idsale, concessionaria, vendedor, chassi, data, valor)
-            VALUES (
-                :idsale
-                ,:concessionaria
-                ,:vendedor
-                ,:chassi
-                ,:data
-                ,:valor
-            )";
+	class VendaDAO
+	{
+		public function insert(Venda $Venda)
+		{
+			$qInsert = "INSERT INTO 
+			venda(idvenda, idconcessionaria, idvendedor, chassi, venda_data, valor)
+			VALUES (
+				:idvenda
+				,:idconcessionaria
+				,:idvendedor
+				,:chassi
+				,:venda_data
+				,:valor
+			)";
 
-            $pdo = PDOFactory::getConexao();
-            $comando = $pdo->prepare($qInsert);
+			$pdo = PDOFactory::getConexao();
+			$comando = $pdo->prepare($qInsert);
 
-            $comando->bindParam(":idsale",$Venda->idsale);
-            $comando->bindParam(":concessionaria",$Venda->concessionaria);
-            $comando->bindParam(":vendedor",$Venda->vendedor);
-            $comando->bindParam(":chassi",$Venda->chassi);
-            $comando->bindParam(":data",$Venda->data);
-            $comando->bindParam(":valor",$Venda->valor);
+			$comando->bindParam(":idvenda",$Venda->idvenda);
+			$comando->bindParam(":venda_data",$Venda->venda_data);
+			$comando->bindParam(":valor",$Venda->valor);
+			$comando->bindParam(":idconcessionaria",$Venda->obj_concessionaria->idconcessionaria);
+			$comando->bindParam(":idvendedor",$Venda->obj_vendedor->idvendedor);
+			$comando->bindParam(":chassi",$Venda->obj_carro->chassi);
 
-            $comando->execute();
-            //$Venda->id = $pdo->lastInsertId();
-            return $Venda;
-        }
+			$comando->execute();
+			//$Venda->id = $pdo->lastInsertId();
+			return $Venda;
+		}
 
-        public function delete($idsale)
-        {
-            $qDelete = "DELETE from 
-            venda 
-            WHERE idsale=:idsale";            
-            $Venda = $this->SearchByID($idsale);
+		public function delete($idvenda)
+		{
+			$qDelete = "DELETE from 
+			venda 
+			WHERE idvenda=:idvenda";            
+			$Venda = $this->SearchByID($idvenda);
 
-            $pdo = PDOFactory::getConexao();
-            $comando = $pdo->prepare($qDelete);
+			$pdo = PDOFactory::getConexao();
+			$comando = $pdo->prepare($qDelete);
 
-            $comando->bindParam(":idsale",$idsale);
+			$comando->bindParam(":idvenda",$idvenda);
 
-            $comando->execute();
-            return $Venda;
-        }
+			$comando->execute();
+			return $Venda;
+		}
 
-        public function update(Venda $Venda)
-        {
-            $qUpdate = "UPDATE 
-            venda 
-            SET 
-                idsale=:idsale
-                ,concessionaria=:concessionaria
-                ,vendedor=:vendedor
-                ,chassi=:chassi
-                ,data=:data
-                ,valor=:valor
-                WHERE idsale=:idsale";
+		public function update(Venda $Venda)
+		{
+			$qUpdate = "UPDATE 
+			venda 
+			SET 
+				idvenda=:idvenda
+				,idconcessionaria=:idconcessionaria
+				,idvendedor=:idvendedor
+				,chassi=:chassi
+				,venda_data=:venda_data
+				,valor=:valor
+				WHERE idvenda=:idvenda";
 
-            $pdo = PDOFactory::getConexao();
-            $comando = $pdo->prepare($qUpdate);
+			$pdo = PDOFactory::getConexao();
+			$comando = $pdo->prepare($qUpdate);
 
-            $comando->bindParam(":idsale",$Venda->idsale);
-            $comando->bindParam(":concessionaria",$Venda->concessionaria);
-            $comando->bindParam(":vendedor",$Venda->vendedor);
-            $comando->bindParam(":chassi",$Venda->chassi);
-            $comando->bindParam(":data",$Venda->data);
-            $comando->bindParam(":valor",$Venda->valor);
+			$comando->bindParam(":idvenda",$Venda->idvenda);
+			$comando->bindParam(":idconcessionaria",$Venda->obj_concessionaria->idconcessionaria);
+			$comando->bindParam(":idvendedor",$Venda->obj_vendedor->idvendedor);
+			$comando->bindParam(":chassi",$Venda->obj_carro->chassi);
+			$comando->bindParam(":venda_data",$Venda->venda_data);
+			$comando->bindParam(":valor",$Venda->valor);
 
-            $comando->execute();    
-            return($Venda);    
-        }
+			$comando->execute();    
+			return($Venda);    
+		}
 
-        public function list()
-        {
-            $query = 'SELECT * FROM venda';
-            
-    		$pdo = PDOFactory::getConexao();
-	    	$comando = $pdo->prepare($query);
-    		$comando->execute();
-            $Vendas=array();	
-		    while($row = $comando->fetch(PDO::FETCH_OBJ)){
+		public function list()
+		{
+			$query = '
+			SELECT 
+				idvenda
+				, venda_data
+				, valor
+				, venda_concessionaria
+				, nomefantasia
+				, idvendedor
+				, nome
+				, chassi
+			FROM vwvenda
+			';
+			
+			$pdo = PDOFactory::getConexao();
+			$comando = $pdo->prepare($query);
+			$comando->execute();
+			$arr_venda=array();	
+			while($row = $comando->fetch(PDO::FETCH_OBJ)){
 
-			    $arrVenda[] = new Venda(
-                    $row->idsale
-                    ,$row->concessionaria
-                    ,$row->vendedor
-                    ,$row->chassi
-                    ,$row->data
-                    ,$row->valor
-                );
-            }
-            return $arrVenda;
-        }
+				$arr_venda[] = new Venda(
+					$row->idvenda
+					,$row->venda_data
+					,$row->valor
+					,new Concessionaria(
+						$row->venda_concessionaria
+						,$row->nomefantasia
+						,null
+						,null
+					)
+					,new Vendedor(
+						$row->idvendedor
+						,$row->nome
+						,null
+						,new Concessionaria(
+							null
+							,null
+							,null
+							,null
+						)
+					)
+					,new Carro(
+						$row->chassi
+						,new Versao(
+							null
+							,null
+							,new Modelo(
+								null
+								,null
+							)
+						)
+						,new Cor(
+							null
+							,null
+						)
+					)
+				);
+			}
+			return $arr_venda;
+		}
 
-        public function SearchByID($idsale)
-        {
+		public function SearchByID($idvenda){
 
-             $query = 'SELECT * FROM venda WHERE idsale=:idsale';
-             
-            $pdo = PDOFactory::getConexao(); 
-            $comando = $pdo->prepare($query);
-            
-            $comando->bindParam (':idsale', $idsale);
-            
-		    $comando->execute();
-            $result = $comando->fetch(PDO::FETCH_OBJ);
-            
-		    return new Venda(
-                $result->idsale
-                ,$result->concessionaria
-                ,$result->vendedor
-                ,$result->chassi
-                ,$result->data
-                ,$result->valor
-            );           
-        }
-    }
+			$query = '
+			SELECT 
+				idvenda
+				, venda_data
+				, valor
+				, venda_concessionaria
+				, nomefantasia
+				, idvendedor
+				, nome
+				, chassi
+			FROM vwvenda
+			WHERE idvenda=:idvenda';
+
+			$pdo = PDOFactory::getConexao(); 
+			$comando = $pdo->prepare($query);
+			
+			$comando->bindParam (':idvenda', $idvenda);
+			
+			$comando->execute();
+			$result = $comando->fetch(PDO::FETCH_OBJ);
+			
+			if($result)
+				return new Venda(
+					$result->idvenda
+					,$result->venda_data
+					,$result->valor
+					,new Concessionaria(
+						$result->venda_concessionaria
+						,$result->nomefantasia
+						,null
+						,null
+					)
+					,new Vendedor(
+						$result->idvendedor
+						,$result->nome
+						,null
+						,new Concessionaria(
+							null
+							,null
+							,null
+							,null
+						)
+					)
+					,new Carro(
+						$result->chassi
+						,new Versao(
+							null
+							,null
+							,new Modelo(
+								null
+								,null
+							)
+						)
+						,new Cor(
+							null
+							,null
+						)
+					)
+				);       
+				else
+                return null;
+		}
+	}
 ?>

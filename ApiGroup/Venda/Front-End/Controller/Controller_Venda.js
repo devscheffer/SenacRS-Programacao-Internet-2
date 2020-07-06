@@ -1,6 +1,9 @@
 class Controller_Venda{  
 	constructor() {
 		this.service = new APIService_Venda(); 
+		this.service_concessionaria = new APIService_Concessionaria();
+		this.service_vendedor = new APIService_Vendedor();
+		this.service_carro = new APIService_Carro();
 		this.table = new Table_Venda(this,"main");
 		this.form = new Form_Venda(this,"main");
 	} 
@@ -11,7 +14,27 @@ class Controller_Venda{
 
 	load_form(){
 		event.preventDefault();
-		this.form.montarForm();
+		const self = this;
+
+		self.service_concessionaria.read_item_all(
+			function(concessionaria) 
+			{ 
+				self.service_vendedor.read_item_all(
+					function(vendedor) 
+					{ 
+						self.service_carro.read_item_all(
+							function(carro) 
+							{ 
+								self.form.montarForm(concessionaria,vendedor,carro); 
+							}
+						)
+					}
+				) 
+			},
+			function(statusCode) {
+				console.log("Erro - status:",statusCode);
+			}
+		)
 	}
 
 	load_table(){
@@ -77,11 +100,25 @@ class Controller_Venda{
 
 	read_item_id(id, event){
 		event.preventDefault();             
-		
 		const self = this;
+
 		const ok = function(venda){
-			self.form.montarForm(venda);
+			self.service_concessionaria.read_item_all(
+                function(concessionaria) { 
+                    self.service_vendedor.read_item_all(
+						function(vendedor) { 
+							self.service_carro.read_item_all(
+								function(carro) 
+								{ 
+									self.form.montarForm(concessionaria,vendedor,carro,venda); 
+								}
+							)
+						}
+					) 
+                }
+            )
 		}
+
 		const erro = function(status){
 			console.log(status);
 		}

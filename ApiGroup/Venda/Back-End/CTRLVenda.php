@@ -2,6 +2,12 @@
 
 include_once(__DIR__.'\objVenda.php');
 include_once(__DIR__.'\DAOVenda.php');
+include_once(__DIR__.'\..\..\Concessionaria/Back-End\objConcessionaria.php');
+include_once(__DIR__.'\..\..\Concessionaria/Back-End\DAOConcessionaria.php');
+include_once(__DIR__.'\..\..\Vendedor/Back-End\objVendedor.php');
+include_once(__DIR__.'\..\..\Vendedor/Back-End\DAOVendedor.php');
+include_once(__DIR__.'\..\..\Carro/Back-End\objCarro.php');
+include_once(__DIR__.'\..\..\Carro/Back-End\DAOCarro.php');
 
 class VendaController {
 
@@ -15,13 +21,29 @@ class VendaController {
 
     public function insert($request, $response, $args) {
         $data = $request->getParsedBody();
+
+        $concessionariaDao = new ConcessionariaDAO;
+		$concessionaria = $concessionariaDao->SearchByID(
+			$data['concessionaria']['idconcessionaria']
+        );
+        
+        $vendedorDao = new VendedorDAO;
+		$vendedor = $vendedorDao->SearchByID(
+			$data['vendedor']['idvendedor']
+        );
+
+        $carroDao = new CarroDAO;
+		$carro = $carroDao->SearchByID(
+			$data['carro']['chassi']
+        );
+
         $venda = new venda(
-            $data['idsale']
-            ,$data['concessionaria']
-            ,$data['vendedor']
-            ,$data['chassi']
-            ,$data['data']
+            $data['idvenda']
+            ,$data['venda_data']
             ,$data['valor']
+            ,$concessionaria
+            ,$vendedor
+            ,$carro
         );
 
         $dao = new VendaDAO;
@@ -31,24 +53,40 @@ class VendaController {
     }
 
     public function SearchByID($request, $response, $args) {
-        $idsale = $args['idsale'];
+        $idvenda = $args['idvenda'];
     
-        $dao= new vendaDAO;    
-        $venda = $dao->SearchByID($idsale);
+        $dao= new VendaDAO;    
+        $venda = $dao->SearchByID($idvenda);
         
         return $response->withJson($venda);
     }
     
     public function update($request, $response, $args) {
-        $idsale = $args['idsale'];
+        $idvenda = $args['idvenda'];
         $data = $request->getParsedBody();
+
+        $concessionariaDao = new ConcessionariaDAO;
+		$concessionaria = $concessionariaDao->SearchByID(
+			$data['concessionaria']['idconcessionaria']
+        );
+        
+        $vendedorDao = new VendedorDAO;
+		$vendedor = $vendedorDao->SearchByID(
+			$data['vendedor']['idvendedor']
+        );
+
+        $carroDao = new CarroDAO;
+		$carro = $carroDao->SearchByID(
+			$data['carro']['chassi']
+        );
+
         $venda = new venda(
-            $idsale
-            ,$data['concessionaria']
-            ,$data['vendedor']
-            ,$data['chassi']
-            ,$data['data']
+            $idvenda
+            ,$data['venda_data']
             ,$data['valor']
+            ,$concessionaria
+            ,$vendedor
+            ,$carro
         );
 
         $dao = new vendaDAO;
@@ -58,10 +96,10 @@ class VendaController {
     }
     
     public function delete($request, $response, $args) {
-        $idsale = $args['idsale'];
+        $idvenda = $args['idvenda'];
 
         $dao = new vendaDAO;
-        $venda = $dao->delete($idsale);
+        $venda = $dao->delete($idvenda);
 
         return $response->withJson($venda);
     }

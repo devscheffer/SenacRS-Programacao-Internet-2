@@ -5,31 +5,70 @@ class Form_Venda {
         this.seletor = seletor;
     }
 
-    montarForm(venda){
+    montarForm(concessionaria,vendedor,carro,venda){
         if(!venda){
             venda = new Venda();
         }
         var str = `
         <h2>Formulario de Venda</h2>
 		<form action="" method="post" id="formulario">
-			<label for="idsale">idsale</label>
-			<input type="text" name="idsale" value="${venda.idsale}" id="idsale" />
+			<label for="idvenda">idvenda</label>
+			<input type="text" name="idvenda" value="${venda.idvenda ?venda.idvenda :''}" id="idvenda" />
             <br />
-			<label for="concessionaria">concessionaria</label>
-			<input type="text" name="concessionaria" value="${venda.concessionaria}" id="concessionaria" />
-			<br />
-			<label for="vendedor">vendedor</label>
-			<input type="text" name="vendedor" value="${venda.vendedor}" id="vendedor" />
-			<br />
-			<label for="chassi">chassi</label>
-			<input type="text" name="chassi" value="${venda.chassi}" id="chassi" />
-            <br />
-			<label for="data">data</label>
-			<input type="text" name="data" value="${venda.data}" id="data" />
+            `;
+
+            str+=`
+			<label for="venda_data">venda_data</label>
+			<input type="text" name="venda_data" value="${venda.venda_data ?venda.venda_data :''}" id="venda_data" />
             <br />
 			<label for="valor">valor</label>
-			<input type="text" name="valor" value="${venda.valor}" id="valor" />
+			<input type="text" name="valor" value="${venda.valor ?venda.valor :''}" id="valor" />
+            <br />
+            `;
+
+			str+=`
+			<label for="concessionaria">concessionaria</label>
+			<select id="concessionaria">
+			`;
+
+			for(const item of concessionaria){
+				str+=`<option id="${item.idconcessionaria}">${item.nomefantasia}</option>`;
+			}
+
+			str+=`
+			</select>
 			<br />
+            `;
+
+			str+=`
+			<label for="vendedor">vendedor</label>
+			<select id="vendedor">
+			`;
+
+			for(const item of vendedor){
+				str+=`<option id="${item.idvendedor}">${item.nome}</option>`;
+			}
+
+			str+=`
+			</select>
+			<br />
+            `;
+            
+			str+=`
+			<label for="chassi">chassi</label>
+			<select id="chassi">
+			`;
+
+			for(const item of carro){
+				str+=`<option id="${item.chassi}">${item.chassi}</option>`;
+			}
+
+			str+=`
+			</select>
+			<br />
+            `;
+            
+            str+=`
 			<input type="submit" value="Salvar" />
 			<input type="reset" value="Cancelar" />
 		</form>
@@ -41,11 +80,11 @@ class Form_Venda {
         var form = document.querySelector("#formulario");
         const self = this;
         form.onsubmit = function(event){
-            if(!venda.idsale){
+            if(!venda.idvenda){
                 self.controller.salvar(event);
             }
             else{
-                self.controller.update_item(venda.idsale,event);
+                self.controller.update_item(venda.idvenda,event);
             }
         }
 
@@ -55,25 +94,37 @@ class Form_Venda {
     }
 
     limparFormulario(){
-        document.querySelector("#idsale").value="";
+        document.querySelector("#idvenda").value="";
+        document.querySelector("#venda_data").value="";
+        document.querySelector("#valor").value="";
         document.querySelector("#concessionaria").value="";
         document.querySelector("#vendedor").value="";
         document.querySelector("#chassi").value="";
-        document.querySelector("#data").value="";
-        document.querySelector("#valor").value="";
 
     }
 
     getDatavenda(){
         let venda = new Venda();
-        if(!document.querySelector("#idsale").value);
-            venda.idsale = document.querySelector("#idsale").value;
-            venda.concessionaria = document.querySelector("#concessionaria").value;
-            venda.vendedor = document.querySelector("#vendedor").value;
-            venda.chassi = document.querySelector("#chassi").value;
-            venda.data = document.querySelector("#data").value;
+        if(!document.querySelector("#idvenda").value);
+
+            venda.idvenda = document.querySelector("#idvenda").value;
+            venda.venda_data = document.querySelector("#venda_data").value;
             venda.valor = document.querySelector("#valor").value;
 
+            const sel1 = document.querySelector("#concessionaria");
+			const opt1 = sel1.options[sel1.selectedIndex];
+			venda.concessionaria = new Concessionaria(opt1.value);
+            venda.concessionaria.idconcessionaria = opt1.id;
+            
+            const sel2 = document.querySelector("#vendedor");
+			const opt2 = sel2.options[sel2.selectedIndex];
+			venda.vendedor = new Vendedor(opt2.value);
+            venda.vendedor.idvendedor = opt2.id;
+            
+            const sel3 = document.querySelector("#chassi");
+			const opt3 = sel3.options[sel3.selectedIndex];
+			venda.carro = new Carro(opt3.value);
+			venda.carro.chassi= opt3.id;
 
         return venda;        
     }

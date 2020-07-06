@@ -103,9 +103,9 @@ $app->group('/api/venda'
     
     $app->get('', 'VendaController:list');
     $app->post('', 'VendaController:insert');
-    $app->get('/{idsale}', 'VendaController:SearchByID');    
-    $app->put('/{idsale}', 'VendaController:update');
-    $app->delete('/{idsale}', 'VendaController:delete');
+    $app->get('/{idvenda}', 'VendaController:SearchByID');    
+    $app->put('/{idvenda}', 'VendaController:update');
+    $app->delete('/{idvenda}', 'VendaController:delete');
 
 });//->add('UsuarioController:validarToken');
 

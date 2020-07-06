@@ -8,7 +8,7 @@
         {
             $query = "
             select 
-                vendedor
+                idvendedor
                 ,ano
                 ,mes
                 ,totalvenda
@@ -39,7 +39,10 @@
 		    while($row = $comando->fetch(PDO::FETCH_OBJ)){
 
 			    $arrRN1[] = new RN1(
-                    $row->vendedor
+                    new Vendedor(
+                        $row->idvendedor
+                        
+                    )
                     ,$row->ano
                     ,$row->mes
                     ,$row->totalvenda

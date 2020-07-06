@@ -1,10 +1,10 @@
 class Venda {
-	constructor(idsale, concessionaria, vendedor, chassi,data,valor) {
-		this.idsale = idsale;
-		this.concessionaria = concessionaria;
-		this.vendedor = vendedor;
+	constructor(idvenda, idconcessionaria, idvendedor, chassi,venda_data,valor) {
+		this.idvenda = idvenda;
+		this.idconcessionaria = idconcessionaria;
+		this.idvendedor = idvendedor;
 		this.chassi    = chassi;
-		this.data    = data;
+		this.venda_data    = venda_data;
 		this.valor    = valor;
 
 	}
