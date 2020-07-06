@@ -22,9 +22,9 @@ class Table_Carro {
 		for(var i in carro){
 			str+=`  <tr id=${carro[i].chassi}>
 					<td>${carro[i].chassi}</td>
-					<td>${carro[i].modelo}</td>
-					<td>${carro[i].versao}</td>
-					<td>${carro[i].cor}</td>
+					<td>${carro[i].obj_versao.obj_modelo.descmodelo}</td>
+					<td>${carro[i].obj_versao.descversao}</td>
+					<td>${carro[i].obj_cor.desccor}</td>
 
 					<td><a class="edit" href="#">Editar</a></td>
 					<td><a class="delete" href="#">Deletar</a></td>    

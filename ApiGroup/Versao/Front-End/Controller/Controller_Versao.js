@@ -14,7 +14,7 @@ class Controller_Versao{
 		event.preventDefault();
 		const self = this;
 
-		this.service_modelo.read_item_all(
+		self.service_modelo.read_item_all(
 			function(modelo) 
 			{ 
 				self.form.montarForm(modelo); 

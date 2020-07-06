@@ -1,8 +1,8 @@
 class Carro {
-	constructor(chassi, modelo, versao, cor) {
+	constructor(chassi, idmodelo, idversao, idcor) {
 		this.chassi = chassi;
-		this.modelo = modelo;
-		this.versao = versao;
-		this.cor    = cor;
+		this.idmodelo = idmodelo;
+		this.idversao = idversao;
+		this.idcor    = idcor;
 	}
 }

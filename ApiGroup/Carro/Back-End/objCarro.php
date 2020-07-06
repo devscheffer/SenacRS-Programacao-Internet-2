@@ -1,17 +1,20 @@
 <?php
+include_once(__DIR__.'\..\..\Modelo\Back-End\objModelo.php');
+include_once(__DIR__.'\..\..\Versao\Back-End\objVersao.php');
+include_once(__DIR__.'\..\..\Cor\Back-End\objCor.php');
+
+
 class Carro 
 {
     public $chassi;
-    public $modelo;
-    public $versao;
-    public $cor;
+    public $obj_versao;
+    public $obj_cor;
 
-    function __construct($chassi, $modelo, $versao,$cor)
+    function __construct($chassi,Versao $obj_versao,Cor $obj_cor)
     {
         $this->chassi = $chassi;
-        $this->modelo = $modelo;
-        $this->versao = $versao;
-        $this->cor = $cor;
+        $this->obj_versao = $obj_versao;
+        $this->obj_cor = $obj_cor;
     }
 }
 ?>

@@ -1,6 +1,9 @@
 class Controller_Carro{  
 	constructor() {
 		this.service = new APIService_Carro(); 
+		this.service_modelo = new APIService_Modelo();
+		this.service_versao = new APIService_Versao();
+		this.service_cor = new APIService_Cor();
 		this.table = new Table_Carro(this,"main");
 		this.form = new Form_Carro(this,"main");
 	} 
@@ -11,7 +14,32 @@ class Controller_Carro{
 
 	load_form(){
 		event.preventDefault();
-		this.form.montarForm();
+		const self = this;
+
+		self.service_modelo.read_item_all(
+			function(modelo) 
+			{ 
+				self.service_versao.read_item_all(
+					function(versao) 
+					{ 
+						self.service_cor.read_item_all(
+							function(cor) 
+							{ 
+								self.form.montarForm(modelo,versao,cor); 
+							}
+						)
+					}
+				) 
+			},
+			function(statusCode) {
+				console.log("Erro - status:",statusCode);
+			}
+		)
+
+		
+
+		
+
 	}
 
 	load_table(){
@@ -77,11 +105,27 @@ class Controller_Carro{
 
 	read_item_id(id, event){
 		event.preventDefault();             
-		
 		const self = this;
+
+
 		const ok = function(carro){
-			self.form.montarForm(carro);
+			self.service_modelo.read_item_all(
+                function(modelo) { 
+                    self.service_versao.read_item_all(
+						function(versao) 
+						{ 
+							self.service_cor.read_item_all(
+								function(cor) 
+								{ 
+									self.form.montarForm(modelo,versao,cor,carro); 
+								}
+							)
+						}
+					) 
+                }
+            )
 		}
+
 		const erro = function(status){
 			console.log(status);
 		}
