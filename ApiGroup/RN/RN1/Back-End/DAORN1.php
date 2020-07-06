@@ -16,13 +16,13 @@
                 ,(totalvenda * bonus) as comissao_mensal
             from (
                 select 
-                    vendedor
-                    ,extract(year from data)::varchar(4) as year
-                    ,LPAD(extract(month from data)::varchar(2),2,'0') as month
+                    idvendedor
+                    ,extract(year from venda_data)::varchar(4) as year
+                    ,LPAD(extract(month from venda_data)::varchar(2),2,'0') as month
                     ,sum(valor) as totalvenda
                 from venda
                 group by 
-                    vendedor
+                    idvendedor
                     ,year
                     ,month
             ) as totalvenda
@@ -35,13 +35,20 @@
 	    	$comando = $pdo->prepare($query);
             $comando->execute();
             
-            $RN1=array();	
+            $arr_rn1=array();	
 		    while($row = $comando->fetch(PDO::FETCH_OBJ)){
 
-			    $arrRN1[] = new RN1(
+			    $arr_rn1[] = new RN1(
                     new Vendedor(
                         $row->idvendedor
-                        
+                        ,null
+                        ,null
+                        ,new Concessionaria(
+                            null
+                            ,null
+                            ,null
+                            ,null
+                        )
                     )
                     ,$row->ano
                     ,$row->mes
@@ -50,15 +57,15 @@
                     ,$row->comissao_mensal
                 );
             }
-            return $arrRN1;
+            return $arr_rn1;
         }
 
-        public function SearchByvendedor($vendedor)
+        public function SearchByvendedor($idvendedor)
         {
 
-             $query = "
-             select 
-                vendedor
+            $query = "
+            select 
+                idvendedor
                 ,ano
                 ,mes
                 ,totalvenda
@@ -66,26 +73,26 @@
                 ,(totalvenda * bonus) as comissao_mensal
             from (
                 select 
-                    vendedor
-                    ,extract(year from data)::varchar(4) as year
-                    ,LPAD(extract(month from data)::varchar(2),2,'0') as month
+                    idvendedor
+                    ,extract(year from venda_data)::varchar(4) as year
+                    ,LPAD(extract(month from venda_data)::varchar(2),2,'0') as month
                     ,sum(valor) as totalvenda
                 from venda
                 group by 
-                    vendedor
+                    idvendedor
                     ,year
                     ,month
             ) as totalvenda
             left join prmbonusmes
                 on totalvenda.year = prmbonusmes.ano
                 and totalvenda.month = prmbonusmes.mes
-            where vendedor =:vendedor
+            where idvendedor =:idvendedor
             ";
-             
+
             $pdo = PDOFactory::getConexao(); 
             $comando = $pdo->prepare($query);
             
-            $comando->bindParam (':vendedor', $vendedor);
+            $comando->bindParam (':idvendedor', $idvendedor);
             
             $comando->execute();
             
@@ -93,7 +100,17 @@
 		    while($row = $comando->fetch(PDO::FETCH_OBJ)){
 
 			    $arrRN1[] = new RN1(
-                    $row->vendedor
+                    new Vendedor(
+                        $row->idvendedor
+                        ,null
+                        ,null
+                        ,new Concessionaria(
+                            null
+                            ,null
+                            ,null
+                            ,null
+                        )
+                    )
                     ,$row->ano
                     ,$row->mes
                     ,$row->totalvenda
@@ -109,7 +126,7 @@
 
              $query = "
              select 
-                vendedor
+                idvendedor
                 ,ano
                 ,mes
                 ,totalvenda
@@ -117,13 +134,13 @@
                 ,(totalvenda * bonus) as comissao_mensal
             from (
                 select 
-                    vendedor
-                    ,extract(year from data)::varchar(4) as year
-                    ,LPAD(extract(month from data)::varchar(2),2,'0') as month
+                    idvendedor
+                    ,extract(year from venda_data)::varchar(4) as year
+                    ,LPAD(extract(month from venda_data)::varchar(2),2,'0') as month
                     ,sum(valor) as totalvenda
                 from venda
                 group by 
-                    vendedor
+                    idvendedor
                     ,year
                     ,month
             ) as totalvenda
@@ -144,7 +161,17 @@
 		    while($row = $comando->fetch(PDO::FETCH_OBJ)){
 
 			    $arrRN1[] = new RN1(
-                    $row->vendedor
+                    new Vendedor(
+                        $row->idvendedor
+                        ,null
+                        ,null
+                        ,new Concessionaria(
+                            null
+                            ,null
+                            ,null
+                            ,null
+                        )
+                    )
                     ,$row->ano
                     ,$row->mes
                     ,$row->totalvenda
@@ -160,7 +187,7 @@
 
              $query = "
              select 
-                vendedor
+                idvendedor
                 ,ano
                 ,mes
                 ,totalvenda
@@ -168,13 +195,13 @@
                 ,(totalvenda * bonus) as comissao_mensal
             from (
                 select 
-                    vendedor
-                    ,extract(year from data)::varchar(4) as year
-                    ,LPAD(extract(month from data)::varchar(2),2,'0') as month
+                    idvendedor
+                    ,extract(year from venda_data)::varchar(4) as year
+                    ,LPAD(extract(month from venda_data)::varchar(2),2,'0') as month
                     ,sum(valor) as totalvenda
                 from venda
                 group by 
-                    vendedor
+                    idvendedor
                     ,year
                     ,month
             ) as totalvenda
@@ -197,7 +224,17 @@
 		    while($row = $comando->fetch(PDO::FETCH_OBJ)){
 
 			    $arrRN1[] = new RN1(
-                    $row->vendedor
+                    new Vendedor(
+                        $row->idvendedor
+                        ,null
+                        ,null
+                        ,new Concessionaria(
+                            null
+                            ,null
+                            ,null
+                            ,null
+                        )
+                    )
                     ,$row->ano
                     ,$row->mes
                     ,$row->totalvenda
