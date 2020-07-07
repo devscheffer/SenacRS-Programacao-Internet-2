@@ -1,4 +1,11 @@
 form {
 	box-sizing: content-box;
 	display: grid;
+	max-width: 300px;
+	margin: auto;
+}
+
+h2 {
+	margin: auto;
+	text-align: center;
 }
