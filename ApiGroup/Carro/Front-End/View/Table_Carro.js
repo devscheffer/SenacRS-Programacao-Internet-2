@@ -8,19 +8,23 @@ class Table_Carro {
 	montarTabela(carro){
 		var str=`
 		<h2>Tabela de carro</h2>
-		<a id="novo" href="#">Novo</a>
+		<div class="toolbar">
+            <button id="alertBtn" class="btn btn-default"><a id="novo" href="#">Novo</a></button>
+		</div>
 		<div id="tabela">
-		<table>
-			<tr>
-				<th style='text-align: left;'>Chassi</th>
-				<th style='text-align: left;'>Modelo</th>
-				<th style='text-align: left;'>Versao</th>
-				<th style='text-align: left;'>Cor</th>
-				<th colspan="2">Ação</th>
-			</tr>`;
+		<table id="fresh-table" class="table">
+            <thead>
+                <th data-field="chassi">chassi</th>
+                <th data-field="Modelo">Modelo</th>
+                <th data-field="Versao">Versao</th>
+                <th data-field="Cor">Cor</th>
+                <th data-field="Acao" colspan="2">Acao</th>
+                <th data-field="actions" data-formatter="operateFormatter" data-events="operateEvents">Actions</th>
+            </thead>`;
 	
 		for(var i in carro){
-			str+=`  <tr id=${carro[i].chassi}>
+			str+=` 
+				<tr id=${carro[i].chassi}>
 					<td>${carro[i].chassi}</td>
 					<td>${carro[i].obj_versao.obj_modelo.descmodelo}</td>
 					<td>${carro[i].obj_versao.descversao}</td>
@@ -37,6 +41,8 @@ class Table_Carro {
 	
 		var tabela = document.querySelector(this.seletor);
 		tabela.innerHTML = str;
+		console.log(tabela.innerHTML);
+		
 
 		const self = this;
 		const linkNovo = document.querySelector("#novo");

@@ -136,7 +136,7 @@ $app->group('/api/rn1'
 , function($app){
     
     $app->get('', 'RN1Controller:list');
-    $app->get('/vendedor/{vendedor}', 'RN1Controller:searchbyid');    
+    $app->get('/vendedor/{vendedor}', 'RN1Controller:SearchByvendedor');    
     $app->get('/ano/{ano}', 'RN1Controller:SearchByano');
     $app->get('/anomes/{ano}/{mes}', 'RN1Controller:SearchByanomes');    
 

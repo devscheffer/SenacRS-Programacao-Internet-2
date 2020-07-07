@@ -96,10 +96,10 @@
             
             $comando->execute();
             
-            $RN1=array();	
+            $arr_RN1=array();	
 		    while($row = $comando->fetch(PDO::FETCH_OBJ)){
 
-			    $arrRN1[] = new RN1(
+			    $arr_RN1[] = new RN1(
                     new Vendedor(
                         $row->idvendedor
                         ,null
@@ -118,7 +118,7 @@
                     ,$row->comissao_mensal
                 );
             }
-            return $arrRN1;           
+            return $arr_RN1;           
         }
 
         public function SearchByano($ano)
@@ -157,10 +157,10 @@
             
             $comando->execute();
             
-            $RN1=array();	
+            $arr_RN1=array();	
 		    while($row = $comando->fetch(PDO::FETCH_OBJ)){
 
-			    $arrRN1[] = new RN1(
+			    $arr_RN1[] = new RN1(
                     new Vendedor(
                         $row->idvendedor
                         ,null
@@ -179,7 +179,7 @@
                     ,$row->comissao_mensal
                 );
             }
-            return $arrRN1;             
+            return $arr_RN1;             
         }
 
         public function SearchByanomes($ano,$mes)
@@ -220,10 +220,10 @@
             
 		    $comando->execute();
             
-            $RN1=array();	
+            $arr_RN1=array();	
 		    while($row = $comando->fetch(PDO::FETCH_OBJ)){
 
-			    $arrRN1[] = new RN1(
+			    $arr_RN1[] = new RN1(
                     new Vendedor(
                         $row->idvendedor
                         ,null
@@ -243,7 +243,7 @@
                 );
             }
 
-            return $arrRN1;           
+            return $arr_RN1;           
         }
     }
 ?>
