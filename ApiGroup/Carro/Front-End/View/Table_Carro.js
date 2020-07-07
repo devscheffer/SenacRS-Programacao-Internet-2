@@ -18,9 +18,8 @@ class Table_Carro {
                 <th data-field="Modelo">Modelo</th>
                 <th data-field="Versao">Versao</th>
                 <th data-field="Cor">Cor</th>
-                <th data-field="Acao" colspan="2">Acao</th>
-                <th data-field="actions" data-formatter="operateFormatter" data-events="operateEvents">Actions</th>
-            </thead>`;
+				<th data-field="Acao" colspan="2">Acao</th>
+			</thead>`;
 	
 		for(var i in carro){
 			str+=` 
