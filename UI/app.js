@@ -16,7 +16,15 @@ const ctrl_versao =  new Controller_Versao();
 
 var body = document.querySelector("body");
 body.onload = function () {
-    document.querySelector("main").innerHTML = "<h2>HOME</h2>";
+    document.querySelector("main").innerHTML = `
+    <div class="container">
+    <img src="../UI/IMG/Home.jpg">
+    <div class="top-left">Seja Bem-vindo</div>
+    <div class="top-right">2020-07-07</div>
+    <div class="bottom-right">Gerson Scheffer</div>
+    <div class="centered"><h1>API</h1></div>
+    </div>
+    `;
 }
 
 document.querySelector("#sobre").onclick = function() {
@@ -24,7 +32,15 @@ document.querySelector("#sobre").onclick = function() {
 }
 
 document.querySelector("#home").onclick = function() {
-    document.querySelector("main").innerHTML = "<h2>HOME</h2>";
+    document.querySelector("main").innerHTML = `
+    <div class="container">
+    <img src="../UI/IMG/Home.jpg">
+    <div class="top-left">Seja Bem-vindo</div>
+    <div class="top-right">2020-07</div>
+    <div class="bottom-right">Gerson Scheffer</div>
+    <div class="centered"><h1>API</h1></div>
+    </div>
+    `;
 }
 
 // Link de navegacao API

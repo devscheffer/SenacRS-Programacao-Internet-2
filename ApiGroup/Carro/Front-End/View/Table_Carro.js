@@ -7,13 +7,10 @@ class Table_Carro {
 
 	montarTabela(carro){
 		var str=`
-		<div class="fresh-table full-color-orange full-screen-table">
-		<h2>Tabela de carro</h2>
-		<div class="toolbar">
-            <button id="alertBtn" class="btn btn-default"><a id="novo" href="#">Novo</a></button>
-		</div>
+		<h2>Tabela de Carro</h2>
+		<a id="novo" href="#">Novo</a>
 		<div id="tabela">
-		<table id="fresh-table" class="table">
+		<table>
             <thead>
                 <th data-field="chassi">chassi</th>
                 <th data-field="Modelo">Modelo</th>
@@ -37,7 +34,6 @@ class Table_Carro {
 		} 
 		str+= `
 		</table>
-		</div>
 		</div>
 		`;
 	
