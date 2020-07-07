@@ -6,23 +6,35 @@ class Form_Concessionaria {
     }
 
     montarForm(concessionaria){
-        if(!concessionaria){
-            concessionaria = new Concessionaria();
-        }
         var str = `
         <h2>Formulario de Concessionaria</h2>
 		<form action="" method="post" id="formulario">
 			<label for="idconcessionaria">idconcessionaria</label>
-			<input type="text" name="idconcessionaria" value="${concessionaria.idconcessionaria}" id="idconcessionaria" />
+        `;
+
+        if(!concessionaria){
+            concessionaria = new Concessionaria();
+            str+=`
+			<input type="text" name="idconcessionaria" value="${concessionaria.idconcessionaria ?concessionaria.idconcessionaria:''}" id="idconcessionaria" />
+            `;
+        }
+        else{
+            str+=`
+			<input type="text" name="idconcessionaria" value="${concessionaria.idconcessionaria}" id="idconcessionaria" readonly/>
+            `;
+        }
+
+        
+        str += `
             <br />
 			<label for="nomefantasia">nomefantasia</label>
-			<input type="text" name="nomefantasia" value="${concessionaria.nomefantasia}" id="nomefantasia" />
+			<input type="text" name="nomefantasia" value="${concessionaria.nomefantasia ?concessionaria.nomefantasia:''}" id="nomefantasia" />
 			<br />
 			<label for="uf">uf</label>
-			<input type="text" name="uf" value="${concessionaria.uf}" id="uf" />
+			<input type="text" name="uf" value="${concessionaria.uf ?concessionaria.uf:''}" id="uf" />
 			<br />
 			<label for="municipio">municipio</label>
-			<input type="text" name="municipio" value="${concessionaria.municipio}" id="municipio" />
+			<input type="text" name="municipio" value="${concessionaria.municipio ?concessionaria.municipio:''}" id="municipio" />
 			<br />
 			<input type="submit" value="Salvar" />
 			<input type="reset" value="Cancelar" />
@@ -31,6 +43,7 @@ class Form_Concessionaria {
 
         let containerForm = document.querySelector(this.seletor);
         containerForm.innerHTML = str;
+        
 
         var form = document.querySelector("#formulario");
         const self = this;

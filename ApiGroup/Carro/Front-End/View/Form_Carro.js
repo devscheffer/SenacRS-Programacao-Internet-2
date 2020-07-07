@@ -6,14 +6,29 @@ class Form_Carro {
 	}
 
 	montarForm(modelo,versao,cor,carro){
-		if(!carro){
-			carro = new Carro();
-		}
 		var str = `
 		<h2>Formulario de Carro</h2>
 		<form action="" method="post" id="formulario">
 			<label for="chassi">chassi</label>
+		`;
+		
+		if(!carro){
+			carro = new Carro();
+		
+            str+=`
 			<input type="text" name="chassi" value="${carro.chassi ?carro.chassi :''}" id="chassi" />
+            `;
+
+        }
+        else{
+			str+=`
+			<input type="text" name="chassi" value="${carro.chassi ?carro.chassi :''}" id="chassi" readonly/>
+            `;
+        }
+
+		
+			str += `
+		
 			<br />
 			`;
 

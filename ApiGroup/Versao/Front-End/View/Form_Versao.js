@@ -6,15 +6,28 @@ class Form_Versao {
     }
 
     montarForm(modelo, versao){
-        if(!versao){
-            versao = new Versao();
-
-        }
         var str = `
+
         <h2>Formulario de Versao</h2>
 		<form action="" method="post" id="formulario">
 			<label for="idversao">idversao</label>
+        `;
+
+        if(!versao){
+            versao = new Versao();
+            str+=`
 			<input type="text" name="idversao" value="${versao.idversao ?versao.idversao :''}" id="idversao" />
+
+            `;
+
+        }
+        else{
+            str+=`
+			<input type="text" name="idversao" value="${versao.idversao ?versao.idversao :''}" id="idversao" readonly />
+            `;
+        }
+        
+        str += `
             <br />
             `
 

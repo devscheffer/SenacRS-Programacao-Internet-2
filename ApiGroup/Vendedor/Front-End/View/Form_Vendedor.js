@@ -6,14 +6,30 @@ class Form_Vendedor {
     }
 
     montarForm(concessionaria,vendedor){
-        if(!vendedor){
-            vendedor = new Vendedor();
-        }
         var str = `
+
         <h2>Formulario de Vendedor</h2>
 		<form action="" method="post" id="formulario">
 			<label for="idvendedor">idvendedor</label>
+        `;
+
+        if(!vendedor){
+            vendedor = new Vendedor();
+        
+            str+=`
 			<input type="text" name="idvendedor" value="${vendedor.idvendedor ?vendedor.idvendedor :''}" id="idvendedor" />
+
+            `;
+
+        }
+        else{
+            str+=`
+			<input type="text" name="idvendedor" value="${vendedor.idvendedor ?vendedor.idvendedor :''}" id="idvendedor" readonly/>
+            `;
+        }
+
+        
+        str += `
             <br />
 			<label for="nome">nome</label>
 			<input type="text" name="nome" value="${vendedor.nome ?vendedor.nome :''}" id="nome" />

@@ -6,17 +6,32 @@ class Form_Modelo {
     }
 
     montarForm(modelo){
-        if(!modelo){
-            modelo = new Modelo();
-        }
         var str = `
         <h2>Formulario de Modelo</h2>
 		<form action="" method="post" id="formulario">
 			<label for="idmodelo">idmodelo</label>
-			<input type="text" name="idmodelo" value="${modelo.idmodelo}" id="idmodelo" />
+        `;
+
+        if(!modelo){
+            modelo = new Modelo();
+        
+            str+=`
+			<input type="text" name="idmodelo" value="${modelo.idmodelo ?modelo.idmodelo:''}" id="idmodelo" />
+
+            `;
+
+        }
+        else{
+            str+=`
+			<input type="text" name="idmodelo" value="${modelo.idmodelo}" id="idmodelo" readonly/>
+            `;
+        }
+
+        str += `
+        
             <br />
 			<label for="descmodelo">descmodelo</label>
-			<input type="text" name="descmodelo" value="${modelo.descmodelo}" id="descmodelo" />
+			<input type="text" name="descmodelo" value="${modelo.descmodelo ?modelo.descmodelo:''}" id="descmodelo" />
             <br />
 			<input type="submit" value="Salvar" />
 			<input type="reset" value="Cancelar" />

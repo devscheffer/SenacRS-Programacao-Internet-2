@@ -6,14 +6,29 @@ class Form_Venda {
     }
 
     montarForm(concessionaria,vendedor,carro,venda){
-        if(!venda){
-            venda = new Venda();
-        }
         var str = `
         <h2>Formulario de Venda</h2>
-		<form action="" method="post" id="formulario">
-			<label for="idvenda">idvenda</label>
+        <form action="" method="post" id="formulario">
+            <label for="idvenda">idvenda</label>
+        `;
+
+        if(!venda){
+            venda = new Venda();
+        
+            str+=`
 			<input type="text" name="idvenda" value="${venda.idvenda ?venda.idvenda :''}" id="idvenda" />
+
+            `;
+
+        }
+        else{
+            str+=`
+			<input type="text" name="idvenda" value="${venda.idvenda ?venda.idvenda :''}" id="idvenda" readonly/>
+            `;
+        }
+
+            
+         str += `
             <br />
             `;
 

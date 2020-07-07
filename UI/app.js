@@ -1,8 +1,18 @@
-// const produtoController =  new ProdutoController();
-// const marcaController =  new MarcaController();
 // Controller
-const ctrl_cor =  new Controller_Cor();
 
+const ctrl_carro =  new Controller_Carro();
+const ctrl_concessionaria =  new Controller_Concessionaria();
+const ctrl_cor =  new Controller_Cor();
+const ctrl_modelo =  new Controller_Modelo();
+const ctrl_venda =  new Controller_Venda();
+const ctrl_vendedor =  new Controller_Vendedor();
+const ctrl_versao =  new Controller_Versao();
+// const ctrl_rn1 =  new Controller_Rn1();
+// const ctrl_rn2 =  new Controller_Rn2();
+// const ctrl_rn3 =  new Controller_Rn3();
+// const ctrl_rn4 =  new Controller_Rn4();
+
+// Link Navegacao basico
 
 var body = document.querySelector("body");
 body.onload = function () {
@@ -17,15 +27,41 @@ document.querySelector("#home").onclick = function() {
     document.querySelector("main").innerHTML = "<h2>HOME</h2>";
 }
 
-// Link de navegacao
+// Link de navegacao API
+
+document.querySelector("#carro").onclick = function() {
+    ctrl_carro.init();
+}
+document.querySelector("#concessionaria").onclick = function() {
+    ctrl_concessionaria.init();
+}
 document.querySelector("#cor").onclick = function() {
     ctrl_cor.init();
 }
+document.querySelector("#modelo").onclick = function() {
+    ctrl_modelo.init();
+}
+document.querySelector("#venda").onclick = function() {
+    ctrl_venda.init();
+}
+document.querySelector("#vendedor").onclick = function() {
+    ctrl_vendedor.init();
+}
+document.querySelector("#versao").onclick = function() {
+    ctrl_versao.init();
+}
 
-
-// document.querySelector("#produtos").onclick = function() {
-//     produtoController.inicializa();
+// document.querySelector("#rn1").onclick = function() {
+//     ctrl_rn1.init();
 // }
-
+// document.querySelector("#rn2").onclick = function() {
+//     ctrl_rn2.init();
+// }
+// document.querySelector("#rn3").onclick = function() {
+//     ctrl_rn3.init();
+// }
+// document.querySelector("#rn4").onclick = function() {
+//     ctrl_rn4.init();
+// }
 
 
