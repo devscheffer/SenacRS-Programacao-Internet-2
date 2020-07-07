@@ -6,17 +6,31 @@ class Form_Cor {
     }
 
     montarForm(cor){
-        if(!cor){
-            cor = new Cor();
-        }
+        console.log(cor);
         var str = `
         <h2>Formulario de Cor</h2>
 		<form action="" method="post" id="formulario">
-			<label for="idcor">idcor</label>
-			<input type="text" name="idcor" value="${cor.idcor}" id="idcor" />
+            <label for="idcor">idcor</label>
+        `;
+
+        if(!cor){
+            cor = new Cor();
+            str+=`
+            <input type="text" name="idcor" value="${cor.idcor ?cor.idcor :''}" id="idcor" />
+            `;
+            
+        }
+        else{
+            str+=`
+            <input type="text" name="idcor" value="${cor.idcor}" id="idcor" readonly/>
+            `;
+        }
+        
+        
+        str+=`
             <br />
 			<label for="desccor">desccor</label>
-			<input type="text" name="desccor" value="${cor.desccor}" id="desccor" />
+			<input type="text" name="desccor" value="${cor.desccor ?cor.desccor :''}" id="desccor" />
 			<br />
 			<input type="submit" value="Salvar" />
 			<input type="reset" value="Cancelar" />

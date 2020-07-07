@@ -7,6 +7,7 @@ class Table_Carro {
 
 	montarTabela(carro){
 		var str=`
+		<div class="fresh-table full-color-orange full-screen-table">
 		<h2>Tabela de carro</h2>
 		<div class="toolbar">
             <button id="alertBtn" class="btn btn-default"><a id="novo" href="#">Novo</a></button>
@@ -36,7 +37,9 @@ class Table_Carro {
 		} 
 		str+= `
 		</table>
-		</div>`;
+		</div>
+		</div>
+		`;
 	
 		var tabela = document.querySelector(this.seletor);
 		tabela.innerHTML = str;
