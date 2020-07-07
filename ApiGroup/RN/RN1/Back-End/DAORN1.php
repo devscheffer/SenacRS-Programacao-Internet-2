@@ -12,8 +12,8 @@
                 ,ano
                 ,mes
                 ,totalvenda
-                ,bonus
-                ,(totalvenda * bonus) as comissao_mensal
+                ,cast(bonus as numeric(10,2))
+                ,cast((totalvenda * bonus) as numeric(10,2)) as comissao_mensal
             from (
                 select 
                     idvendedor

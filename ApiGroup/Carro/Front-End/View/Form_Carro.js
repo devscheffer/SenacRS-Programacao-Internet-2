@@ -36,10 +36,13 @@ class Form_Carro {
 			str+=`
 			<label for="descmodelo">descmodelo</label>
 			<select id="descmodelo">
+			<option value="Select">Select City</option>
 			`;
 
 			for(const item of modelo){
-				str+=`<option id="${item.idmodelo}">${item.descmodelo}</option>`;
+				str+=`<option id="${item.idmodelo}" value="${item.idmodelo}">${item.descmodelo}</option>`;
+				console.log(item.idmodelo);
+				
 			}
 
 			str+=`
@@ -50,10 +53,13 @@ class Form_Carro {
 			str+=`
 			<label for="descversao">descversao</label>
 			<select id="descversao">
+			<option value="Select">Select Street</option>
 			`;
 
 			for(const item of versao){
-				str+=`<option id="${item.idversao}">${item.descversao}</option>`;
+				str+=`<option id="${item.idversao}" value="${item.obj_modelo.idmodelo}">${item.descversao}</option>`;
+				console.log(item.obj_modelo.idmodelo);
+			
 			}
 
 			str+=`
@@ -79,6 +85,7 @@ class Form_Carro {
 			<input type="submit" value="Salvar" />
 			<input type="reset" value="Cancelar" />
 		</form>
+
 		`;
 
 		let containerForm = document.querySelector(this.seletor);
@@ -98,6 +105,8 @@ class Form_Carro {
 		form.onreset = function(event){
 			self.controller.limpar(event);
 		}
+
+		
 	}
 
 	limparFormulario(){

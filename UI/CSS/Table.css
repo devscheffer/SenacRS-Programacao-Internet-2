@@ -1,5 +1,7 @@
 table, td, th {
   border: 1px solid black;
+  text-align: center;
+  padding: 8px;
 }
 
 table {
@@ -9,4 +11,12 @@ table {
 
 th {
   height: 50px;
+}
+
+tr:nth-child(even) {
+  background-color: #666666;
+}
+
+tr:hover{
+  background-color: #201ea7ab;
 }

@@ -7,7 +7,7 @@ const ctrl_modelo =  new Controller_Modelo();
 const ctrl_venda =  new Controller_Venda();
 const ctrl_vendedor =  new Controller_Vendedor();
 const ctrl_versao =  new Controller_Versao();
-// const ctrl_rn1 =  new Controller_Rn1();
+const ctrl_rn1 =  new Controller_RN1();
 // const ctrl_rn2 =  new Controller_Rn2();
 // const ctrl_rn3 =  new Controller_Rn3();
 // const ctrl_rn4 =  new Controller_Rn4();
@@ -67,9 +67,10 @@ document.querySelector("#versao").onclick = function() {
     ctrl_versao.init();
 }
 
-// document.querySelector("#rn1").onclick = function() {
-//     ctrl_rn1.init();
-// }
+document.querySelector("#RN1").onclick = function() {
+    ctrl_rn1.init();
+}
+
 // document.querySelector("#rn2").onclick = function() {
 //     ctrl_rn2.init();
 // }

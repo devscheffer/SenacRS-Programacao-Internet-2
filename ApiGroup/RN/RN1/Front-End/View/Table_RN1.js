@@ -17,7 +17,6 @@ class Table_RN1 {
 				<th style='text-align: left;'>totalvenda</th>
 				<th style='text-align: left;'>bonus</th>
 				<th style='text-align: left;'>comissao_mensal</th>
-				<th colspan="2">Ação</th>
 			</tr>`;
 	
 		for(var i in rn1){
