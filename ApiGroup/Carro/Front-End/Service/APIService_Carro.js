@@ -49,6 +49,8 @@ class APIService_Carro {
 		};
 		xhttp.open("GET", this.uri+'/'+id, true);
 		xhttp.send();
+		
+		
 	}
 
 	update_item_id(id,carro,ok,error) {

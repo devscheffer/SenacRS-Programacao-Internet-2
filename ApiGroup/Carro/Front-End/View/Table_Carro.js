@@ -39,7 +39,6 @@ class Table_Carro {
 	
 		var tabela = document.querySelector(this.seletor);
 		tabela.innerHTML = str;
-		console.log(tabela.innerHTML);
 		
 
 		const self = this;

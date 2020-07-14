@@ -125,6 +125,8 @@ class Controller_Carro{
                 }
             )
 		}
+		console.log('OK',ok);
+		
 
 		const erro = function(status){
 			console.log(status);
