@@ -32,16 +32,7 @@ $customErrorHandler = function (
     bool $logErrorDetails
 ) use ($app) {
     $response = $app->getResponseFactory()->createResponse();
-// a partir do slim com a variavel, usar funcao use
-        if ($exception instanceof HttpNotFoundException) {
-            $message = 'not found';
-            $code = 404;
-        } elseif ($exception instanceof HttpMethodNotAllowedException) {
-            $message = 'not allowed';
-            $code = 403;
-        }
-
-    $response->getBody()->write($message);
+    $response->getBody()->write('not found');
     return $response->withStatus(404);
 };
 
